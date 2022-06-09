@@ -4,15 +4,16 @@ import "./App.css";
 import Sidebar from "./Components/Sidebar";
 import RightSidebar from "./Components/RightSidebar";
 import Home from "./Pages/Home/Home";
+import Projects from "./Pages/Projects/Projects";
 
 function App() {
-   return (
-      <>
-         <Sidebar></Sidebar>
-         <Home></Home>
-         <RightSidebar></RightSidebar>
-      </>
-   );
+  return (
+    <>
+      <Sidebar></Sidebar>
+      {/* <Home></Home> */}
+      <Projects></Projects>
+    </>
+  );
 }
 
 export default App;
