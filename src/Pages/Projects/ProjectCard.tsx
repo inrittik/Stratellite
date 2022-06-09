@@ -3,12 +3,13 @@ import { icons } from "../../utils/icons";
 
 const ProjectCard = () => {
   return (
-    <div className="w-11/12 p-5 my-2 flex flex-col rounded-lg border border-gray-60 md:flex-row">
+    <div className="md:w-full py-5 px-0 md:px-5 my-2 flex flex-col rounded-lg border border-gray-60 md:flex-row mx-auto md:mx-0">
       {/* project details */}
       <div className="w-4/5 flex flex-col mx-auto">
         {/* project name */}
-        <div className="text-1.5xl text-gray-900 font-semibold mb-2">
+        <div className="flex justify-between md:block text-1.5xl text-gray-900 font-semibold mb-2">
           Construction work in Delhi
+          <div className="md:hidden text-gray-100 text-xssm">6 Jan, 2020</div>
         </div>
         {/* project subtitle */}
         <div className="text-sm text-gray-800 mb-4">Property Name</div>
@@ -29,7 +30,7 @@ const ProjectCard = () => {
           </div>
         </div>
         {/* date */}
-        <div className="text-gray-100 text-sm">6 Jan, 2020</div>
+        <div className="hidden md:block text-gray-100 text-sm">6 Jan, 2020</div>
       </div>
 
       {/* button section */}

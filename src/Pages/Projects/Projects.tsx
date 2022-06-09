@@ -1,14 +1,15 @@
 import { icons } from "../../utils/icons";
 import { useGlobalContext } from "../../Contexts/GlobalContext";
 import ProjectCard from "./ProjectCard";
+import MainSection from "./MainSection";
 
 const Projects = () => {
   const [state, dispatch] = useGlobalContext();
 
   return (
-    <div className="project overflow-y-auto overflow-x-hidden mx-auto">
-      <div className="flex flex-col overflow-auto w-full mx-12">
-        <div className="flex gap-4 mt-6 md:mt-0 md:min-h-[8.5rem] items-center md:mx-0">
+    <div className="project overflow-y-auto overflow-x-auto mx-auto">
+      <div className="flex flex-col overflow-auto w-full">
+        <div className="flex gap-4 mt-6 md:mt-0 md:min-h-[8.5rem] items-center mx-6 md:mx-12">
           <div className=" md:h-18 h-14 rounded-md flex pl-8 items-center py-6 gap-7 bg-gray-400 w-3/4">
             {icons.search}
             <input
@@ -24,7 +25,7 @@ const Projects = () => {
           >
             {icons.threeBars}
           </div>
-          <div className="hidden md:flex w-1/3 h-32.5 items-center p-9 ml-5">
+          <div className="hidden md:flex w-1/3 h-32.5 items-center p-9 ml-5 ">
             <img
               className="h-16 w-16 rounded-full object-cover mr-5"
               src="https://i.pinimg.com/564x/f7/6b/91/f76b91f22019b550e0848519719a03f1.jpg"
@@ -36,37 +37,34 @@ const Projects = () => {
             <div className="ml-12">{icons.arrowRight}</div>
           </div>
         </div>
-        <div className="text-2xl md:text-28 font-medium mb-4 my-6">
+        <div className="text-2xl md:text-28 font-medium mb-4 my-6 mx-6 md:mx-12">
           Your Projects
         </div>
-        <div className="text-base md:text-lg text-gray-600 mb-6">
+        <div className="text-base md:text-lg text-gray-600 mb-6 mx-6 md:mx-12">
           Here is a list of all the projects you have been working on.
         </div>
-        <div className="flex items-center justify-between overflow-auto md:overflow-visible px-3 my-3">
-          <a href="#" className="w-1/3 mx-3">
+        <div className="flex w-11/12 items-center justify-between overflow-auto md:overflow-visible px-3 my-3 ml-6 md:ml-7 border-b-3 border-gray-400">
+          <a href="#" className="w-1/2 md:w-1/3 mx-3 text-gray-800 border-b-4 border-sky-400 text-center">
             New Project
           </a>
-          <a href="#" className="w-1/3 mx-3">
+          <a href="#" className="w-1/2 md:w-1/3 mx-3 text-gray-800 text-center">
             Active
           </a>
-          <a href="#" className="w-1/3 mx-3">
+          <a href="#" className="w-1/2 md:w-1/3 mx-3 text-gray-800 text-center">
             In Progress
           </a>
-          <a href="#" className="w-1/3 mx-3">
+          <a href="#" className="w-1/2 md:w-1/3 mx-3 text-gray-800 text-center">
             Completed
           </a>
-          <a href="#" className="w-1/3 mx-3">
+          <a href="#" className="w-1/2 md:w-1/3 mx-3 text-gray-800 text-center">
             Rejected
           </a>
-          <a href="#" className="w-1/3 mx-3">
+          <a href="#" className="w-1/2 md:w-1/3 mx-3 text-gray-800 text-center">
             Disputed
           </a>
         </div>
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
+        <MainSection />
+
       </div>
     </div>
   );
