@@ -1,17 +1,7 @@
-import ProjectCard from "./ProjectCard";
+import React from "react";
 
-const Projects = () => {
-
-    return (
-        <div className="mx-6 md:mx-12 w-100">
-            <ProjectCard />
-            <ProjectCard />
-            <ProjectCard />
-            <ProjectCard />
-            <ProjectCard />
-        </div>
-
-    );
+const MainSection = () => {
+  return <div>MainSection</div>;
 };
 
-export default Projects;
+export default MainSection;

@@ -5,6 +5,8 @@ module.exports = {
       gridAutoColumns: {
         "40%": "40%",
         "80%": "80%",
+        "35%": "35%",
+        "15%": "15%",
       },
       colors: {
         graymain: "rgba(28, 48, 74, 0.5)",
@@ -49,5 +51,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar-hide")],
 };

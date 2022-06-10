@@ -13,7 +13,6 @@ body,
   display: grid;
   grid-template-columns: auto 28.125%;
 }
-
 .project-card {
   width: 100%;
 }
@@ -123,6 +122,9 @@ body,
 
   #root {
     display: grid;
+    grid-template-columns: auto;
+  }
+  .home {
     grid-template-columns: auto;
   }
 }
