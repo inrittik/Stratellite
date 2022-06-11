@@ -1,60 +1,50 @@
 import React from "react";
-import { icons } from "../../utils/icons";
 
-const ProjectCard = () => {
+const ActiveProjectCard = () => {
   return (
-    <div className="md:w-full py-5 px-3 md:px-5 my-2 flex flex-col rounded-lg border border-gray-60 md:flex-row mx-auto md:mx-0">
-      {/* project details */}
-      <div className="w-full flex flex-col md:mx-auto">
-        {/* project name */}
-        <div className="flex items-center justify-between md:block text-1.5xl text-gray-900 font-semibold mb-2">
-          Construction work in Delhi
-          <div className="md:hidden text-gray-100 text-xxs w-1/3 mb-6 text-right">
-            6 Jan, 2020
+    <div className="md:w-full py-5 px-0 md:px-5 my-2 flex flex-col rounded-lg border border-gray-60 md:flex-row mx-auto md:mx-0">
+      <div className="w-full flex flex-col justify-between items-center md:flex-row md:mx-auto">
+        {/* section 1 */}
+        <div className="flex flex-col">
+          <div className="text-1.5xl text-gray-900 font-semibold mb-2">
+            Construction work in Delhi
+          </div>
+          <div className="text-gray-900">
+            Adarsh Group is venturing in homes inspired by millenial generation.
           </div>
         </div>
-        {/* project subtitle */}
-        <div className="text-sm text-gray-800 mb-4">Property Name</div>
-        {/* project description */}
-        <div className="text-gray-900 md:w-4/5">
-          Adarsh Group is venturing in homes inspired by millenial generation.
-          Adarsh Greens, offering new Lifestyle, with the same Trust, Quality &
-          Consistency...
-        </div>
-        <div className="flex items-center my-4">
-          <div className="mr-2">{icons.ProjectCard.area}</div>
-          <div className="text-gray-900 ml-1 mr-6 font-medium">1300 sq.ft</div>
-          <div className="mr-2 ">{icons.dollar}</div>
-          <div className="text-gray-900 ml-1 mr-6 font-medium">4500</div>
-          <div className="mr-2 ">{icons.ProjectCard.calender}</div>
-          <div className="text-gray-900 ml-1 mr-6 font-medium">
-            22-01-22 to 22-01-22
+        {/* section 2 */}
+        <div className="flex justify-between border-y border-y-gray-60 md:border-y-0 my-5 md:my-0 py-4">
+          <div className="flex flex-col mx-3 md:mx-6">
+            <div className="text-gray-900 font-semibold mb-2 text-sm md:text-base">
+              Tier 1
+            </div>
+            <div className="text-gray-900 md:w-4/5">Tier</div>
+          </div>
+          <div className="flex flex-col mx-3 md:mx-6">
+            <div className="text-gray-900 font-semibold mb-2 text-sm md:text-base">
+              22nd Dec, 2021
+            </div>
+            <div className="text-gray-900 md:w-4/5">Start Date</div>
+          </div>
+          <div className="flex flex-col mx-3 md:mx-6">
+            <div className="text-gray-900 font-semibold mb-2 text-sm md:text-base">
+              22nd Dec, 2022
+            </div>
+            <div className="text-gray-900 md:w-4/5">End Date</div>
           </div>
         </div>
-        {/* date */}
-        <div className="hidden md:block text-gray-100 text-sm">6 Jan, 2020</div>
-      </div>
 
-      {/* button section */}
-      <div className="flex flex-col mx-auto">
+        {/* section 3 */}
         <a
           href="#"
-          className="hidden md:block py-4 bg-sky-400 rounded-md text-white cursor-pointer px-5.5 text-sm w-60 text-center my-3"
+          className="py-4 bg-sky-400 rounded-md text-white cursor-pointer px-5.5 text-sm w-60 text-center my-3"
         >
-          View Project Details
-        </a>
-        <a
-          href="#"
-          className="py-4 text-sky-400 border-sky-400 border rounded-md text-white cursor-pointer px-7 text-sm w-80 md:w-60 text-center my-3"
-        >
-          Submit Interest
-        </a>
-        <a href="#" className="text-gray-100 text-xs text-center my-4">
-          View Manager Profile
+          Under Review
         </a>
       </div>
     </div>
   );
 };
 
-export default ProjectCard;
+export default ActiveProjectCard;

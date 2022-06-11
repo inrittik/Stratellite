@@ -1,6 +1,7 @@
 import { icons } from "../../utils/icons";
 import { useState } from "react";
 import { useGlobalContext } from "../../Contexts/GlobalContext";
+import NewProjectCard from "./NewProjectCard";
 import ActiveProjectCard from "./ActiveProjectCard";
 
 const Projects = () => {
@@ -46,9 +47,9 @@ const Projects = () => {
         <div className="auto-cols-35% md:auto-cols-15% grid grid-flow-col grid-cols overflow-auto scrollbar-hide mb-5 ml-5 md:ml-10">
           <a
             href="#"
-            className={`ml-3 text-gray-800 text-center py-3 text-base md:text-sm ${
+            className={`ml-3 text-gray-800 text-center py-3 text-base md:text-sm rounded-t-lg ${
               section === 1
-                ? "border-b-4 border-sky-400 text-black font-semibold"
+                ? "border-b-4 border-sky-400 text-black font-semibold bg-neutral-50"
                 : "border-b border-gray-500"
             }`}
             onClick={() => setSection(1)}
@@ -113,10 +114,11 @@ const Projects = () => {
         </div>
         <div className="mx-6 md:mx-12 w-100">
           <ActiveProjectCard />
-          <ActiveProjectCard />
-          <ActiveProjectCard />
-          <ActiveProjectCard />
-          <ActiveProjectCard />
+          <NewProjectCard />
+          <NewProjectCard />
+          <NewProjectCard />
+          <NewProjectCard />
+          <NewProjectCard />
         </div>
       </div>
     </div>
