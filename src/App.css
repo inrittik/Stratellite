@@ -6,12 +6,15 @@ body,
 }
 #root {
   display: grid;
-  grid-template-columns: 20% auto;
+  grid-template-columns: 20% 80%;
   overflow: hidden;
 }
 .home {
   display: grid;
   grid-template-columns: auto 28.125%;
+}
+.project {
+  width: 80vw !important;
 }
 .project-card {
   width: 100%;
@@ -126,6 +129,9 @@ body,
   }
   .home {
     grid-template-columns: auto;
+  }
+  .project {
+    width: 100vw !important;
   }
 }
 

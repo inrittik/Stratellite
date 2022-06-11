@@ -45,7 +45,7 @@ const ProjectCard = () => {
         </a>
         <a
           href="#"
-          className="py-4 text-sky-400 border-sky-400 border rounded-md text-white cursor-pointer px-7 text-sm w-80 md:w-60 text-center my-3"
+          className="py-4 text-sky-400 border-sky-400 border rounded-md text-white cursor-pointer px-7 text-sm w-100 md:w-60 text-center my-3"
         >
           Submit Interest
         </a>

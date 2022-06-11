@@ -1,8 +1,8 @@
 import { icons } from "../../utils/icons";
 import { useState } from "react";
 import { useGlobalContext } from "../../Contexts/GlobalContext";
-import NewProjectCard from "./NewProjectCard";
-import ActiveProjectCard from "./ActiveProjectCard";
+import NewProjects from "./Sections/NewProjects";
+import ActiveProjects from "./Sections/ActiveProjects";
 
 const Projects = () => {
   const [state, dispatch] = useGlobalContext();
@@ -112,14 +112,8 @@ const Projects = () => {
             Disputed
           </a>
         </div>
-        <div className="mx-6 md:mx-12 w-100">
-          <ActiveProjectCard />
-          <NewProjectCard />
-          <NewProjectCard />
-          <NewProjectCard />
-          <NewProjectCard />
-          <NewProjectCard />
-        </div>
+        {section === 1 && <NewProjects />}
+        {section === 2 && <ActiveProjects />}
       </div>
     </div>
   );
