@@ -7,16 +7,18 @@ const ProjectCard = () => {
       {/* project details */}
       <div className="w-full flex flex-col md:mx-auto">
         {/* project name */}
-        <div className="flex items-center justify-between md:block text-1.5xl text-gray-900 font-semibold mb-2">
+        <div className="flex items-center justify-between md:block text-base md:text-1.5xl text-gray-900 font-semibold mb-2">
           Construction work in Delhi
-          <div className="md:hidden text-gray-100 text-xxs w-1/3 mb-6 text-right">
+          <div className="md:hidden text-gray-100 text-xxs w-1/3 text-right">
             6 Jan, 2020
           </div>
         </div>
         {/* project subtitle */}
-        <div className="text-sm text-gray-800 mb-4">Property Name</div>
+        <div className="text-xs md:text-sm text-gray-800 mb-4">
+          Property Name
+        </div>
         {/* project description */}
-        <div className="text-gray-900 md:w-4/5">
+        <div className="text-xs md:text-sm text-gray-900 md:w-4/5">
           Adarsh Group is venturing in homes inspired by millenial generation.
           Adarsh Greens, offering new Lifestyle, with the same Trust, Quality &
           Consistency...
@@ -36,7 +38,7 @@ const ProjectCard = () => {
       </div>
 
       {/* button section */}
-      <div className="flex flex-col mx-auto">
+      <div className="flex flex-col">
         <a
           href="#"
           className="hidden md:block py-4 bg-sky-400 rounded-md text-white cursor-pointer px-5.5 text-sm w-80 md:w-60 text-center my-3"

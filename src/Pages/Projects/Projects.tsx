@@ -15,6 +15,9 @@ const Projects = () => {
     <div className="project overflow-y-auto overflow-x-hidden mx-auto">
       <div className="flex flex-col overflow-y-auto overflow-x-hidden w-full">
         <div className="flex gap-4 mt-6 md:mt-0 md:min-h-[8.5rem] items-center mx-6 md:mx-12">
+          <div className="p-4 px-5 border border-gray-300 rounded-lg md:hidden">
+            {icons.Projects.back}
+          </div>
           <div className=" md:h-18 h-14 rounded-md flex pl-8 items-center py-6 gap-7 bg-gray-400 w-3/4">
             {icons.search}
             <input
@@ -42,16 +45,30 @@ const Projects = () => {
             <div className="ml-12">{icons.arrowRight}</div>
           </div>
         </div>
-        <div className="text-2xl md:text-28 font-medium mb-4 my-6 mx-6 md:mx-12">
-          Your Projects
+        <div className="flex items-center justify-between mx-6 md:mx-12">
+          <div>
+            <div className="text-2xl md:text-28 font-medium mb-4 my-6">
+              Your Projects
+            </div>
+            <div className="hidden md:block text-base md:text-lg text-gray-600 mb-6">
+              Here is a list of all the projects you have been working on.
+            </div>
+          </div>
+          <div className={`hidden gap-4 ${section === 1 ? "" : "md:flex"}`}>
+            <div className="h-10 items-center gap-3 px-6 flex border border-gray-300 rounded-md cursor-pointer">
+              <div className="text-black text-sm">Filter</div>
+              {icons.filter}
+            </div>
+            <div className="h-10 w-10 justify-center items-center flex border border-gray-300 rounded-md cursor-pointer">
+              {icons.threeDots}
+            </div>
+          </div>
         </div>
-        <div className="hidden md:block text-base md:text-lg text-gray-600 mb-6 mx-6 md:mx-12">
-          Here is a list of all the projects you have been working on.
-        </div>
-        <div className="auto-cols-35% md:auto-cols-15% grid grid-flow-col grid-cols overflow-auto scrollbar-hide mb-5 ml-5 md:ml-10">
+
+        <div className="auto-cols-35% md:auto-cols-15% grid grid-flow-col grid-cols overflow-y-hidden overflow-x-auto scrollbar-hide mb-5 ml-5 md:ml-10 h-fit">
           <a
             href="#"
-            className={`ml-3 text-gray-800 text-center py-3 text-base md:text-sm rounded-t-lg ${
+            className={`ml-3 text-gray-800 text-center py-5 text-base md:text-sm rounded-t-lg ${
               section === 1
                 ? "border-b-4 border-sky-400 text-black font-semibold bg-neutral-50"
                 : "border-b border-gray-500"
@@ -62,7 +79,7 @@ const Projects = () => {
           </a>
           <a
             href="#"
-            className={`text-gray-800 text-center py-3 text-base md:text-sm  ${
+            className={`text-gray-800 text-center py-5 text-base md:text-sm  ${
               section === 2
                 ? "border-b-4 border-sky-400 text-black font-semibold bg-neutral-50"
                 : "border-b border-gray-500"
@@ -73,7 +90,7 @@ const Projects = () => {
           </a>
           <a
             href="#"
-            className={`text-gray-800 text-center py-3 text-base md:text-sm  ${
+            className={`text-gray-800 text-center py-5 text-base md:text-sm  ${
               section === 3
                 ? "border-b-4 border-sky-400 text-black font-semibold bg-neutral-50"
                 : "border-b border-gray-500"
@@ -84,7 +101,7 @@ const Projects = () => {
           </a>
           <a
             href="#"
-            className={`text-gray-800 text-center py-3 text-base md:text-sm  ${
+            className={`text-gray-800 text-center py-5 text-base md:text-sm  ${
               section === 4
                 ? "border-b-4 border-sky-400 text-black font-semibold bg-neutral-50"
                 : "border-b border-gray-500"
@@ -95,7 +112,7 @@ const Projects = () => {
           </a>
           <a
             href="#"
-            className={`text-gray-800 text-center py-3 text-base md:text-sm  ${
+            className={`text-gray-800 text-center py-5 text-base md:text-sm  ${
               section === 5
                 ? "border-b-4 border-sky-400 text-black font-semibold bg-neutral-50"
                 : "border-b border-gray-500"
@@ -106,7 +123,7 @@ const Projects = () => {
           </a>
           <a
             href="#"
-            className={`text-gray-800 text-center py-3 text-base md:text-sm ${
+            className={`text-gray-800 text-center py-5 text-base md:text-sm ${
               section === 6
                 ? "border-b-4 border-sky-400 text-black font-semibold bg-neutral-50"
                 : "border-b border-gray-500"
