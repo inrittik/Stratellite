@@ -41,19 +41,19 @@ const ProjectCard = () => {
       <div className="flex flex-col">
         <a
           href="#"
-          className="hidden md:block py-4 bg-sky-400 rounded-md text-white cursor-pointer px-5.5 text-sm w-80 md:w-60 text-center my-3"
+          className="hidden md:block py-4 bg-sky-400 rounded-md text-white cursor-pointer px-5.5 text-sm w-80 md:w-72 text-center my-3"
         >
           View Project Details
         </a>
         <a
           href="#"
-          className="py-4 text-sky-400 border-sky-400 border rounded-md text-white cursor-pointer px-7 text-sm w-100 md:w-60 text-center my-3"
+          className="py-4 text-sky-400 border-sky-400 border rounded-md text-white cursor-pointer px-7 text-sm w-100 md:w-72 text-center my-3"
         >
           Submit Interest
         </a>
         <a
           href="#"
-          className="text-gray-100 text-xs text-center my-4 w-80 md:w-60 text-center"
+          className="text-gray-100 text-xs text-center my-4 w-80 md:w-72 text-center"
         >
           View Manager Profile
         </a>

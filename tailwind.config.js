@@ -5,7 +5,7 @@ module.exports = {
       gridAutoColumns: {
         "40%": "40%",
         "80%": "80%",
-        "35%": "35%",
+        "33%": "33%",
         "15%": "15%",
       },
       colors: {
@@ -48,6 +48,12 @@ module.exports = {
       },
       fontFamily: {
         serif: ['"Poppins"'],
+      },
+      borderWidth: {
+        6: "6px",
+      },
+      width: {
+        72: "18rem",
       },
     },
   },

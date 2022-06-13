@@ -41,7 +41,7 @@ const StatusCard: React.FC<ActiveProjectCardsProps> = ({ status }) => {
       <a
         href="#"
         className={cx(
-          "py-4 rounded-md text-white cursor-pointer text-sm w-11/12 md:w-60 text-center my-3 mx-3 md:mx-0",
+          "py-4 rounded-md text-white cursor-pointer text-sm w-11/12 md:w-72 md:ml-3 text-center my-3 mx-3 md:mx-0",
           {
             "bg-green-500": status === "Approved" || status === "Completed",
             "bg-sky-400": status === "Under Review" || status === "In Progress",

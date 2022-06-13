@@ -65,12 +65,12 @@ const Projects = () => {
           </div>
         </div>
 
-        <div className="auto-cols-35% md:auto-cols-15% grid grid-flow-col grid-cols overflow-y-hidden overflow-x-auto scrollbar-hide mb-5 ml-5 md:ml-10 h-fit">
+        <div className="auto-cols-33% md:auto-cols-15% grid grid-flow-col grid-cols overflow-y-hidden overflow-x-auto scrollbar-hide mb-5 ml-5 md:ml-10 h-fit">
           <a
             href="#"
             className={`ml-3 text-gray-800 text-center py-5 text-base md:text-sm rounded-t-lg ${
               section === 1
-                ? "border-b-4 border-sky-400 text-black font-semibold bg-neutral-50"
+                ? "border-b-6 border-sky-400 text-black font-semibold bg-neutral-50"
                 : "border-b border-gray-500"
             }`}
             onClick={() => setSection(1)}
@@ -79,9 +79,9 @@ const Projects = () => {
           </a>
           <a
             href="#"
-            className={`text-gray-800 text-center py-5 text-base md:text-sm  ${
+            className={`text-gray-800 text-center py-5 text-base md:text-sm rounded-t-lg ${
               section === 2
-                ? "border-b-4 border-sky-400 text-black font-semibold bg-neutral-50"
+                ? "border-b-6 border-sky-400 text-black font-semibold bg-neutral-50"
                 : "border-b border-gray-500"
             }`}
             onClick={() => setSection(2)}
@@ -90,9 +90,9 @@ const Projects = () => {
           </a>
           <a
             href="#"
-            className={`text-gray-800 text-center py-5 text-base md:text-sm  ${
+            className={`text-gray-800 text-center py-5 text-base md:text-sm rounded-t-lg ${
               section === 3
-                ? "border-b-4 border-sky-400 text-black font-semibold bg-neutral-50"
+                ? "border-b-6 border-sky-400 text-black font-semibold bg-neutral-50"
                 : "border-b border-gray-500"
             }`}
             onClick={() => setSection(3)}
@@ -101,9 +101,9 @@ const Projects = () => {
           </a>
           <a
             href="#"
-            className={`text-gray-800 text-center py-5 text-base md:text-sm  ${
+            className={`text-gray-800 text-center py-5 text-base md:text-sm rounded-t-lg ${
               section === 4
-                ? "border-b-4 border-sky-400 text-black font-semibold bg-neutral-50"
+                ? "border-b-6 border-sky-400 text-black font-semibold bg-neutral-50"
                 : "border-b border-gray-500"
             }`}
             onClick={() => setSection(4)}
@@ -112,9 +112,9 @@ const Projects = () => {
           </a>
           <a
             href="#"
-            className={`text-gray-800 text-center py-5 text-base md:text-sm  ${
+            className={`text-gray-800 text-center py-5 text-base md:text-sm rounded-t-lg ${
               section === 5
-                ? "border-b-4 border-sky-400 text-black font-semibold bg-neutral-50"
+                ? "border-b-6 border-sky-400 text-black font-semibold bg-neutral-50"
                 : "border-b border-gray-500"
             }`}
             onClick={() => setSection(5)}
@@ -123,9 +123,9 @@ const Projects = () => {
           </a>
           <a
             href="#"
-            className={`text-gray-800 text-center py-5 text-base md:text-sm ${
+            className={`text-gray-800 text-center py-5 text-base md:text-sm rounded-t-lg ${
               section === 6
-                ? "border-b-4 border-sky-400 text-black font-semibold bg-neutral-50"
+                ? "border-b-6 border-sky-400 text-black font-semibold bg-neutral-50"
                 : "border-b border-gray-500"
             }`}
             onClick={() => setSection(6)}
