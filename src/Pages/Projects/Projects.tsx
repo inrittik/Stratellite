@@ -63,7 +63,7 @@ const Projects = () => {
             href="#"
             className={`text-gray-800 text-center py-3 text-base md:text-sm  ${
               section === 2
-                ? "border-b-4 border-sky-400 text-black font-semibold"
+                ? "border-b-4 border-sky-400 text-black font-semibold bg-neutral-50"
                 : "border-b border-gray-500"
             }`}
             onClick={() => setSection(2)}
@@ -74,7 +74,7 @@ const Projects = () => {
             href="#"
             className={`text-gray-800 text-center py-3 text-base md:text-sm  ${
               section === 3
-                ? "border-b-4 border-sky-400 text-black font-semibold"
+                ? "border-b-4 border-sky-400 text-black font-semibold bg-neutral-50"
                 : "border-b border-gray-500"
             }`}
             onClick={() => setSection(3)}
@@ -85,7 +85,7 @@ const Projects = () => {
             href="#"
             className={`text-gray-800 text-center py-3 text-base md:text-sm  ${
               section === 4
-                ? "border-b-4 border-sky-400 text-black font-semibold"
+                ? "border-b-4 border-sky-400 text-black font-semibold bg-neutral-50"
                 : "border-b border-gray-500"
             }`}
             onClick={() => setSection(4)}
@@ -96,7 +96,7 @@ const Projects = () => {
             href="#"
             className={`text-gray-800 text-center py-3 text-base md:text-sm  ${
               section === 5
-                ? "border-b-4 border-sky-400 text-black font-semibold"
+                ? "border-b-4 border-sky-400 text-black font-semibold bg-neutral-50"
                 : "border-b border-gray-500"
             }`}
             onClick={() => setSection(5)}
@@ -107,7 +107,7 @@ const Projects = () => {
             href="#"
             className={`text-gray-800 text-center py-3 text-base md:text-sm ${
               section === 6
-                ? "border-b-4 border-sky-400 text-black font-semibold"
+                ? "border-b-4 border-sky-400 text-black font-semibold bg-neutral-50"
                 : "border-b border-gray-500"
             }`}
             onClick={() => setSection(6)}
