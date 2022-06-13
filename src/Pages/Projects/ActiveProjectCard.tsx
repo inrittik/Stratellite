@@ -17,19 +17,19 @@ const ActiveProjectCard: React.FC<ActiveProjectCardsProps> = ({ status }) => {
       </div>
       {/* section 2 */}
       <div className="flex justify-between border-y border-y-gray-60 md:border-y-0 my-5 md:my-0 py-4">
-        <div className="flex flex-col mx-3 md:mx-6">
+        <div className="flex flex-col mx-4 md:mx-6">
           <div className="text-gray-900 font-semibold mb-2 text-sm md:text-base">
             Tier 1
           </div>
           <div className="text-gray-900 md:w-4/5">Tier</div>
         </div>
-        <div className="flex flex-col mx-3 md:mx-6">
+        <div className="flex flex-col mx-4 md:mx-6">
           <div className="text-gray-900 font-semibold mb-2 text-sm md:text-base">
             22nd Dec, 2021
           </div>
           <div className="text-gray-900 md:w-4/5">Start Date</div>
         </div>
-        <div className="flex flex-col mx-3 md:mx-6">
+        <div className="flex flex-col mx-4 md:mx-6">
           <div className="text-gray-900 font-semibold mb-2 text-sm md:text-base">
             22nd Dec, 2022
           </div>
@@ -41,7 +41,7 @@ const ActiveProjectCard: React.FC<ActiveProjectCardsProps> = ({ status }) => {
       <a
         href="#"
         className={cx(
-          "py-4 rounded-md text-white cursor-pointer text-sm w-10/12 md:w-60 text-center my-3 mx-3 md:mx-0",
+          "py-4 rounded-md text-white cursor-pointer text-sm w-11/12 md:w-60 text-center my-3 mx-3 md:mx-0",
           {
             "bg-green-500": status === "Approved",
             "bg-sky-400": status === "Under Review" || "In Progress",

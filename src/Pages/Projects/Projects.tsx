@@ -6,6 +6,7 @@ import ActiveProjects from "./Sections/ActiveProjects";
 import InProgress from "./Sections/InProgress";
 import Completed from "./Sections/Completed";
 import Rejected from "./Sections/Rejected";
+import DisputedProjects from "./Sections/DisputedProjects";
 
 const Projects = () => {
   const [state, dispatch] = useGlobalContext();
@@ -120,6 +121,7 @@ const Projects = () => {
         {section === 3 && <InProgress />}
         {section === 4 && <Completed />}
         {section === 5 && <Rejected />}
+        {section === 6 && <DisputedProjects />}
       </div>
     </div>
   );

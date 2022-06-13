@@ -1,9 +1,11 @@
 import cx from "classnames";
-export interface ActiveProjectCardsProps {
+export interface DisputedProjectCardsProps {
   status: string;
 }
 
-const StatusCard: React.FC<ActiveProjectCardsProps> = ({ status }) => {
+const DisputedProjectCard: React.FC<DisputedProjectCardsProps> = ({
+  status,
+}) => {
   return (
     <div className="md:w-full py-5 px-0 md:px-5 my-2 flex flex-col justify-between items-center rounded-lg border border-gray-60 md:flex-row mx-auto md:mx-auto">
       {/* section 1 */}
@@ -38,21 +40,35 @@ const StatusCard: React.FC<ActiveProjectCardsProps> = ({ status }) => {
       </div>
 
       {/* section 3 */}
-      <a
-        href="#"
-        className={cx(
-          "py-4 rounded-md text-white cursor-pointer text-sm w-11/12 md:w-60 text-center my-3 mx-3 md:mx-0",
-          {
-            "bg-green-500": status === "Approved" || status === "Completed",
-            "bg-sky-400": status === "Under Review" || status === "In Progress",
-            "bg-red-500": status === "Rejected",
-          }
-        )}
-      >
-        {status}
-      </a>
+      <div className="flex mx-auto justify-between">
+        <a
+          href="#"
+          className={cx(
+            "py-4 border-gray-60 border rounded-md cursor-pointer px-7 text-sm w-40 text-center my-3",
+            {
+              "md:w-36": status === "Resolved",
+              "md:w-28": status === "Un-Resolved",
+            }
+          )}
+        >
+          {status === "Resolved" && "In Progress"}
+          {status === "Un-Resolved" && "On Hold"}
+        </a>
+        <a
+          href="#"
+          className={cx(
+            "py-4 rounded-md text-white cursor-pointer px-7 text-sm w-40 text-center my-3 ml-3",
+            {
+              "bg-sky-400 md:w-36": status === "Resolved",
+              "bg-gray-100 md:w-44": status === "Un-Resolved",
+            }
+          )}
+        >
+          {status}
+        </a>
+      </div>
     </div>
   );
 };
 
-export default StatusCard;
+export default DisputedProjectCard;
