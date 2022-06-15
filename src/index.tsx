@@ -4,14 +4,19 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { GlobalContextProvider } from "./Contexts/GlobalContext";
+import { BrowserRouter } from "react-router-dom";
 
-const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
+const root = ReactDOM.createRoot(
+  document.getElementById("root") as HTMLElement
+);
 root.render(
-   <React.StrictMode>
-      <GlobalContextProvider>
-         <App />
-      </GlobalContextProvider>
-   </React.StrictMode>
+  <React.StrictMode>
+    <GlobalContextProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </GlobalContextProvider>
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

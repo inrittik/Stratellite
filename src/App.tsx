@@ -1,17 +1,20 @@
-import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import Sidebar from "./Components/Sidebar";
-import RightSidebar from "./Components/RightSidebar";
 import Home from "./Pages/Home/Home";
 import Projects from "./Pages/Projects/Projects";
+import ProjectsLandingPage from "./Pages/Projects/LandingPages/NewProjects";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <>
-      <Sidebar></Sidebar>
-      {/* <Home></Home> */}
-      <Projects></Projects>
+      <Sidebar />
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/projects" element={<Projects />}></Route>
+        {/* <Home></Home> */}
+        {/* <Projects></Projects> */}
+      </Routes>
     </>
   );
 }

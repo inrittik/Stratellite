@@ -1,5 +1,6 @@
 import React from "react";
 import { icons } from "../../utils/icons";
+import LandingPage from "./LandingPages/NewProjects";
 
 const ProjectCard = () => {
   return (
