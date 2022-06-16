@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import sidebarLogo from "../assets/images/sidebar-logo.png";
 import sidebarLogoMob from "../assets/images/sidebar-logo-mobile.png";
 import { useGlobalContext } from "../Contexts/GlobalContext";
@@ -13,18 +14,21 @@ const sidebarItems: SidebarItemProps[] = [
     isSelected: true,
     text: "Dashboard",
     link: "/",
+    id: 1,
   },
   {
     icon: icons.sidebarIcons.project,
     isSelected: false,
     text: "Project",
     link: "/projects",
+    id: 2,
   },
   {
     icon: icons.sidebarIcons.calendar,
     isSelected: false,
     text: "Calendar",
     link: "/calender",
+    id: 3,
   },
   {
     icon: icons.sidebarIcons.messages,
@@ -32,6 +36,7 @@ const sidebarItems: SidebarItemProps[] = [
     text: "Messages",
     link: "/messages",
     badgeValue: 5,
+    id: 4,
   },
   {
     icon: icons.sidebarIcons.notifications,
@@ -39,12 +44,14 @@ const sidebarItems: SidebarItemProps[] = [
     text: "Notifications",
     link: "/notifications",
     badgeValue: 5,
+    id: 5,
   },
   {
     icon: icons.sidebarIcons.contacts,
     isSelected: false,
     text: "Contact",
     link: "/contact",
+    id: 6,
   },
 ];
 
@@ -54,6 +61,7 @@ const sidebarItems2: SidebarItemProps[] = [
     isSelected: false,
     text: "Promotions",
     link: "/promotions",
+    id: 7,
   },
 ];
 const sidebarItems3: SidebarItemProps[] = [
@@ -62,10 +70,19 @@ const sidebarItems3: SidebarItemProps[] = [
     isSelected: false,
     text: "Settings",
     link: "/settings ",
+    id: 8,
   },
 ];
 const Sidebar: React.FC<SidebarProps> = () => {
   const [state, dispatch] = useGlobalContext();
+  const [selectedItem, setSelectedItem] = useState(1);
+  useEffect(() => {
+    sidebarItems.forEach((item) => {
+      if (item.id === selectedItem) {
+        item.isSelected = true;
+      } else item.isSelected = false;
+    });
+  }, [selectedItem]);
   return (
     <div
       className={cx(
@@ -85,7 +102,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
       </div>
       <div className="flex bg-inherit flex-col pt-20 px-5 md:px-0">
         {sidebarItems.map((x) => (
-          <Link to={x.link}>
+          <Link to={x.link} onClick={() => setSelectedItem(x.id)}>
             <SidebarItem {...x}></SidebarItem>
           </Link>
         ))}

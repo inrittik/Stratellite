@@ -1,4 +1,5 @@
 import cx from "classnames";
+import { Link } from "react-router-dom";
 export interface ActiveProjectCardsProps {
   status: string;
 }
@@ -38,8 +39,8 @@ const ActiveProjectCard: React.FC<ActiveProjectCardsProps> = ({ status }) => {
       </div>
 
       {/* section 3 */}
-      <a
-        href="#"
+      <Link
+        to="/projects/active"
         className={cx(
           "py-4 rounded-md text-white cursor-pointer text-sm w-11/12 md:w-72 md:ml-3 text-center my-3 mx-3 md:mx-0",
           {
@@ -49,8 +50,8 @@ const ActiveProjectCard: React.FC<ActiveProjectCardsProps> = ({ status }) => {
           }
         )}
       >
-        {status}
-      </a>
+        <a>{status}</a>
+      </Link>
     </div>
   );
 };
