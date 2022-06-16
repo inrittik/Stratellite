@@ -13,7 +13,7 @@ const Projects = () => {
   const [section, setSection] = useState(1);
   return (
     <div className="project overflow-y-auto overflow-x-hidden mx-auto">
-      <div className="flex flex-col overflow-y-auto overflow-x-hidden w-full">
+      <div className="flex flex-col overflow-x-hidden w-full">
         <div className="flex gap-4 mt-6 md:mt-0 md:min-h-[8.5rem] items-center mx-6 md:mx-12">
           <div className="p-4 px-5 border border-gray-300 rounded-lg md:hidden">
             {icons.Projects.back}
