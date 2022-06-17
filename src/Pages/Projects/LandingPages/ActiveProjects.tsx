@@ -51,6 +51,9 @@ const ActiveProjects: React.FC<ActiveProjects> = ({ status }) => {
           <div>
             <div className="text-2xl md:text-28 font-medium mb-4 my-6">
               Your Projects
+              <span className="text-gray-600 font-normal md:hidden">
+                /Active
+              </span>
             </div>
             <div className="hidden md:block text-base md:text-lg text-gray-600 mb-6">
               Here is a list of all the projects you have been working on.
@@ -67,7 +70,7 @@ const ActiveProjects: React.FC<ActiveProjects> = ({ status }) => {
           </div>
         </div>
 
-        <div className="auto-cols-33% md:auto-cols-15% grid grid-flow-col grid-cols overflow-y-hidden overflow-x-auto scrollbar-hide mb-5 ml-5 md:ml-10 h-fit">
+        <div className="hidden auto-cols-33% md:auto-cols-15% md:grid grid-flow-col grid-cols overflow-y-hidden overflow-x-auto scrollbar-hide mb-5 ml-5 md:ml-10 h-fit">
           <a
             href="#"
             className={`ml-3 text-gray-800 text-center py-5 text-base md:text-sm rounded-t-lg ${
@@ -330,26 +333,93 @@ const ActiveProjects: React.FC<ActiveProjects> = ({ status }) => {
             </div>
           </div>
         </div>
-        {/* toggles */}
+        {/* toggles laptop view*/}
         <div className="hidden md:flex md:flex-col w-20 items-center ml-12">
-          <div className="p-3 mb-3 bg-sky-400 rounded w-12 h-12 flex justify-center items-center">
+          <div className="p-3 mb-3 bg-sky-400 rounded w-12 h-12 flex justify-center items-center cursor-pointer">
             {icons.Projects.info}
           </div>
-          <div className="p-3 my-3 border rounded border-gray-500 w-12 h-12 flex justify-center items-center">
+          <div className="p-3 my-3 border rounded border-gray-500 w-12 h-12 flex justify-center items-center cursor-pointer">
             {icons.Projects.manager}
           </div>
-          <div className="p-3 my-3 border rounded border-gray-500 w-12 h-12 flex justify-center items-center">
+          <div className="p-3 my-3 border rounded border-gray-500 w-12 h-12 flex justify-center items-center cursor-pointer">
             {icons.Projects.price}
           </div>
-          <div className="p-3 my-3 border rounded border-gray-500 w-12 h-12 flex justify-center items-center">
+          <div className="p-3 my-3 border rounded border-gray-500 w-12 h-12 flex justify-center items-center cursor-pointer">
             {icons.Projects.milestone}
           </div>
-          <div className="p-3 my-3 border rounded border-gray-500 w-12 h-12 flex justify-center items-center">
+          <div className="p-3 my-3 border rounded border-gray-500 w-12 h-12 flex justify-center items-center cursor-pointer">
             {icons.Projects.share}
           </div>
-          <div className="p-3 my-3 border rounded border-gray-500 w-12 h-12 flex justify-center items-center">
+          <div className="p-3 my-3 border rounded border-gray-500 w-12 h-12 flex justify-center items-center cursor-pointer">
             {icons.Projects.more}
           </div>
+        </div>
+
+        {/* toggles mobile view */}
+        <div className="auto-cols-33% md:auto-cols-15% grid grid-flow-col grid-cols overflow-y-hidden overflow-x-auto scrollbar-hide mb-5 ml-5 md:ml-10 h-fit md:hidden">
+          <a
+            className={`ml-3 text-gray-800 text-center py-5 text-base md:text-sm rounded-t-lg ${
+              section === 1
+                ? "border-b-6 border-sky-400 text-black font-semibold bg-neutral-50"
+                : "border-b border-gray-500"
+            }`}
+          >
+            Project Details
+          </a>
+          <a
+            className={`text-gray-800 text-center py-5 text-base md:text-sm rounded-t-lg ${
+              section === 2
+                ? "border-b-6 border-sky-400 text-black font-semibold bg-neutral-50"
+                : "border-b border-gray-500"
+            }`}
+          >
+            Manager Info
+          </a>
+          <a
+            className={`text-gray-800 text-center py-5 text-base md:text-sm rounded-t-lg ${
+              section === 3
+                ? "border-b-6 border-sky-400 text-black font-semibold bg-neutral-50"
+                : "border-b border-gray-500"
+            }`}
+          >
+            Milestone
+          </a>
+          <a
+            className={`text-gray-800 text-center py-5 text-base md:text-sm rounded-t-lg ${
+              section === 4
+                ? "border-b-6 border-sky-400 text-black font-semibold bg-neutral-50"
+                : "border-b border-gray-500"
+            }`}
+          >
+            Cost
+          </a>
+          <a
+            className={`text-gray-800 text-center py-5 text-base md:text-sm rounded-t-lg ${
+              section === 5
+                ? "border-b-6 border-sky-400 text-black font-semibold bg-neutral-50"
+                : "border-b border-gray-500"
+            }`}
+          >
+            Share
+          </a>
+          <a
+            className={`text-gray-800 text-center py-5 text-base md:text-sm rounded-t-lg ${
+              section === 6
+                ? "border-b-6 border-sky-400 text-black font-semibold bg-neutral-50"
+                : "border-b border-gray-500"
+            }`}
+          >
+            Images
+          </a>
+          <a
+            className={`text-gray-800 text-center py-5 text-base md:text-sm rounded-t-lg ${
+              section === 7
+                ? "border-b-6 border-sky-400 text-black font-semibold bg-neutral-50"
+                : "border-b border-gray-500"
+            }`}
+          >
+            More
+          </a>
         </div>
       </div>
     </div>
