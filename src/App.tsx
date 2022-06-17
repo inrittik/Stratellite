@@ -14,8 +14,20 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/projects" element={<Projects />}></Route>
         <Route
-          path="/projects/active"
-          element={<ActiveProjectsLandingPage />}
+          path="/projects/active/approved"
+          element={<ActiveProjectsLandingPage status="approved" />}
+        ></Route>
+        <Route
+          path="/projects/active/under-review"
+          element={<ActiveProjectsLandingPage status="under-review" />}
+        ></Route>
+        <Route
+          path="/projects/active/in-progress"
+          element={<ActiveProjectsLandingPage status="under-review" />}
+        ></Route>
+        <Route
+          path="/projects/active/rejected"
+          element={<ActiveProjectsLandingPage status="rejected" />}
         ></Route>
         {/* <Home></Home> */}
         {/* <Projects></Projects> */}

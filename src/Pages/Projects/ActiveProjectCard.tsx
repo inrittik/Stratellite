@@ -40,13 +40,13 @@ const ActiveProjectCard: React.FC<ActiveProjectCardsProps> = ({ status }) => {
 
       {/* section 3 */}
       <Link
-        to="/projects/active"
+        to={`/projects/active/${status}`}
         className={cx(
           "py-4 rounded-md text-white cursor-pointer text-sm w-11/12 md:w-72 md:ml-3 text-center my-3 mx-3 md:mx-0",
           {
-            "bg-green-500": status === "Approved",
-            "bg-sky-400": status === "Under Review" || "In Progress",
-            "bg-red-500": status === "Rejected",
+            "bg-green-500": status === "approved",
+            "bg-sky-400": status === "under-review" || "in-progress",
+            "bg-red-500": status === "rejected",
           }
         )}
       >

@@ -3,11 +3,11 @@ import ActiveProjectCard from "../ActiveProjectCard";
 const ActiveProjects = () => {
   return (
     <div className="mx-6 md:mx-12 w-100">
-      <ActiveProjectCard status="Under Review" />
-      <ActiveProjectCard status="In Progress" />
-      <ActiveProjectCard status="Approved" />
-      <ActiveProjectCard status="Rejected" />
-      <ActiveProjectCard status="Approved" />
+      <ActiveProjectCard status="under-review" />
+      <ActiveProjectCard status="in-progress" />
+      <ActiveProjectCard status="approved" />
+      <ActiveProjectCard status="rejected" />
+      <ActiveProjectCard status="approved" />
     </div>
   );
 };
