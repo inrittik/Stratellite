@@ -1,6 +1,7 @@
 import { icons } from "../../utils/icons";
 import { useState } from "react";
 import { useGlobalContext } from "../../Contexts/GlobalContext";
+import { useNavigate } from "react-router-dom";
 import NewProjects from "./Sections/NewProjects";
 import ActiveProjects from "./Sections/ActiveProjects";
 import InProgress from "./Sections/InProgress";
@@ -11,11 +12,15 @@ import DisputedProjects from "./Sections/DisputedProjects";
 const Projects = () => {
   const [state, dispatch] = useGlobalContext();
   const [section, setSection] = useState(1);
+  const navigate = useNavigate();
   return (
     <div className="project overflow-y-auto overflow-x-hidden mx-auto">
       <div className="flex flex-col overflow-x-hidden w-full">
         <div className="flex gap-4 mt-6 md:mt-0 md:min-h-[8.5rem] items-center mx-6 md:mx-12">
-          <div className="p-4 px-5 border border-gray-300 rounded-lg md:hidden">
+          <div
+            className="p-4 px-5 border border-gray-300 rounded-lg md:hidden"
+            onClick={() => navigate(-1)}
+          >
             {icons.Projects.back}
           </div>
           <div className=" md:h-18 h-14 rounded-md flex pl-8 items-center py-6 gap-7 bg-gray-400 w-3/4">

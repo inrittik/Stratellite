@@ -13,6 +13,7 @@ interface ActiveProjects {
 const ActiveProjects: React.FC<ActiveProjects> = ({ status }) => {
   const [state, dispatch] = useGlobalContext();
   const [section, setSection] = useState(2);
+  const [subsection, setSubsection] = useState(1);
   return (
     <div className="project overflow-y-auto overflow-x-hidden mx-auto">
       <div className="flex flex-col overflow-x-hidden w-full">
@@ -335,22 +336,82 @@ const ActiveProjects: React.FC<ActiveProjects> = ({ status }) => {
         </div>
         {/* toggles laptop view*/}
         <div className="hidden md:flex md:flex-col w-20 items-center ml-12">
-          <div className="p-3 mb-3 bg-sky-400 rounded w-12 h-12 flex justify-center items-center cursor-pointer">
+          <div
+            className={cx(
+              "p-3 mb-3 rounded w-12 h-12 flex justify-center items-center cursor-pointer",
+              {
+                "text-gray-100 border border-gray-500": subsection !== 1,
+                "text-white bg-sky-400": subsection === 1,
+                "": subsection === 1,
+              }
+            )}
+            onClick={() => setSubsection(1)}
+          >
             {icons.Projects.info}
           </div>
-          <div className="p-3 my-3 border rounded border-gray-500 w-12 h-12 flex justify-center items-center cursor-pointer">
+          <div
+            className={cx(
+              "p-3 mb-3 rounded w-12 h-12 flex justify-center items-center cursor-pointer",
+              {
+                "text-gray-100 border border-gray-500": subsection !== 2,
+                "text-white bg-sky-400": subsection === 2,
+                "": subsection === 2,
+              }
+            )}
+            onClick={() => setSubsection(2)}
+          >
             {icons.Projects.manager}
           </div>
-          <div className="p-3 my-3 border rounded border-gray-500 w-12 h-12 flex justify-center items-center cursor-pointer">
+          <div
+            className={cx(
+              "p-3 mb-3 rounded w-12 h-12 flex justify-center items-center cursor-pointer",
+              {
+                "text-gray-100 border border-gray-500": subsection !== 3,
+                "text-white bg-sky-400": subsection === 3,
+                "": subsection === 3,
+              }
+            )}
+            onClick={() => setSubsection(3)}
+          >
             {icons.Projects.price}
           </div>
-          <div className="p-3 my-3 border rounded border-gray-500 w-12 h-12 flex justify-center items-center cursor-pointer">
+          <div
+            className={cx(
+              "p-3 mb-3 rounded w-12 h-12 flex justify-center items-center cursor-pointer",
+              {
+                "text-gray-100 border border-gray-500": subsection !== 4,
+                "text-white bg-sky-400": subsection === 4,
+                "": subsection === 4,
+              }
+            )}
+            onClick={() => setSubsection(4)}
+          >
             {icons.Projects.milestone}
           </div>
-          <div className="p-3 my-3 border rounded border-gray-500 w-12 h-12 flex justify-center items-center cursor-pointer">
+          <div
+            className={cx(
+              "p-3 mb-3 rounded w-12 h-12 flex justify-center items-center cursor-pointer",
+              {
+                "text-gray-100 border border-gray-500": subsection !== 5,
+                "text-white bg-sky-400": subsection === 5,
+                "": subsection === 5,
+              }
+            )}
+            onClick={() => setSubsection(5)}
+          >
             {icons.Projects.share}
           </div>
-          <div className="p-3 my-3 border rounded border-gray-500 w-12 h-12 flex justify-center items-center cursor-pointer">
+          <div
+            className={cx(
+              "p-3 mb-3 rounded w-12 h-12 flex justify-center items-center cursor-pointer",
+              {
+                "text-gray-100 border border-gray-500": subsection !== 6,
+                "text-white bg-sky-400": subsection === 6,
+                "": subsection === 6,
+              }
+            )}
+            onClick={() => setSubsection(6)}
+          >
             {icons.Projects.more}
           </div>
         </div>
@@ -359,64 +420,71 @@ const ActiveProjects: React.FC<ActiveProjects> = ({ status }) => {
         <div className="auto-cols-33% md:auto-cols-15% grid grid-flow-col grid-cols overflow-y-hidden overflow-x-auto scrollbar-hide mb-5 ml-5 md:ml-10 h-fit md:hidden">
           <a
             className={`ml-3 text-gray-800 text-center py-5 text-base md:text-sm rounded-t-lg ${
-              section === 1
+              subsection === 1
                 ? "border-b-6 border-sky-400 text-black font-semibold bg-neutral-50"
                 : "border-b border-gray-500"
             }`}
+            onClick={() => setSubsection(1)}
           >
             Project Details
           </a>
           <a
             className={`text-gray-800 text-center py-5 text-base md:text-sm rounded-t-lg ${
-              section === 2
+              subsection === 2
                 ? "border-b-6 border-sky-400 text-black font-semibold bg-neutral-50"
                 : "border-b border-gray-500"
             }`}
+            onClick={() => setSubsection(2)}
           >
             Manager Info
           </a>
           <a
             className={`text-gray-800 text-center py-5 text-base md:text-sm rounded-t-lg ${
-              section === 3
+              subsection === 3
                 ? "border-b-6 border-sky-400 text-black font-semibold bg-neutral-50"
                 : "border-b border-gray-500"
             }`}
+            onClick={() => setSubsection(3)}
           >
             Milestone
           </a>
           <a
             className={`text-gray-800 text-center py-5 text-base md:text-sm rounded-t-lg ${
-              section === 4
+              subsection === 4
                 ? "border-b-6 border-sky-400 text-black font-semibold bg-neutral-50"
                 : "border-b border-gray-500"
             }`}
+            onClick={() => setSubsection(4)}
           >
             Cost
           </a>
           <a
             className={`text-gray-800 text-center py-5 text-base md:text-sm rounded-t-lg ${
-              section === 5
+              subsection === 5
                 ? "border-b-6 border-sky-400 text-black font-semibold bg-neutral-50"
                 : "border-b border-gray-500"
             }`}
+            onClick={() => setSubsection(5)}
           >
             Share
           </a>
           <a
             className={`text-gray-800 text-center py-5 text-base md:text-sm rounded-t-lg ${
-              section === 6
+              subsection === 6
                 ? "border-b-6 border-sky-400 text-black font-semibold bg-neutral-50"
                 : "border-b border-gray-500"
             }`}
+            onClick={() => setSubsection(6)}
           >
             Images
           </a>
           <a
             className={`text-gray-800 text-center py-5 text-base md:text-sm rounded-t-lg ${
-              section === 7
+              subsection === 7
                 ? "border-b-6 border-sky-400 text-black font-semibold bg-neutral-50"
                 : "border-b border-gray-500"
             }`}
+            onClick={() => setSubsection(7)}
           >
             More
           </a>
