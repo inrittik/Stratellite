@@ -4,6 +4,7 @@ import cx from "classnames";
 import { useGlobalContext } from "../../../Contexts/GlobalContext";
 import ProjectInfo from "../Sections/ProjectInfo";
 import ManagerInfo from "../Sections/ManagerInfo";
+import Bidding from "../Sections/Bidding";
 
 interface ActiveProjects {
   status: string;
@@ -145,6 +146,7 @@ const ActiveProjects: React.FC<ActiveProjects> = ({ status }) => {
         {/* main section */}
         {subsection === 1 && <ProjectInfo status={status} />}
         {subsection === 2 && <ManagerInfo />}
+        {subsection === 3 && <Bidding />}
 
         {/* toggles laptop view*/}
         <div className="hidden md:flex md:flex-col w-20 items-center ml-12">
@@ -258,7 +260,7 @@ const ActiveProjects: React.FC<ActiveProjects> = ({ status }) => {
             }`}
             onClick={() => setSubsection(3)}
           >
-            Milestone
+            Bidding
           </a>
           <a
             className={`text-gray-800 text-center py-5 text-base md:text-sm rounded-t-lg ${
@@ -268,7 +270,7 @@ const ActiveProjects: React.FC<ActiveProjects> = ({ status }) => {
             }`}
             onClick={() => setSubsection(4)}
           >
-            Cost
+            Milestone
           </a>
           <a
             className={`text-gray-800 text-center py-5 text-base md:text-sm rounded-t-lg ${
@@ -278,7 +280,7 @@ const ActiveProjects: React.FC<ActiveProjects> = ({ status }) => {
             }`}
             onClick={() => setSubsection(5)}
           >
-            Share
+            Feedback
           </a>
           <a
             className={`text-gray-800 text-center py-5 text-base md:text-sm rounded-t-lg ${
