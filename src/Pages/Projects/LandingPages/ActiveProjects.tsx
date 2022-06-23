@@ -5,6 +5,7 @@ import { useGlobalContext } from "../../../Contexts/GlobalContext";
 import ProjectInfo from "../Sections/ProjectInfo";
 import ManagerInfo from "../Sections/ManagerInfo";
 import Bidding from "../Sections/Bidding";
+import Milestone from "../Sections/Milestone";
 
 interface ActiveProjects {
   status: string;
@@ -147,6 +148,7 @@ const ActiveProjects: React.FC<ActiveProjects> = ({ status }) => {
         {subsection === 1 && <ProjectInfo status={status} />}
         {subsection === 2 && <ManagerInfo />}
         {subsection === 3 && <Bidding />}
+        {subsection === 4 && <Milestone />}
 
         {/* toggles laptop view*/}
         <div className="hidden md:flex md:flex-col w-20 items-center ml-12">
