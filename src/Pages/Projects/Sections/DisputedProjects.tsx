@@ -1,4 +1,4 @@
-import DisputedProjectCard from "../DisputedProjectCard";
+import DisputedProjectCard from "../Cards/DisputedProjectCard";
 
 const DisputedProjects = () => {
   return (

@@ -1,4 +1,4 @@
-import ActiveProjectCard from "../ActiveProjectCard";
+import ActiveProjectCard from "../Cards/ActiveProjectCard";
 
 const ActiveProjects = () => {
   return (

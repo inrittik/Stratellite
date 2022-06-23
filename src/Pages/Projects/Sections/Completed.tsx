@@ -1,4 +1,4 @@
-import StatusCard from "../StatusCard";
+import StatusCard from "../Cards/StatusCard";
 
 const Completed = () => {
   return (
