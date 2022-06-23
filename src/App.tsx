@@ -23,7 +23,7 @@ function App() {
         ></Route>
         <Route
           path="/projects/active/in-progress"
-          element={<ActiveProjectsLandingPage status="under-review" />}
+          element={<ActiveProjectsLandingPage status="in-progress" />}
         ></Route>
         <Route
           path="/projects/active/rejected"

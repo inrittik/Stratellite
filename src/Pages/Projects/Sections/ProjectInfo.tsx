@@ -32,17 +32,22 @@ const ProjectInfo: React.FC<ActiveProjects> = ({ status }) => {
               "bg-green-100 text-green-500": status === "approved",
               "bg-blue-100 text-blue-500 w-44": status === "under-review",
               "bg-red-100 text-red-500": status === "rejected",
+              "bg-yellow-100 text-yellow-500": status === "in-progress",
             }
           )}
         >
           {status === "approved" && icons.Projects.tick}
           {status === "under-review" && icons.Projects.review}
+          {status === "in-progress" && icons.Projects.inProgress}
           {status === "rejected" && icons.Projects.rejected}
           <span className={`${status !== "approved" ? "hidden" : ""}`}>
             Approved
           </span>
           <span className={`${status !== "under-review" ? "hidden" : ""}`}>
             Under-Review
+          </span>
+          <span className={`${status !== "in-progress" ? "hidden" : ""}`}>
+            In Progress
           </span>
           <span className={`${status !== "rejected" ? "hidden" : ""}`}>
             Rejected
@@ -82,17 +87,22 @@ const ProjectInfo: React.FC<ActiveProjects> = ({ status }) => {
               "bg-green-100 text-green-500": status === "approved",
               "bg-blue-100 text-blue-500": status === "under-review",
               "bg-red-100 text-red-500": status === "rejected",
+              "bg-yellow-100 text-yellow-500": status === "in-progress",
             }
           )}
         >
           {status === "approved" && icons.Projects.tick}
           {status === "under-review" && icons.Projects.review}
+          {status === "in-progress" && icons.Projects.inProgress}
           {status === "rejected" && icons.Projects.rejected}
           <span className={`${status !== "approved" ? "hidden" : ""}`}>
             Approved
           </span>
           <span className={`${status !== "under-review" ? "hidden" : ""}`}>
             Under-Review
+          </span>
+          <span className={`${status !== "in-progress" ? "hidden" : ""}`}>
+            In Progress
           </span>
           <span className={`${status !== "rejected" ? "hidden" : ""}`}>
             Rejected
