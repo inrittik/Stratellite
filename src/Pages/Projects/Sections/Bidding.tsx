@@ -1,6 +1,11 @@
 import { icons } from "../../../utils/icons";
+import cx from "classnames";
 
-const Bidding = () => {
+interface BiddingProps {
+  isMeetingDone: Boolean;
+}
+
+const Bidding: React.FC<BiddingProps> = ({ isMeetingDone }) => {
   return (
     <div className="flex flex-col w-11/12 md:w-10/12 mt-6 md:mt-0 ml-4 md:ml-12 overflow-y-auto">
       <div className="text-base md:text-1.5xl text-gray-900 font-semibold mb-2">
@@ -103,8 +108,26 @@ const Bidding = () => {
         </div>
       </div>
 
-      <div className="p-4 bg-sky-400 rounded text-white cursor-pointer md:w-20 text-center text-sm my-5 md:p-3">
+      <div
+        className={cx(
+          "p-4 rounded cursor-pointer md:w-20 text-center text-sm my-5 md:p-3",
+          {
+            "bg-sky-400 text-white": isMeetingDone,
+            "bg-neutral-300 text-slate-100 cursor-not-allowed": !isMeetingDone,
+          }
+        )}
+      >
         Submit
+      </div>
+
+      <div
+        className={cx("text-red-500 md:mb-8 w-11/12 text-sm mb-4", {
+          hidden: isMeetingDone,
+        })}
+      >
+        <span className="font-semibold">Note:-</span> A meeting will be set up
+        by the manager soon to discuss the project details, and you will be
+        notified.
       </div>
     </div>
   );

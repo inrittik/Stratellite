@@ -2,7 +2,6 @@ import { icons } from "../../../utils/icons";
 import cx from "classnames";
 import Proprty1 from "../../../assets/project/property1.png";
 import Proprty2 from "../../../assets/project/property2.png";
-import Proprty3 from "../../../assets/project/property3.png";
 
 interface ActiveProjects {
   status: string;

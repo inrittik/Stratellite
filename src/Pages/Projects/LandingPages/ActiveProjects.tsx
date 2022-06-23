@@ -147,7 +147,7 @@ const ActiveProjects: React.FC<ActiveProjects> = ({ status }) => {
         {/* main section */}
         {subsection === 1 && <ProjectInfo status={status} />}
         {subsection === 2 && <ManagerInfo />}
-        {subsection === 3 && <Bidding />}
+        {subsection === 3 && <Bidding isMeetingDone={false} />}
         {subsection === 4 && <Milestone />}
 
         {/* toggles laptop view*/}
