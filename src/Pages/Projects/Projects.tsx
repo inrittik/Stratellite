@@ -27,7 +27,7 @@ const sectionOptions = [
     id: 4,
   },
   {
-    name: "Rejectedt",
+    name: "Rejected",
     id: 5,
   },
   {

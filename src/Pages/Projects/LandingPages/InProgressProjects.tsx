@@ -6,6 +6,11 @@ import ProjectInfo from "../Sections/ProjectInfo";
 import ManagerInfo from "../Sections/ManagerInfo";
 import Bidding from "../Sections/Bidding";
 import Milestone from "../Sections/Milestone";
+import NewProjects from "../Sections/NewProjects";
+import ActiveProjects from "../Sections/ActiveProjects";
+import Completed from "../Sections/Completed";
+import Rejected from "../Sections/Rejected";
+import DisputedProjects from "../Sections/DisputedProjects";
 
 const toggleOptions = [
   {
@@ -63,7 +68,7 @@ const sectionOptions = [
     id: 4,
   },
   {
-    name: "Rejectedt",
+    name: "Rejected",
     id: 5,
   },
   {
@@ -150,8 +155,18 @@ const InProgressProjects = () => {
         </div>
       </div>
 
+      {section === 1 && <NewProjects />}
+      {section === 2 && <ActiveProjects />}
+      {section === 4 && <Completed />}
+      {section === 5 && <Rejected />}
+      {section === 6 && <DisputedProjects />}
+
       {/* landing section */}
-      <div className="flex flex-col-reverse md:flex-row">
+      <div
+        className={cx("flex flex-col-reverse md:flex-row", {
+          hidden: section !== 3,
+        })}
+      >
         {/* main section */}
         {subsection === 1 && <ProjectInfo status={"in-progress"} />}
         {subsection === 2 && <ManagerInfo />}
