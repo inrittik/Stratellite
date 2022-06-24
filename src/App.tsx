@@ -4,6 +4,7 @@ import Home from "./Pages/Home/Home";
 import Projects from "./Pages/Projects/Projects";
 import ProjectsLandingPage from "./Pages/Projects/LandingPages/NewProjects";
 import ActiveProjectsLandingPage from "./Pages/Projects/LandingPages/ActiveProjects";
+import InProgressProjects from "./Pages/Projects/LandingPages/InProgressProjects";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -28,6 +29,10 @@ function App() {
         <Route
           path="/projects/active/rejected"
           element={<ActiveProjectsLandingPage status="rejected" />}
+        ></Route>
+        <Route
+          path="/projects/in-progress"
+          element={<InProgressProjects />}
         ></Route>
         {/* <Home></Home> */}
         {/* <Projects></Projects> */}

@@ -9,6 +9,33 @@ import Completed from "./Sections/Completed";
 import Rejected from "./Sections/Rejected";
 import DisputedProjects from "./Sections/DisputedProjects";
 
+const sectionOptions = [
+  {
+    name: "New Project",
+    id: 1,
+  },
+  {
+    name: "Active",
+    id: 2,
+  },
+  {
+    name: "In Progress",
+    id: 3,
+  },
+  {
+    name: "Completed",
+    id: 4,
+  },
+  {
+    name: "Rejectedt",
+    id: 5,
+  },
+  {
+    name: "Disputed",
+    id: 6,
+  },
+];
+
 const Projects = () => {
   const [state, dispatch] = useGlobalContext();
   const [section, setSection] = useState(1);
@@ -71,72 +98,20 @@ const Projects = () => {
         </div>
 
         <div className="auto-cols-33% md:auto-cols-15% grid grid-flow-col grid-cols overflow-y-hidden overflow-x-auto scrollbar-hide mb-5 ml-5 md:ml-10 h-fit">
-          <a
-            href="#"
-            className={`ml-3 text-gray-800 text-center py-5 text-base md:text-sm rounded-t-lg ${
-              section === 1
-                ? "border-b-6 border-sky-400 text-black font-semibold bg-neutral-50"
-                : "border-b border-gray-500"
-            }`}
-            onClick={() => setSection(1)}
-          >
-            New Project
-          </a>
-          <a
-            href="#"
-            className={`text-gray-800 text-center py-5 text-base md:text-sm rounded-t-lg ${
-              section === 2
-                ? "border-b-6 border-sky-400 text-black font-semibold bg-neutral-50"
-                : "border-b border-gray-500"
-            }`}
-            onClick={() => setSection(2)}
-          >
-            Active
-          </a>
-          <a
-            href="#"
-            className={`text-gray-800 text-center py-5 text-base md:text-sm rounded-t-lg ${
-              section === 3
-                ? "border-b-6 border-sky-400 text-black font-semibold bg-neutral-50"
-                : "border-b border-gray-500"
-            }`}
-            onClick={() => setSection(3)}
-          >
-            In Progress
-          </a>
-          <a
-            href="#"
-            className={`text-gray-800 text-center py-5 text-base md:text-sm rounded-t-lg ${
-              section === 4
-                ? "border-b-6 border-sky-400 text-black font-semibold bg-neutral-50"
-                : "border-b border-gray-500"
-            }`}
-            onClick={() => setSection(4)}
-          >
-            Completed
-          </a>
-          <a
-            href="#"
-            className={`text-gray-800 text-center py-5 text-base md:text-sm rounded-t-lg ${
-              section === 5
-                ? "border-b-6 border-sky-400 text-black font-semibold bg-neutral-50"
-                : "border-b border-gray-500"
-            }`}
-            onClick={() => setSection(5)}
-          >
-            Rejected
-          </a>
-          <a
-            href="#"
-            className={`text-gray-800 text-center py-5 text-base md:text-sm rounded-t-lg ${
-              section === 6
-                ? "border-b-6 border-sky-400 text-black font-semibold bg-neutral-50"
-                : "border-b border-gray-500"
-            }`}
-            onClick={() => setSection(6)}
-          >
-            Disputed
-          </a>
+          {sectionOptions.map((option) => {
+            return (
+              <a
+                className={`ml-3 text-gray-800 text-center py-5 text-base md:text-sm rounded-t-lg cursor-pointer ${
+                  section === option.id
+                    ? "border-b-6 border-sky-400 text-black font-semibold bg-neutral-50"
+                    : "border-b border-gray-500"
+                }`}
+                onClick={() => setSection(option.id)}
+              >
+                {option.name}
+              </a>
+            );
+          })}
         </div>
         {section === 1 && <NewProjects />}
         {section === 2 && <ActiveProjects />}

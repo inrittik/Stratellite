@@ -19,13 +19,13 @@ const toggleOptions = [
     subSectionId: 2,
   },
   {
-    name: "Bidding",
-    icon: icons.Projects.price,
+    name: "Milestone",
+    icon: icons.Projects.milestone,
     subSectionId: 3,
   },
   {
-    name: "Milestone",
-    icon: icons.Projects.milestone,
+    name: "Feedback",
+    icon: icons.Projects.feedback,
     subSectionId: 4,
   },
   {
@@ -71,13 +71,9 @@ const sectionOptions = [
     id: 6,
   },
 ];
-interface ActiveProjects {
-  status: string;
-}
-
-const ActiveProjects: React.FC<ActiveProjects> = ({ status }) => {
+const InProgressProjects = () => {
   const [state, dispatch] = useGlobalContext();
-  const [section, setSection] = useState(2);
+  const [section, setSection] = useState(3);
   const [subsection, setSubsection] = useState(1);
   return (
     <div className="project overflow-y-auto overflow-x-hidden mx-auto">
@@ -157,10 +153,9 @@ const ActiveProjects: React.FC<ActiveProjects> = ({ status }) => {
       {/* landing section */}
       <div className="flex flex-col-reverse md:flex-row">
         {/* main section */}
-        {subsection === 1 && <ProjectInfo status={status} />}
+        {subsection === 1 && <ProjectInfo status={"in-progress"} />}
         {subsection === 2 && <ManagerInfo />}
-        {subsection === 3 && <Bidding isMeetingDone={false} />}
-        {subsection === 4 && <Milestone />}
+        {subsection === 3 && <Milestone />}
 
         {/* toggles laptop view*/}
         <div className="hidden md:flex md:flex-col w-20 items-center ml-12">
@@ -206,4 +201,4 @@ const ActiveProjects: React.FC<ActiveProjects> = ({ status }) => {
   );
 };
 
-export default ActiveProjects;
+export default InProgressProjects;

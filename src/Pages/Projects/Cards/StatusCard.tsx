@@ -1,4 +1,5 @@
 import cx from "classnames";
+import { Link } from "react-router-dom";
 export interface ActiveProjectCardsProps {
   status: string;
 }
@@ -38,19 +39,19 @@ const StatusCard: React.FC<ActiveProjectCardsProps> = ({ status }) => {
       </div>
 
       {/* section 3 */}
-      <a
-        href="#"
+      <Link
+        to={`/projects/${status.toLowerCase()}`}
         className={cx(
           "py-4 rounded-md text-white cursor-pointer text-sm w-11/12 md:w-72 md:ml-3 text-center my-3 mx-3 md:mx-0",
           {
             "bg-green-500": status === "Approved" || status === "Completed",
-            "bg-sky-400": status === "Under Review" || status === "In Progress",
+            "bg-sky-400": status === "Under-Review" || status === "In-Progress",
             "bg-red-500": status === "Rejected",
           }
         )}
       >
         {status}
-      </a>
+      </Link>
     </div>
   );
 };
