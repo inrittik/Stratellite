@@ -1,0 +1,28 @@
+{
+  "milestones": [
+    {
+      "message": "Contract Order Confirmation"
+    },
+    {
+      "message": "Advance Payment"
+    },
+    {
+      "message": "Project Started"
+    },
+    {
+      "message": "Raw Material Arranged"
+    },
+    {
+      "message": "Task A Completed"
+    },
+    {
+      "message": "Task B Completed"
+    },
+    {
+      "message": "Project Completed"
+    },
+    {
+      "message": "Advance Payment"
+    }
+  ]
+}

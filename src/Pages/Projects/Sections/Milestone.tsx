@@ -1,6 +1,25 @@
-import PendingRadioButton from "../../../Components/PendingRadioButton";
+import { useState } from "react";
+import MilestoneItem from "../../../Components/MilestoneItem";
 
 const Milestone = () => {
+  const [milestone, setMilestone] = useState<any[]>([
+    "Contract Order Confirmation",
+    "Advance Payment",
+    "Project Started",
+    "Raw Material Arranged",
+    "Task A Completed",
+    "Task B Completed",
+  ]);
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    const task = { message };
+    setMilestone(() => [...milestone, task]);
+
+    setMessage("");
+  };
+
   return (
     <div className="flex flex-col w-11/12 md:w-10/12 mt-6 md:mt-0 ml-4 md:ml-12 overflow-y-auto">
       <div className="text-base md:text-1.5xl text-gray-900 font-semibold mb-2">
@@ -14,16 +33,35 @@ const Milestone = () => {
         non exercitationem eos.
       </div>
 
-      <div className="flex flex-col my-12">
-        <PendingRadioButton message={"Contract Order Confirmation"} />
-        <PendingRadioButton message={"Advance Payment"} />
-        <PendingRadioButton message={"Project Started"} />
-        <PendingRadioButton message={"Raw Material Arranged"} />
-        <PendingRadioButton message={"Task A Completed"} />
-        <PendingRadioButton message={"Task B Completed"} />
-        <PendingRadioButton message={"Project Completed"} />
-        <PendingRadioButton message={"Advance Payment"} />
+      <div className="flex flex-col mt-3">
+        {milestone.map((task: any) => {
+          return (
+            <MilestoneItem
+              message={task}
+              milestone={milestone}
+              setMilestone={setMilestone}
+            />
+          );
+        })}
       </div>
+
+      <form onSubmit={handleSubmit}>
+        <div className="flex my-3 justify-between w-100">
+          <div className="p-3 rounded w-12 h-12 flex justify-center items-center cursor-pointer text-black border border-slate-300 mr-3 text-1.5xl font-semibold">
+            1
+          </div>
+          <input
+            type="text"
+            className="quoteprice outline-none rounded p-2 placeholder-gray-700 placeholder-gray-700 text-sm text-gray-700 flex-grow border border-slate-300"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          />
+        </div>
+
+        <button className="w-full bg-sky-400 text-white text-center mb-3 py-4 rounded">
+          Add New Stage
+        </button>
+      </form>
     </div>
   );
 };
