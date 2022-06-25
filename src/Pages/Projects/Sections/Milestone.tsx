@@ -13,9 +13,9 @@ const Milestone = () => {
   const [message, setMessage] = useState("");
 
   const handleSubmit = (e: any) => {
+    console.log(e);
     e.preventDefault();
-    const task = { message };
-    setMilestone(() => [...milestone, task]);
+    setMilestone(() => [...milestone, message]);
 
     setMessage("");
   };
