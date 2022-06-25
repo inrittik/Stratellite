@@ -1,38 +1,37 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import sidebarLogo from "../assets/images/sidebar-logo.png";
 import sidebarLogoMob from "../assets/images/sidebar-logo-mobile.png";
 import { useGlobalContext } from "../Contexts/GlobalContext";
 import { icons } from "../utils/icons";
-import SidebarItem, { SidebarItemProps } from "./SidebarItem";
+import SidebarItem from "./SidebarItem";
 import cx from "classnames";
 import { Link } from "react-router-dom";
 interface SidebarProps {}
 
-const sidebarItems: SidebarItemProps[] = [
+const sidebarItems = [
   {
     icon: icons.sidebarIcons.dashboard,
-    isSelected: true,
     text: "Dashboard",
     link: "/",
+    badgeValue: null,
     id: 1,
   },
   {
     icon: icons.sidebarIcons.project,
-    isSelected: false,
     text: "Project",
     link: "/projects",
+    badgeValue: null,
     id: 2,
   },
   {
     icon: icons.sidebarIcons.calendar,
-    isSelected: false,
     text: "Calendar",
     link: "/calender",
+    badgeValue: null,
     id: 3,
   },
   {
     icon: icons.sidebarIcons.messages,
-    isSelected: false,
     text: "Messages",
     link: "/messages",
     badgeValue: 5,
@@ -40,7 +39,6 @@ const sidebarItems: SidebarItemProps[] = [
   },
   {
     icon: icons.sidebarIcons.notifications,
-    isSelected: false,
     text: "Notifications",
     link: "/notifications",
     badgeValue: 5,
@@ -48,28 +46,28 @@ const sidebarItems: SidebarItemProps[] = [
   },
   {
     icon: icons.sidebarIcons.contacts,
-    isSelected: false,
     text: "Contact",
     link: "/contact",
+    badgeValue: null,
     id: 6,
   },
 ];
 
-const sidebarItems2: SidebarItemProps[] = [
+const sidebarItems2 = [
   {
     icon: icons.sidebarIcons.promotions,
-    isSelected: false,
     text: "Promotions",
     link: "/promotions",
+    badgeValue: null,
     id: 7,
   },
 ];
-const sidebarItems3: SidebarItemProps[] = [
+const sidebarItems3 = [
   {
     icon: icons.sidebarIcons.settings,
-    isSelected: false,
     text: "Settings",
     link: "/settings ",
+    badgeValue: null,
     id: 8,
   },
 ];
@@ -97,60 +95,41 @@ const Sidebar: React.FC<SidebarProps> = () => {
       <div className="flex bg-inherit flex-col pt-20 px-5 md:px-0">
         {sidebarItems.map((x) => (
           <Link to={x.link} onClick={() => setSelectedItem(x.id)}>
-            <div
-              className={cx(
-                "flex h-16 items-center pr-7 md:bg-transparent cursor-pointer rounded-md md:rounded-none",
-                {
-                  "bg-sky-400": selectedItem === x.id,
-                }
-              )}
-            >
-              <div
-                className={cx(
-                  "invisible md:visible  h-full bg-sky-400 w-2.125 mr-5 md:mr-10 rounded-r-md",
-                  {
-                    "md:invisible": selectedItem !== x.id,
-                  }
-                )}
-              ></div>
-              <div
-                className={cx("icon mr-6", {
-                  "md:text-sky-400": selectedItem === x.id,
-                  "text-graymain": selectedItem !== x.id,
-                  "text-white": selectedItem === x.id,
-                })}
-              >
-                {x.icon}
-              </div>
-              <div
-                className={cx("flex-grow text-lg", {
-                  "font-medium": selectedItem === x.id,
-                  "md:text-sky-400": selectedItem === x.id,
-                  "text-graymain": selectedItem !== x.id,
-                  "text-white": selectedItem === x.id,
-                })}
-              >
-                {x.text}
-              </div>
-              {x.badgeValue && (
-                <div className="bg-sky-400 text-white text-xs w-8 h-6 flex items-center justify-center rounded-md">
-                  {x.badgeValue}
-                </div>
-              )}
-            </div>
+            <SidebarItem
+              id={x.id}
+              text={x.text}
+              icon={x.icon}
+              link={x.link}
+              selectedItem={selectedItem}
+              badgeValue={x.badgeValue}
+            ></SidebarItem>
           </Link>
         ))}
       </div>
       <div className="text-sm font-medium my-9 ml-12 ">Promotions</div>
       <div className="flex flex-col px-5 md:px-0">
         {sidebarItems2.map((x) => (
-          <SidebarItem {...x}></SidebarItem>
+          <SidebarItem
+            id={x.id}
+            text={x.text}
+            icon={x.icon}
+            link={x.link}
+            selectedItem={selectedItem}
+            badgeValue={x.badgeValue}
+          ></SidebarItem>
         ))}
       </div>
       <div className="text-sm font-medium my-9 ml-12 md:hidden ">Settings</div>
       <div className="md:hidden flex flex-col px-5 md:px-0">
         {sidebarItems3.map((x) => (
-          <SidebarItem {...x}></SidebarItem>
+          <SidebarItem
+            id={x.id}
+            text={x.text}
+            icon={x.icon}
+            link={x.link}
+            selectedItem={selectedItem}
+            badgeValue={x.badgeValue}
+          ></SidebarItem>
         ))}
       </div>
       <div className="items-end flex-grow flex md:hidden">
