@@ -16,16 +16,12 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
   icon,
   badgeValue,
 }) => {
-  const [selected, setSelected] = useState(isSelected);
-  useEffect(() => {
-    setSelected(isSelected);
-  }, [isSelected]);
   return (
     <div
       className={cx(
         "flex h-16 items-center pr-7 md:bg-transparent cursor-pointer rounded-md md:rounded-none",
         {
-          "bg-sky-400": selected,
+          "bg-sky-400": isSelected,
         }
       )}
     >
@@ -33,25 +29,25 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
         className={cx(
           "invisible md:visible  h-full bg-sky-400 w-2.125 mr-5 md:mr-10 rounded-r-md",
           {
-            "md:invisible": !selected,
+            "md:invisible": !isSelected,
           }
         )}
       ></div>
       <div
         className={cx("icon mr-6", {
-          "md:text-sky-400": selected,
-          "text-graymain": !selected,
-          "text-white": selected,
+          "md:text-sky-400": isSelected,
+          "text-graymain": !isSelected,
+          "text-white": isSelected,
         })}
       >
         {icon}
       </div>
       <div
         className={cx("flex-grow text-lg", {
-          "font-medium": selected,
-          "md:text-sky-400": selected,
-          "text-graymain": !selected,
-          "text-white": selected,
+          "font-medium": isSelected,
+          "md:text-sky-400": isSelected,
+          "text-graymain": !isSelected,
+          "text-white": isSelected,
         })}
       >
         {text}

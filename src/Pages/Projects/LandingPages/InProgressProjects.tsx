@@ -11,6 +11,7 @@ import ActiveProjects from "../Sections/ActiveProjects";
 import Completed from "../Sections/Completed";
 import Rejected from "../Sections/Rejected";
 import DisputedProjects from "../Sections/DisputedProjects";
+import Feedback from "../Sections/Feedback";
 
 const toggleOptions = [
   {
@@ -171,6 +172,7 @@ const InProgressProjects = () => {
         {subsection === 1 && <ProjectInfo status={"in-progress"} />}
         {subsection === 2 && <ManagerInfo />}
         {subsection === 3 && <Milestone />}
+        {subsection === 4 && <Feedback />}
 
         {/* toggles laptop view*/}
         <div className="hidden md:flex md:flex-col w-20 items-center ml-12">

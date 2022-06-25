@@ -76,13 +76,7 @@ const sidebarItems3: SidebarItemProps[] = [
 const Sidebar: React.FC<SidebarProps> = () => {
   const [state, dispatch] = useGlobalContext();
   const [selectedItem, setSelectedItem] = useState(1);
-  useEffect(() => {
-    sidebarItems.forEach((item) => {
-      if (item.id === selectedItem) {
-        item.isSelected = true;
-      } else item.isSelected = false;
-    });
-  }, [selectedItem]);
+
   return (
     <div
       className={cx(
@@ -103,7 +97,47 @@ const Sidebar: React.FC<SidebarProps> = () => {
       <div className="flex bg-inherit flex-col pt-20 px-5 md:px-0">
         {sidebarItems.map((x) => (
           <Link to={x.link} onClick={() => setSelectedItem(x.id)}>
-            <SidebarItem {...x}></SidebarItem>
+            <div
+              className={cx(
+                "flex h-16 items-center pr-7 md:bg-transparent cursor-pointer rounded-md md:rounded-none",
+                {
+                  "bg-sky-400": selectedItem === x.id,
+                }
+              )}
+            >
+              <div
+                className={cx(
+                  "invisible md:visible  h-full bg-sky-400 w-2.125 mr-5 md:mr-10 rounded-r-md",
+                  {
+                    "md:invisible": selectedItem !== x.id,
+                  }
+                )}
+              ></div>
+              <div
+                className={cx("icon mr-6", {
+                  "md:text-sky-400": selectedItem === x.id,
+                  "text-graymain": selectedItem !== x.id,
+                  "text-white": selectedItem === x.id,
+                })}
+              >
+                {x.icon}
+              </div>
+              <div
+                className={cx("flex-grow text-lg", {
+                  "font-medium": selectedItem === x.id,
+                  "md:text-sky-400": selectedItem === x.id,
+                  "text-graymain": selectedItem !== x.id,
+                  "text-white": selectedItem === x.id,
+                })}
+              >
+                {x.text}
+              </div>
+              {x.badgeValue && (
+                <div className="bg-sky-400 text-white text-xs w-8 h-6 flex items-center justify-center rounded-md">
+                  {x.badgeValue}
+                </div>
+              )}
+            </div>
           </Link>
         ))}
       </div>
