@@ -11,6 +11,7 @@ import InProgress from "../Sections/InProgress";
 import Completed from "../Sections/Completed";
 import Rejected from "../Sections/Rejected";
 import DisputedProjects from "../Sections/DisputedProjects";
+import BackButton from "../../../Components/BackButton";
 
 const toggleOptions = [
   {
@@ -88,9 +89,7 @@ const ActiveProjects: React.FC<ActiveProjects> = ({ status }) => {
     <div className="project overflow-y-auto overflow-x-hidden mx-auto">
       <div className="flex flex-col overflow-x-hidden w-full">
         <div className="flex gap-4 mt-6 md:mt-0 md:min-h-[8.5rem] items-center mx-6 md:mx-12">
-          <div className="p-4 px-5 border border-gray-300 rounded-lg md:hidden">
-            {icons.Projects.back}
-          </div>
+          <BackButton />
           <div className=" md:h-18 h-14 rounded-md flex pl-8 items-center py-6 gap-7 bg-gray-400 w-3/4">
             {icons.search}
             <input

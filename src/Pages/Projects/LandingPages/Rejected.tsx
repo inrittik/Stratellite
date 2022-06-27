@@ -12,6 +12,7 @@ import Completed from "../Sections/Completed";
 import Rejected from "../Sections/Rejected";
 import DisputedProjects from "../Sections/DisputedProjects";
 import Feedback from "../Sections/Feedback";
+import InProgress from "../Sections/InProgress";
 import BackButton from "../../../Components/BackButton";
 
 const toggleOptions = [
@@ -78,9 +79,9 @@ const sectionOptions = [
     id: 6,
   },
 ];
-const InProgressProjects = () => {
+const RejectedProjects = () => {
   const [state, dispatch] = useGlobalContext();
-  const [section, setSection] = useState(3);
+  const [section, setSection] = useState(5);
   const [subsection, setSubsection] = useState(1);
   return (
     <div className="project overflow-y-auto overflow-x-hidden mx-auto">
@@ -119,7 +120,7 @@ const InProgressProjects = () => {
             <div className="text-2xl md:text-28 font-medium mb-4 my-6">
               Your Projects
               <span className="text-gray-600 font-normal md:hidden">
-                /In Progress
+                /Rejected
               </span>
             </div>
             <div className="hidden md:block text-base md:text-lg text-gray-600 mb-6">
@@ -157,18 +158,18 @@ const InProgressProjects = () => {
 
       {section === 1 && <NewProjects />}
       {section === 2 && <ActiveProjects />}
+      {section === 3 && <InProgress />}
       {section === 4 && <Completed />}
-      {section === 5 && <Rejected />}
       {section === 6 && <DisputedProjects />}
 
       {/* landing section */}
       <div
         className={cx("flex flex-col-reverse md:flex-row", {
-          hidden: section !== 3,
+          hidden: section !== 5,
         })}
       >
         {/* main section */}
-        {subsection === 1 && <ProjectInfo status={"in-progress"} />}
+        {subsection === 1 && <ProjectInfo status={"rejected"} />}
         {subsection === 2 && <ManagerInfo />}
         {subsection === 3 && <Milestone />}
         {subsection === 4 && <Feedback />}
@@ -217,4 +218,4 @@ const InProgressProjects = () => {
   );
 };
 
-export default InProgressProjects;
+export default RejectedProjects;

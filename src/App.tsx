@@ -6,6 +6,8 @@ import ProjectsLandingPage from "./Pages/Projects/LandingPages/NewProjects";
 import ActiveProjectsLandingPage from "./Pages/Projects/LandingPages/ActiveProjects";
 import InProgressProjects from "./Pages/Projects/LandingPages/InProgressProjects";
 import { Routes, Route } from "react-router-dom";
+import CompletedProjects from "./Pages/Projects/LandingPages/Completed";
+import RejectedProjects from "./Pages/Projects/LandingPages/Rejected";
 
 function App() {
   return (
@@ -34,6 +36,11 @@ function App() {
           path="/projects/in-progress"
           element={<InProgressProjects />}
         ></Route>
+        <Route
+          path="/projects/completed"
+          element={<CompletedProjects />}
+        ></Route>
+        <Route path="/projects/rejected" element={<RejectedProjects />}></Route>
         {/* <Home></Home> */}
         {/* <Projects></Projects> */}
       </Routes>

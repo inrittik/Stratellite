@@ -29,7 +29,8 @@ const ProjectInfo: React.FC<ActiveProjects> = ({ status }) => {
           className={cx(
             " flex items-center justify-evenly py-2 rounded-md cursor-pointer h-fit text-sm w-32 md:w-36 text-center font-semibold md:text-xssm mx-3 md:mx-0",
             {
-              "bg-green-100 text-green-500": status === "approved",
+              "bg-green-100 text-green-500":
+                status === "approved" || status === "completed",
               "bg-blue-100 text-blue-500 w-44": status === "under-review",
               "bg-red-100 text-red-500": status === "rejected",
               "bg-yellow-100 text-yellow-500": status === "in-progress",
@@ -37,11 +38,15 @@ const ProjectInfo: React.FC<ActiveProjects> = ({ status }) => {
           )}
         >
           {status === "approved" && icons.Projects.tick}
+          {status === "completed" && icons.Projects.tick}
           {status === "under-review" && icons.Projects.review}
           {status === "in-progress" && icons.Projects.inProgress}
           {status === "rejected" && icons.Projects.rejected}
           <span className={`${status !== "approved" ? "hidden" : ""}`}>
             Approved
+          </span>
+          <span className={`${status !== "completed" ? "hidden" : ""}`}>
+            Completed
           </span>
           <span className={`${status !== "under-review" ? "hidden" : ""}`}>
             Under-Review
@@ -82,9 +87,10 @@ const ProjectInfo: React.FC<ActiveProjects> = ({ status }) => {
         {/* status */}
         <div
           className={cx(
-            " flex items-center justify-evenly py-3 rounded-md bg-green-100 text-green-500 cursor-pointer text-sm md:w-36 text-center font-semibold my-3 md:mx-0",
+            " flex items-center justify-evenly py-3 rounded-md cursor-pointer text-sm md:w-36 text-center font-semibold my-3 md:mx-0",
             {
-              "bg-green-100 text-green-500": status === "approved",
+              "bg-green-100 text-green-500":
+                status === "approved" || status === "completed",
               "bg-blue-100 text-blue-500": status === "under-review",
               "bg-red-100 text-red-500": status === "rejected",
               "bg-yellow-100 text-yellow-500": status === "in-progress",
@@ -92,11 +98,15 @@ const ProjectInfo: React.FC<ActiveProjects> = ({ status }) => {
           )}
         >
           {status === "approved" && icons.Projects.tick}
+          {status === "completed" && icons.Projects.tick}
           {status === "under-review" && icons.Projects.review}
           {status === "in-progress" && icons.Projects.inProgress}
           {status === "rejected" && icons.Projects.rejected}
           <span className={`${status !== "approved" ? "hidden" : ""}`}>
             Approved
+          </span>
+          <span className={`${status !== "completed" ? "hidden" : ""}`}>
+            Completed
           </span>
           <span className={`${status !== "under-review" ? "hidden" : ""}`}>
             Under-Review
