@@ -12,6 +12,7 @@ import Completed from "../Sections/Completed";
 import Rejected from "../Sections/Rejected";
 import DisputedProjects from "../Sections/DisputedProjects";
 import Feedback from "../Sections/Feedback";
+import PhotoGallery from "../Sections/PhotoGallery";
 import BackButton from "../../../Components/BackButton";
 
 const toggleOptions = [
@@ -117,12 +118,25 @@ const InProgressProjects = () => {
         <div className="flex items-center justify-between mx-6 md:mx-12">
           <div>
             <div className="text-2xl md:text-28 font-medium mb-4 my-6">
-              Your Projects
-              <span className="text-gray-600 font-normal md:hidden">
+              <span className={`${subsection === 6 ? "hidden" : ""}`}>
+                Your Projects
+              </span>
+              <span className={`${subsection === 6 ? "" : "hidden"}`}>
+                Photo Gallery
+              </span>
+              <span
+                className={`text-gray-600 font-normal md:hidden ${
+                  subsection === 6 ? "hidden" : ""
+                }`}
+              >
                 /In Progress
               </span>
             </div>
-            <div className="hidden md:block text-base md:text-lg text-gray-600 mb-6">
+            <div
+              className={`hidden md:block text-base md:text-lg text-gray-600 mb-6 ${
+                subsection === 6 ? "md:hidden" : ""
+              }`}
+            >
               Here is a list of all the projects you have been working on.
             </div>
           </div>
@@ -137,7 +151,14 @@ const InProgressProjects = () => {
           </div>
         </div>
 
-        <div className="hidden auto-cols-33% md:auto-cols-15% md:grid grid-flow-col grid-cols overflow-y-hidden overflow-x-auto scrollbar-hide mb-5 ml-5 md:ml-10 h-fit">
+        <div
+          className={cx(
+            "hidden auto-cols-33% md:auto-cols-15% md:grid grid-flow-col grid-cols overflow-y-hidden overflow-x-auto scrollbar-hide mb-5 ml-5 md:ml-10 h-fit",
+            {
+              "md:hidden": subsection === 6,
+            }
+          )}
+        >
           {sectionOptions.map((option) => {
             return (
               <a
@@ -172,6 +193,7 @@ const InProgressProjects = () => {
         {subsection === 2 && <ManagerInfo />}
         {subsection === 3 && <Milestone />}
         {subsection === 4 && <Feedback />}
+        {subsection === 6 && <PhotoGallery />}
 
         {/* toggles laptop view*/}
         <div className="hidden md:flex md:flex-col w-20 items-center ml-12">
