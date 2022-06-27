@@ -12,6 +12,7 @@ import Completed from "../Sections/Completed";
 import Rejected from "../Sections/Rejected";
 import DisputedProjects from "../Sections/DisputedProjects";
 import BackButton from "../../../Components/BackButton";
+import PhotoGallery from "../Sections/PhotoGallery";
 
 const toggleOptions = [
   {
@@ -120,12 +121,25 @@ const ActiveProjects: React.FC<ActiveProjects> = ({ status }) => {
         <div className="flex items-center justify-between mx-6 md:mx-12">
           <div>
             <div className="text-2xl md:text-28 font-medium mb-4 my-6">
-              Your Projects
-              <span className="text-gray-600 font-normal md:hidden">
+              <span className={`${subsection === 6 ? "hidden" : ""}`}>
+                Your Projects
+              </span>
+              <span className={`${subsection === 6 ? "" : "hidden"}`}>
+                Photo Gallery
+              </span>
+              <span
+                className={`text-gray-600 font-normal md:hidden ${
+                  subsection === 6 ? "hidden" : ""
+                }`}
+              >
                 /Active
               </span>
             </div>
-            <div className="hidden md:block text-base md:text-lg text-gray-600 mb-6">
+            <div
+              className={`hidden md:block text-base md:text-lg text-gray-600 mb-6 ${
+                subsection === 6 ? "md:hidden" : ""
+              }`}
+            >
               Here is a list of all the projects you have been working on.
             </div>
           </div>
@@ -140,7 +154,14 @@ const ActiveProjects: React.FC<ActiveProjects> = ({ status }) => {
           </div>
         </div>
 
-        <div className="hidden auto-cols-33% md:auto-cols-15% md:grid grid-flow-col grid-cols overflow-y-hidden overflow-x-auto scrollbar-hide mb-5 ml-5 md:ml-10 h-fit">
+        <div
+          className={cx(
+            "hidden auto-cols-33% md:auto-cols-15% md:grid grid-flow-col grid-cols overflow-y-hidden overflow-x-auto scrollbar-hide mb-5 ml-5 md:ml-10 h-fit",
+            {
+              "md:hidden": subsection === 6,
+            }
+          )}
+        >
           {sectionOptions.map((option) => {
             return (
               <a
@@ -174,6 +195,7 @@ const ActiveProjects: React.FC<ActiveProjects> = ({ status }) => {
         {subsection === 2 && <ManagerInfo />}
         {subsection === 3 && <Bidding isMeetingDone={false} />}
         {subsection === 4 && <Milestone />}
+        {subsection === 6 && <PhotoGallery />}
 
         {/* toggles laptop view*/}
         <div className="hidden md:flex md:flex-col w-20 items-center ml-12">
