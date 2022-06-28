@@ -18,7 +18,7 @@ const GallerySection = () => {
   return (
     <>
       <div className="flex justify-between items-center border-t border-gray-300 pt-2 mb-6">
-        <div className="flex flex-col w-2/3">
+        <div className="flex flex-col md:w-2/3">
           <form onSubmit={handleSubmit}>
             <div className="flex">
               <input
@@ -52,12 +52,12 @@ const GallerySection = () => {
             </div>
           </form>
           <div className="flex justify-between mx-3 mt-2 items-center">
-            <div className="flex justify-between w-60">
-              <div className="flex justify-between w-28">
+            <div className="flex justify-between w-48 md:w-60">
+              <div className="flex justify-between w-20 md:w-28 items-center">
                 <span>{icons.gallery.calender}</span>
                 2-feb, 2022
               </div>
-              <div className="flex justify-between w-24">
+              <div className="flex justify-between w-20 md:w-24 items-center">
                 <span>{icons.gallery.clock}</span>
                 06:54 AM
               </div>
@@ -66,7 +66,9 @@ const GallerySection = () => {
         </div>
 
         <button
-          className="p-4 px-7 border border-slate-300 rounded text-sky-400 flex items-center w-40 justify-between h-fit"
+          className={`${
+            submit ? "flex" : "hidden"
+          } relative bottom-4 md:bottom-0 p-2 px-3 md:px-7 border border-slate-300 rounded text-sky-400 flex items-center w-24 md:w-40 justify-between mr-2 h-fit md:p-4 md:flex md:mr-0`}
           onClick={handleEdit}
         >
           {icons.gallery.edit}
