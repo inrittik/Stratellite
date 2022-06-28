@@ -1,7 +1,6 @@
 import { icons } from "../../utils/icons";
 import { useState } from "react";
 import { useGlobalContext } from "../../Contexts/GlobalContext";
-import { useNavigate } from "react-router-dom";
 import BackButton from "../../Components/BackButton";
 import NewProjects from "./Sections/NewProjects";
 import ActiveProjects from "./Sections/ActiveProjects";
@@ -40,7 +39,6 @@ const sectionOptions = [
 const Projects = () => {
   const [state, dispatch] = useGlobalContext();
   const [section, setSection] = useState(1);
-  const navigate = useNavigate();
   return (
     <div className="project overflow-y-auto overflow-x-hidden mx-auto">
       <div className="flex flex-col overflow-x-hidden w-full">
@@ -65,6 +63,7 @@ const Projects = () => {
             <img
               className="h-16 w-16 rounded-full object-cover mr-5"
               src="https://i.pinimg.com/564x/f7/6b/91/f76b91f22019b550e0848519719a03f1.jpg"
+              alt=""
             ></img>
             <div className="flex flex-col justify-between">
               <div className="font-medium text-1.5xl mb-2">Oliver Smith</div>
@@ -93,14 +92,14 @@ const Projects = () => {
           </div>
         </div>
 
-        <div className="auto-cols-33% md:auto-cols-15% grid grid-flow-col grid-cols overflow-y-hidden overflow-x-auto scrollbar-hide mb-5 ml-5 md:ml-10 h-fit">
+        <div className="auto-cols-33% md:auto-cols-15% grid grid-flow-col grid-cols overflow-y-hidden overflow-x-auto scrollbar-hide mb-5 ml-5 md:mx-12 h-fit border-b border-gray-500">
           {sectionOptions.map((option) => {
             return (
               <a
                 className={`ml-3 text-gray-800 text-center py-5 text-base md:text-sm rounded-t-lg cursor-pointer ${
                   section === option.id
                     ? "border-b-6 border-sky-400 text-black font-semibold bg-neutral-50"
-                    : "border-b border-gray-500"
+                    : ""
                 }`}
                 onClick={() => setSection(option.id)}
               >

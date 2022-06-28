@@ -1,6 +1,4 @@
-import React from "react";
 import { icons } from "../../../utils/icons";
-import LandingPage from "../LandingPages/NewProjects";
 
 const ProjectCard = () => {
   return (
@@ -48,7 +46,7 @@ const ProjectCard = () => {
         </a>
         <a
           href="#"
-          className="py-4 text-sky-400 border-sky-400 border rounded-md text-white cursor-pointer px-7 text-sm w-100 md:w-72 text-center my-3"
+          className="py-4 text-sky-400 border-sky-400 border rounded-md text-sky-400 cursor-pointer px-7 text-sm w-100 md:w-72 text-center my-3"
         >
           Submit Interest
         </a>

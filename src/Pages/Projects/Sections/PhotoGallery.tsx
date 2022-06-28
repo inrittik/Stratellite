@@ -17,7 +17,7 @@ const PhotoGallery = () => {
         </div>
       </div>
 
-      {/* title, date/time */}
+      {/* section for images */}
       <GallerySection />
       <GallerySection />
       <GallerySection />

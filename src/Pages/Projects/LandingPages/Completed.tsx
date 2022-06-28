@@ -15,6 +15,7 @@ import Feedback from "../Sections/Feedback";
 import InProgress from "../Sections/InProgress";
 import BackButton from "../../../Components/BackButton";
 import PhotoGallery from "../Sections/PhotoGallery";
+import { useNavigate } from "react-router-dom";
 
 const toggleOptions = [
   {
@@ -84,6 +85,7 @@ const CompletedProjects = () => {
   const [state, dispatch] = useGlobalContext();
   const [section, setSection] = useState(4);
   const [subsection, setSubsection] = useState(1);
+  const navigate = useNavigate();
   return (
     <div className="project overflow-y-auto overflow-x-hidden mx-auto">
       <div className="flex flex-col overflow-x-hidden w-full">
@@ -122,7 +124,17 @@ const CompletedProjects = () => {
               <span className={`${subsection === 6 ? "hidden" : ""}`}>
                 Your Projects
               </span>
-              <span className={`${subsection === 6 ? "" : "hidden"}`}>
+              <span
+                className={`flex items-center ${
+                  subsection === 6 ? "" : "hidden"
+                }`}
+              >
+                <span
+                  className="p-3 cursor-pointer"
+                  onClick={() => navigate(-1)}
+                >
+                  {icons.gallery.back}
+                </span>
                 Photo Gallery
               </span>
               <span
@@ -154,7 +166,7 @@ const CompletedProjects = () => {
 
         <div
           className={cx(
-            "hidden auto-cols-33% md:auto-cols-15% md:grid grid-flow-col grid-cols overflow-y-hidden overflow-x-auto scrollbar-hide mb-5 ml-5 md:ml-10 h-fit",
+            "hidden auto-cols-33% md:auto-cols-15% md:grid grid-flow-col grid-cols overflow-y-hidden overflow-x-auto scrollbar-hide mb-5 ml-5 md:mx-12 h-fit border-b border-gray-500",
             {
               "md:hidden": subsection === 6,
             }
@@ -166,7 +178,7 @@ const CompletedProjects = () => {
                 className={`ml-3 text-gray-800 text-center py-5 text-base md:text-sm rounded-t-lg cursor-pointer ${
                   section === option.id
                     ? "border-b-6 border-sky-400 text-black font-semibold bg-neutral-50"
-                    : "border-b border-gray-500"
+                    : ""
                 }`}
                 onClick={() => setSection(option.id)}
               >
@@ -219,14 +231,14 @@ const CompletedProjects = () => {
         </div>
 
         {/* toggles mobile view */}
-        <div className="auto-cols-33% md:auto-cols-15% grid grid-flow-col grid-cols overflow-y-hidden overflow-x-auto scrollbar-hide mb-0 ml-5 md:ml-10 h-fit md:hidden">
+        <div className="auto-cols-33% md:auto-cols-15% grid grid-flow-col grid-cols overflow-y-hidden overflow-x-auto scrollbar-hide mb-0 ml-5 md:mx-12 h-fit md:hidden border-b border-gray-500">
           {toggleOptions.map((option) => {
             return (
               <a
                 className={`ml-3 text-gray-800 text-center py-5 text-base md:text-sm rounded-t-lg ${
                   subsection === option.subSectionId
                     ? "border-b-6 border-sky-400 text-black font-semibold bg-neutral-50"
-                    : "border-b border-gray-500"
+                    : ""
                 }`}
                 onClick={() => setSubsection(option.subSectionId)}
               >
