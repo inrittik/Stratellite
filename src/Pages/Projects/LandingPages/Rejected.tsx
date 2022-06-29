@@ -85,6 +85,7 @@ const RejectedProjects = () => {
   const [state, dispatch] = useGlobalContext();
   const [section, setSection] = useState(5);
   const [subsection, setSubsection] = useState(1);
+  const [more, setMore] = useState(false);
   const navigate = useNavigate();
   return (
     <div className="project overflow-y-auto overflow-x-hidden mx-auto">
@@ -212,20 +213,42 @@ const RejectedProjects = () => {
         <div className="hidden md:flex md:flex-col w-20 items-center ml-12">
           {toggleOptions.map((option) => {
             return (
-              <div
-                className={cx(
-                  "p-3 mb-3 rounded w-12 h-12 flex justify-center items-center cursor-pointer",
-                  {
-                    "text-gray-100 border border-gray-500":
-                      subsection !== option.subSectionId,
-                    "text-white bg-sky-400": subsection === option.subSectionId,
-                    "": subsection === option.subSectionId,
-                  }
-                )}
-                onClick={() => setSubsection(option.subSectionId)}
-              >
-                {option.icon}
-              </div>
+              <>
+                <div
+                  className={cx(
+                    "p-3 mb-3 rounded w-12 h-12 flex justify-center items-center cursor-pointer",
+                    {
+                      "text-gray-100 border border-gray-500":
+                        subsection !== option.subSectionId,
+                      "text-white bg-sky-400":
+                        subsection === option.subSectionId,
+                      "": subsection === option.subSectionId,
+                    }
+                  )}
+                  onClick={() => {
+                    option.subSectionId === 7
+                      ? setMore(!more)
+                      : setSubsection(option.subSectionId);
+                  }}
+                >
+                  {option.icon}
+                </div>
+                <div
+                  className={cx(
+                    "flex flex-col rounded border items-center border-gray-500 h-fit w-32 shadow-[0_4px_30px_rgba(0,0,0,0.25)] relative right-16 bg-white bottom-8",
+                    {
+                      hidden: option.subSectionId !== 7 || more === false,
+                    }
+                  )}
+                >
+                  <a className="font-semibold py-2 border-b border-gray-500 w-4/5 text-center cursor-pointer">
+                    Report
+                  </a>
+                  <a className="text-red-500 py-2 cursor-pointer">
+                    Arise Dispute
+                  </a>
+                </div>
+              </>
             );
           })}
         </div>
