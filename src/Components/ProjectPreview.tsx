@@ -1,6 +1,7 @@
 import { icons } from "../utils/icons";
 import Property1 from "../assets/project/property1.png";
 import Property2 from "../assets/project/property2.png";
+import { Link } from "react-router-dom";
 
 interface ProjectPreviewProps {
   setExpand: any;
@@ -77,12 +78,15 @@ const ProjectPreview: React.FC<ProjectPreviewProps> = ({ setExpand }) => {
           </div>
 
           <div className="flex md:w-11/12 md:mx-auto flex-row my-3">
-            <div className="border border-gray-500 text-gray-500 p-3 rounded w-28 text-center text-sm">
+            <a className="border border-gray-500 text-gray-500 p-3 rounded w-28 text-center text-sm">
               Chat
-            </div>
-            <div className="text-white bg-sky-400 p-3 rounded mx-4 w-28 text-center cursor-pointer text-sm">
-              View Details
-            </div>
+            </a>
+            <Link
+              to="/projects/new-projects"
+              className="text-white bg-sky-400 p-3 rounded mx-4 w-28 text-center cursor-pointer text-sm"
+            >
+              <a>View Details</a>
+            </Link>
           </div>
         </div>
       </div>

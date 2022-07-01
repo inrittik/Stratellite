@@ -59,6 +59,7 @@ const ProjectInfo: React.FC<ActiveProjects> = ({ status }) => {
           </span>
         </div>
       </div>
+
       {/* image section */}
       <div className="auto-cols-55% md:auto-cols-33% gap-3 grid grid-flow-col grid-cols overflow-auto pb-4 mb-10">
         <img src={Proprty1} alt="" className="md:h-72 md:mx-4" />
@@ -94,6 +95,7 @@ const ProjectInfo: React.FC<ActiveProjects> = ({ status }) => {
               "bg-blue-100 text-blue-500": status === "under-review",
               "bg-red-100 text-red-500": status === "rejected",
               "bg-yellow-100 text-yellow-500": status === "in-progress",
+              hidden: status === "new",
             }
           )}
         >
@@ -118,6 +120,18 @@ const ProjectInfo: React.FC<ActiveProjects> = ({ status }) => {
             Rejected
           </span>
         </div>
+
+        {/* for new projects */}
+        <a
+          className={cx(
+            "flex items-center justify-evenly p-3 rounded cursor-pointer h-fit text-sm w-32 md:w-36 text-center font-semibold md:text-xssm mx-3 md:mx-0 bg-sky-400 text-white",
+            {
+              hidden: status !== "new",
+            }
+          )}
+        >
+          Submit Interest
+        </a>
       </div>
 
       {/* project description */}
@@ -208,6 +222,18 @@ const ProjectInfo: React.FC<ActiveProjects> = ({ status }) => {
           </div>
         </div>
       </div>
+
+      {/* for new projects */}
+      <a
+        className={cx(
+          "flex items-center justify-evenly p-4 rounded cursor-pointer h-fit text-sm w-11/12 md:w-36 text-center font-semibold md:text-xssm md:mx-0 bg-sky-400 text-white my-3 md:hidden",
+          {
+            hidden: status !== "new",
+          }
+        )}
+      >
+        Submit Interest
+      </a>
     </div>
   );
 };

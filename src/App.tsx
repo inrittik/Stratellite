@@ -17,6 +17,10 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/projects" element={<Projects />}></Route>
         <Route
+          path="/projects/new-projects"
+          element={<ProjectsLandingPage status="new" />}
+        ></Route>
+        <Route
           path="/projects/active/approved"
           element={<ActiveProjectsLandingPage status="approved" />}
         ></Route>

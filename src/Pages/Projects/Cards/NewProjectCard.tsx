@@ -2,6 +2,7 @@ import { icons } from "../../../utils/icons";
 import cx from "classnames";
 import ProjectPreview from "../../../Components/ProjectPreview";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const ProjectCard = () => {
   const [expand, setExpand] = useState(false);
@@ -54,9 +55,12 @@ const ProjectCard = () => {
 
         {/* button section */}
         <div className="flex flex-col">
-          <a className="hidden md:block py-4 bg-sky-400 rounded-md text-white cursor-pointer px-5.5 text-sm w-80 md:w-72 text-center my-3">
-            View Project Details
-          </a>
+          <Link to="/projects/new-projects">
+            <a className="hidden md:block py-4 bg-sky-400 rounded-md text-white cursor-pointer px-5.5 text-sm w-80 md:w-72 text-center my-3">
+              View Project Details
+            </a>
+          </Link>
+
           <a
             className="py-4 text-sky-400 border-sky-400 border rounded-md text-sky-400 cursor-pointer px-7 text-sm w-100 md:w-72 text-center my-3"
             onClick={() => setExpand(true)}
