@@ -1,15 +1,17 @@
 import React from "react";
-
+import cx from "classnames";
 interface MilestoneItemProps {
   message: any;
   milestone: any;
   setMilestone: any;
+  save: boolean;
 }
 
 const MilestoneItem: React.FC<MilestoneItemProps> = ({
   message,
   milestone,
   setMilestone,
+  save,
 }) => {
   const handleDelete = () => {
     const filteredData = milestone.filter((data: any) => {
@@ -32,7 +34,11 @@ const MilestoneItem: React.FC<MilestoneItemProps> = ({
         </div>
       </div>
 
-      <div className="flex font-semibold">
+      <div
+        className={cx("flex font-semibold", {
+          hidden: save,
+        })}
+      >
         <div
           className="py-3 px-4 border rounded border-sky-400 text-sky-400 mx-4 cursor-pointer"
           onClick={handleEdit}
