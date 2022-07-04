@@ -8,6 +8,8 @@ interface MilestoneItemProps {
   milestone: any;
   setMilestone: any;
   save: boolean;
+  submit: boolean;
+  setSubmit: any;
 }
 
 const MilestoneItem: React.FC<MilestoneItemProps> = ({
@@ -15,6 +17,8 @@ const MilestoneItem: React.FC<MilestoneItemProps> = ({
   milestone,
   setMilestone,
   save,
+  submit,
+  setSubmit,
 }) => {
   const handleDelete = () => {
     const filteredData = milestone.filter((data: any) => {
@@ -76,9 +80,12 @@ const MilestoneItem: React.FC<MilestoneItemProps> = ({
         })}
       >
         <div>
-          <DropDownInput />
+          <DropDownInput submit={submit} />
         </div>
-        <div className="font-semibold h-fit py-3 px-4 border rounded border-sky-400 text-sky-400 mx-4">
+        <div
+          className="font-semibold h-fit py-3 px-4 border rounded border-sky-400 text-sky-400 mx-4 cursor-pointer"
+          onClick={() => setSubmit(false)}
+        >
           Update
         </div>
       </div>

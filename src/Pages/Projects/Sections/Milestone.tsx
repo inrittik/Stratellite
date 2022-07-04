@@ -15,6 +15,7 @@ const Milestone = () => {
   const [message, setMessage] = useState("");
   const [savePrompt, setSavePrompt] = useState(false);
   const [save, setSave] = useState(false);
+  const [submit, setSubmit] = useState(false);
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -23,6 +24,9 @@ const Milestone = () => {
     setMessage("");
   };
 
+  const handleUpdateSubmit = () => {
+    setSubmit(true);
+  };
   return (
     <div className="flex flex-col w-11/12 md:w-10/12 mt-6 md:mt-0 ml-4 md:ml-12 overflow-y-auto">
       <div className="text-base md:text-1.5xl text-gray-900 font-semibold mb-2">
@@ -44,6 +48,8 @@ const Milestone = () => {
               milestone={milestone}
               setMilestone={setMilestone}
               save={save}
+              submit={submit}
+              setSubmit={setSubmit}
             />
           );
         })}
@@ -86,7 +92,17 @@ const Milestone = () => {
           After updating the milestone, cllick the submit button so that the
           manager dashboard can display the changes.
         </div>
-        <div className="p-3 px-5 bg-sky-400 text-white rounded">Submit</div>
+        <div
+          className={cx(
+            "p-3 px-5 bg-sky-400 text-white rounded cursor-pointer",
+            {
+              "bg-gray-500 text-gray-500 cursor-not-allowed": submit,
+            }
+          )}
+          onClick={handleUpdateSubmit}
+        >
+          Submit
+        </div>
       </div>
 
       <div>
