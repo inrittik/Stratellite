@@ -2,12 +2,19 @@ import { icons } from "../../../utils/icons";
 import cx from "classnames";
 import Proprty1 from "../../../assets/project/property1.png";
 import Proprty2 from "../../../assets/project/property2.png";
+import { useState } from "react";
+import ModalSubmitInterest from "../../../Components/ModalSubmitInterest";
 
 interface ActiveProjects {
   status: string;
 }
 
 const ProjectInfo: React.FC<ActiveProjects> = ({ status }) => {
+  const [preview, setPreview] = useState(false);
+
+  const handleSubmit = () => {
+    if (status === "new") setPreview(true);
+  };
   return (
     <div className="flex flex-col md:w-10/12 mt-6 md:mt-0 ml-6 md:ml-12 overflow-y-auto">
       <div className="flex items-center md:hidden w-full mb-3 justify-between">
@@ -129,6 +136,7 @@ const ProjectInfo: React.FC<ActiveProjects> = ({ status }) => {
               hidden: status !== "new",
             }
           )}
+          onClick={handleSubmit}
         >
           Submit Interest
         </a>
@@ -231,9 +239,14 @@ const ProjectInfo: React.FC<ActiveProjects> = ({ status }) => {
             hidden: status !== "new",
           }
         )}
+        onClick={handleSubmit}
       >
         Submit Interest
       </a>
+
+      <div>
+        <ModalSubmitInterest preview={preview} setPreview={setPreview} />
+      </div>
     </div>
   );
 };
