@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import cx from "classnames";
 import { icons } from "../utils/icons";
 import StarRating from "./StarRating";
+import SubscriptionModal from "./SubscriptionModal";
 
 interface ModalProps {
   preview: boolean;
@@ -12,6 +13,8 @@ const ModalSubmitInterest: React.FC<ModalProps> = ({ preview, setPreview }) => {
   const handleCancel = () => {
     setPreview(false);
   };
+
+  const [submit, setSubmit] = useState(false);
   return (
     <div
       className={cx(
@@ -19,7 +22,12 @@ const ModalSubmitInterest: React.FC<ModalProps> = ({ preview, setPreview }) => {
         { hidden: !preview }
       )}
     >
-      <div className="bg-white w-11/12 md:w-1/4 h-2/3 md:h-3/5 flex flex-col justify-center">
+      <div
+        className={cx(
+          "bg-white w-11/12 md:w-1/4 h-2/3 md:h-3/5 flex flex-col justify-center",
+          { hidden: submit }
+        )}
+      >
         <div className="flex justify-end relative bottom-3 right-3">
           <div className="text-base text-gray-900 font-semibold pb-3 w-4/5 border-b border-gray-500">
             Submit Interset in Project to view Manager's Contact Details
@@ -73,14 +81,18 @@ const ModalSubmitInterest: React.FC<ModalProps> = ({ preview, setPreview }) => {
           >
             Close
           </button>
-          <a className="p-3 px-4 text-sm border border-sky-400 bg-sky-400 text-white rounded cursor-pointer">
+          <button
+            className="p-3 px-4 text-sm border border-sky-400 bg-sky-400 text-white rounded cursor-pointer"
+            onClick={() => setSubmit(true)}
+          >
             Submit Interest
-          </a>
+          </button>
           <div className="text-xssm text-sky-400 font-semibold mx-3 my-2">
             4 credits
           </div>
         </div>
       </div>
+      <SubscriptionModal submit={submit} setSubmit={setSubmit} />
     </div>
   );
 };
