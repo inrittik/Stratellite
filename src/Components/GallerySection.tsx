@@ -3,9 +3,13 @@ import { icons } from "../utils/icons";
 import cx from "classnames";
 import PhotoList from "./PhotoList";
 
-const GallerySection = () => {
-  const [title, setTitle] = useState("");
-  const [submit, setSubmit] = useState(false);
+interface GallerySectionProps {
+  name: string;
+}
+
+const GallerySection: React.FC<GallerySectionProps> = ({ name }) => {
+  const [title, setTitle] = useState(name);
+  const [submit, setSubmit] = useState(true);
 
   const handleSubmit = (e: any) => {
     e.preventDefault();

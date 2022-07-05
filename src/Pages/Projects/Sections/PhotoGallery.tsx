@@ -28,9 +28,9 @@ const PhotoGallery = () => {
       </div>
 
       <div className={cx({ hidden: empty })}>
-        <GallerySection />
-        <GallerySection />
-        <GallerySection />
+        <GallerySection name="2-feb, 2022" />
+        <GallerySection name="2-feb, 2022" />
+        <GallerySection name="2-feb, 2022" />
       </div>
 
       {/* when no images are posted */}
