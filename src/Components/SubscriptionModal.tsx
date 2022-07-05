@@ -100,8 +100,8 @@ const SubscriptionModal: React.FC<ModalProps> = ({ submit, setSubmit }) => {
         }
       )}
     >
-      <div className="flex items-center my-6 justify-between">
-        <div className="text-base text-28 text-gray-900 font-semibold w-full text-center">
+      <div className="flex items-center my-3 md:my-6 justify-between">
+        <div className="text-sm md:text-28 text-gray-900 font-semibold w-full text-center">
           Subscription Plans
         </div>
         <span
@@ -112,10 +112,10 @@ const SubscriptionModal: React.FC<ModalProps> = ({ submit, setSubmit }) => {
         </span>
       </div>
 
-      <div className="flex flex-col md:flex-row justify-evenly">
+      <div className="flex flex-col md:flex-row justify-evenly items-center">
         {models.map((model) => {
           return (
-            <div className="p-3 border border-gray-500 w-96 flex flex-col justify-between items-center rounded">
+            <div className="p-3 border border-gray-500 w-76 md:w-96 flex flex-col justify-between items-center rounded  my-2 md:my-0">
               <div className="text-gray-600 text-center p-2 border-b border-b-gray-500 w-4/5 mx-auto">
                 {model.plan}
               </div>
@@ -126,16 +126,18 @@ const SubscriptionModal: React.FC<ModalProps> = ({ submit, setSubmit }) => {
                 </span>
               </div>
 
-              <div className="flex flex-col mt-6">
+              <div className="flex flex-col md:mt-6">
                 {model.list.map((item) => {
                   return (
-                    <div className="flex justify-between items-center  mx-auto w-72 my-3">
+                    <div className="flex justify-between items-center  mx-auto w-64 md:w-72 my-0.5 md:my-3">
                       <span>
                         {item.available
                           ? icons.newProjects.tick
                           : icons.newProjects.close}
                       </span>
-                      <div className="text-sm font-semibold">{item.detail}</div>
+                      <div className="md:text-sm font-semibold">
+                        {item.detail}
+                      </div>
                     </div>
                   );
                 })}

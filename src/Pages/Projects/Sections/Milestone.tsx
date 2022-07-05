@@ -94,7 +94,7 @@ const Milestone = () => {
         </div>
         <div
           className={cx(
-            "p-3 px-5 bg-sky-400 text-white rounded cursor-pointer",
+            "flex justify-center items-center p-3 px-5 bg-sky-400 text-white rounded cursor-pointer",
             {
               "bg-gray-500 text-gray-500 cursor-not-allowed": submit,
             }

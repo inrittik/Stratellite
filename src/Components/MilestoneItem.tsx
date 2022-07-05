@@ -49,9 +49,7 @@ const MilestoneItem: React.FC<MilestoneItemProps> = ({
           <div className={cx({ hidden: !selected })}>{icons.bidding.done}</div>
         </div>
         <div className="flex flex-col">
-          <div className="font-semibold text-sm md:text-base mb-1">
-            {message}
-          </div>
+          <div className="font-semibold md:text-base mb-1">{message}</div>
         </div>
       </div>
 
@@ -83,7 +81,7 @@ const MilestoneItem: React.FC<MilestoneItemProps> = ({
           <DropDownInput submit={submit} />
         </div>
         <div
-          className="font-semibold h-fit py-3 px-4 border rounded border-sky-400 text-sky-400 mx-4 cursor-pointer"
+          className="font-semibold h-fit py-3 px-2 md:px-4 border rounded border-sky-400 text-sky-400 mx-1 md:mx-4 cursor-pointer"
           onClick={() => setSubmit(false)}
         >
           Update

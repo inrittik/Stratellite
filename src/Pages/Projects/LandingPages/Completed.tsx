@@ -16,6 +16,7 @@ import InProgress from "../Sections/InProgress";
 import BackButton from "../../../Components/BackButton";
 import PhotoGallery from "../Sections/PhotoGallery";
 import { useNavigate } from "react-router-dom";
+import AriseDisputeModal from "../../../Components/AriseDisputeModal";
 
 const toggleOptions = [
   {
@@ -86,6 +87,8 @@ const CompletedProjects = () => {
   const [section, setSection] = useState(4);
   const [subsection, setSubsection] = useState(1);
   const [more, setMore] = useState(false);
+  const [dispute, setDispute] = useState(false);
+
   const navigate = useNavigate();
   return (
     <div className="project overflow-y-auto overflow-x-hidden mx-auto">
@@ -244,7 +247,10 @@ const CompletedProjects = () => {
                   <a className="font-semibold py-2 border-b border-gray-500 w-4/5 text-center cursor-pointer">
                     Report
                   </a>
-                  <a className="text-red-500 py-2 cursor-pointer">
+                  <a
+                    className="text-red-500 py-2 cursor-pointer"
+                    onClick={() => setDispute(true)}
+                  >
                     Arise Dispute
                   </a>
                 </div>
@@ -270,6 +276,9 @@ const CompletedProjects = () => {
             );
           })}
         </div>
+      </div>
+      <div className={cx({ hidden: !dispute })}>
+        <AriseDisputeModal setExpand={setDispute} />
       </div>
     </div>
   );

@@ -31,8 +31,8 @@ const ModalMilestoneConfirmation: React.FC<milestoneConfirmationProps> = ({
         }
       )}
     >
-      <div className="bg-white w-1/3 h-60 flex flex-col justify-center">
-        <div className="flex justify-end relative bottom-3 right-3">
+      <div className="bg-white w-11/12 md:w-1/3 md:h-60 flex flex-col justify-center">
+        <div className="flex justify-end relative md:bottom-3 right-3">
           <span
             className="border border-gray-500 p-2 rounded cursor-pointer"
             onClick={handleCancel}
@@ -48,15 +48,15 @@ const ModalMilestoneConfirmation: React.FC<milestoneConfirmationProps> = ({
             You cannot edit milestones once you have saved them, therefore we
             advice you to review milestones before saving it
           </div>
-          <div className="flex w-2/5 justify-between my-3">
+          <div className="flex md:w-2/5 justify-between my-3">
             <button
-              className="p-3 px-4 bg-sky-400 text-white rounded"
+              className="p-3 px-4 bg-sky-400 text-white rounded mx-2 md:mx-0"
               onClick={handleSave}
             >
               Save Milestones
             </button>
             <button
-              className="p-3 px-4 border border-sky-400 text-sky-400 rounded"
+              className="p-3 px-4 border border-sky-400 text-sky-400 rounded mx-2 md:mx-0"
               onClick={handleCancel}
             >
               Cancel

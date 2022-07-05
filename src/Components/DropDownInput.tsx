@@ -14,7 +14,7 @@ const DropDownInput: React.FC<DropDownProps> = ({ submit }) => {
     submit ? setActive(false) : setActive(!active);
   };
   return (
-    <div className="relative bg-white text-center w-44">
+    <div className="relative bg-white text-center w-32 md:w-44">
       <div
         className={cx(
           "py-3 px-3 flex justify-center items-center border-sky-400 rounded-t",

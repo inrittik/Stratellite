@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import cx from "classnames";
 import { icons } from "../utils/icons";
-import StarRating from "./StarRating";
 import SubscriptionModal from "./SubscriptionModal";
+import StaticRating from "./StaticRating";
 
 interface ModalProps {
   preview: boolean;
@@ -42,7 +42,7 @@ const ModalSubmitInterest: React.FC<ModalProps> = ({ preview, setPreview }) => {
         <div className="flex flex-col justify-center items-center pb-3 mb-2 md:w-4/5 border-b border-gray-500 mx-auto">
           <div className="flex my-3 justify-between w-full">
             <div className="text-base text-gray-900">Manager's Rating</div>
-            <StarRating />
+            <StaticRating rating={4} />
           </div>
           <div className="flex my-3 justify-between w-full">
             <div className="text-base text-gray-900">Manager's Name</div>
