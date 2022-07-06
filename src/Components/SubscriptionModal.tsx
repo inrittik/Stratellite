@@ -94,7 +94,7 @@ const SubscriptionModal: React.FC<ModalProps> = ({ submit, setSubmit }) => {
   return (
     <div
       className={cx(
-        "bg-white w-11/12 md:w-4/5 h-fit md:h-2/3 flex-col justify-between items-center",
+        "bg-white md:w-11/12 md:w-4/5 h-fit px-5 md:px-0 md:pb-10 flex-col justify-between items-center",
         {
           hidden: !submit,
         }

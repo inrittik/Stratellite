@@ -24,7 +24,7 @@ const ModalSubmitInterest: React.FC<ModalProps> = ({ preview, setPreview }) => {
     >
       <div
         className={cx(
-          "bg-white w-11/12 md:w-1/4 h-2/3 md:h-3/5 flex flex-col justify-center",
+          "bg-white w-11/12 md:w-1/4 h-fit py-10 flex flex-col justify-center",
           { hidden: submit }
         )}
       >

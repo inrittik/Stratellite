@@ -44,7 +44,6 @@ const WorkPhoto: React.FC<PhotoProps> = ({
   const newStyle = {
     backgroundImage: `url(${image})`,
     height: "25rem",
-    width: "60rem",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
   };
@@ -54,12 +53,12 @@ const WorkPhoto: React.FC<PhotoProps> = ({
         style={expand ? newStyle : myStyle}
         className={cx("rounded p-3", {
           hidden: expandedId !== null && expandedId !== id,
-          "w-[66rem] h-[45vh] rounded": expand,
+          "w-[23rem] md:w-[66rem] md:h-[45vh] rounded": expand,
         })}
       />
       <div
         className={cx(
-          "flex justify-center relative left-20 bottom-28 md:left-60 md:bottom-72 p-2 md:p-3 border border-[#FF554D] rounded w-8 md:w-12 bg-white cursor-pointer",
+          "flex justify-center relative left-60 bottom-72 p-2 md:p-3 border border-[#FF554D] rounded w-8 md:w-12 bg-white cursor-pointer",
           {
             hidden: expand,
           }

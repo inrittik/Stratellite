@@ -18,7 +18,7 @@ const StaticRating: React.FC<StaticRatingProps> = ({ rating }) => {
               value={ratingValue}
             />
             <div
-              className={`cursor-pointer mx-1 ${
+              className={`mx-1 ${
                 ratingValue <= rating ? "text-yellow-400" : "text-gray-200"
               }`}
             >

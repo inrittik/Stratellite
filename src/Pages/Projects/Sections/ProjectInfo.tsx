@@ -38,7 +38,7 @@ const ProjectInfo: React.FC<ActiveProjects> = ({ status }) => {
             {
               "bg-green-100 text-green-500":
                 status === "approved" || status === "completed",
-              "bg-blue-100 text-blue-500 w-44": status === "under-review",
+              "bg-blue-100 text-blue-500 w-48": status === "under-review",
               "bg-red-100 text-red-500": status === "rejected",
               "bg-yellow-100 text-yellow-500": status === "in-progress",
             }
