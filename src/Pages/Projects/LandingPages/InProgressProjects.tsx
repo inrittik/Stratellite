@@ -159,7 +159,7 @@ const InProgressProjects = () => {
                 subsection === 6 ? "md:hidden" : ""
               }`}
             >
-              Projects/Rejected/Construction Work/
+              Projects/In Progress/Construction Work/
               <span className="font-semibold text-black">{toggleName}</span>
             </div>
           </div>

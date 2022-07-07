@@ -163,7 +163,7 @@ const NewProjects: React.FC<ActiveProjects> = ({ status }) => {
                 subsection === 6 ? "md:hidden" : ""
               }`}
             >
-              Projects/Rejected/Construction Work/
+              Projects/New Projects/Construction Work/
               <span className="font-semibold text-black">{toggleName}</span>
             </div>
           </div>
