@@ -67,7 +67,7 @@ const ProjectCard = () => {
           >
             Submit Interest
           </a>
-          <a className="text-gray-100 text-xs text-center my-4 w-80 md:w-72 text-center">
+          <a className="text-gray-100 text-xs text-center my-4 w-full md:w-72 text-center">
             View Manager Profile
           </a>
         </div>
