@@ -18,13 +18,13 @@ const ModalSubmitInterest: React.FC<ModalProps> = ({ preview, setPreview }) => {
   return (
     <div
       className={cx(
-        "absolute left-0 bottom-0 w-screen h-screen bg-gray-700 z-10 flex justify-center items-center",
+        "absolute left-0 top-0 w-screen min-h-screen md:h-screen bg-gray-700 z-10 flex justify-center items-center",
         { hidden: !preview }
       )}
     >
       <div
         className={cx(
-          "bg-white w-11/12 md:w-1/4 h-fit py-10 flex flex-col justify-center",
+          "bg-white w-11/12 md:w-1/4 h-fit py-10 flex rounded flex-col justify-center",
           { hidden: submit }
         )}
       >

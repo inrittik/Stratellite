@@ -94,7 +94,7 @@ const SubscriptionModal: React.FC<ModalProps> = ({ submit, setSubmit }) => {
   return (
     <div
       className={cx(
-        "bg-white md:w-11/12 md:w-4/5 h-fit px-5 md:px-0 md:pb-10 flex-col justify-between items-center",
+        "bg-white w-11/12 md:w-4/5 max-h-5/6 px-5 md:px-0 md:pb-10 flex-col rounded justify-center items-center",
         {
           hidden: !submit,
         }
@@ -115,15 +115,13 @@ const SubscriptionModal: React.FC<ModalProps> = ({ submit, setSubmit }) => {
       <div className="flex flex-col md:flex-row justify-evenly items-center">
         {models.map((model) => {
           return (
-            <div className="p-3 border border-gray-500 w-76 md:w-96 flex flex-col justify-between items-center rounded  my-2 md:my-0">
+            <div className="p-3 border border-gray-500 w-80 md:w-96 flex flex-col justify-between items-center rounded  my-2 md:my-0">
               <div className="text-gray-600 text-center p-2 border-b border-b-gray-500 w-4/5 mx-auto">
                 {model.plan}
               </div>
               <div className="text-center my-3">
                 <span className="text-28 font-semibold">${model.price}</span>
-                <span className="text-sm text-gray-600 font-semibold">
-                  per boost
-                </span>
+                <span className="text-gray-600 font-semibold">per boost</span>
               </div>
 
               <div className="flex flex-col md:mt-6">

@@ -2,7 +2,9 @@ import { icons } from "../../utils/icons";
 import { useState } from "react";
 import { useGlobalContext } from "../../Contexts/GlobalContext";
 import BackButton from "../../Components/BackButton";
-import NotificationCard from "../../Components/NotificationCard";
+import Updates from "./sections/Updates";
+import Reminders from "./sections/Reminders";
+// import NewProjects from "./sections/NewProjects";
 
 const sectionOptions = [
   {
@@ -90,14 +92,9 @@ const Main = () => {
           })}
         </div>
 
-        <div className="flex flex-col px-12">
-          <NotificationCard accessNotif={true} newNotif={false} />
-          <NotificationCard accessNotif={false} newNotif={true} />
-          <NotificationCard accessNotif={true} newNotif={false} />
-          <NotificationCard accessNotif={false} newNotif={true} />
-          <NotificationCard accessNotif={false} newNotif={false} />
-          <NotificationCard accessNotif={true} newNotif={true} />
-        </div>
+        {section === 1 && <Updates />}
+        {section === 2 && <Reminders />}
+        {section === 3 && <Reminders />}
       </div>
     </div>
   );
