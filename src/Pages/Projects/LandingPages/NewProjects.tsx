@@ -1,5 +1,5 @@
 import { icons } from "../../../utils/icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import cx from "classnames";
 import { useGlobalContext } from "../../../Contexts/GlobalContext";
 import ProjectInfo from "../Sections/ProjectInfo";
@@ -91,6 +91,12 @@ const NewProjects: React.FC<ActiveProjects> = ({ status }) => {
   const [subsection, setSubsection] = useState(1);
   const [more, setMore] = useState(false);
   const [dispute, setDispute] = useState(false);
+  const [toggleName, setToggleName] = useState("Project Details");
+  useEffect(() => {
+    toggleOptions.forEach((option) => {
+      if (subsection === option.subSectionId) setToggleName(option.name);
+    });
+  }, [subsection]);
 
   const navigate = useNavigate();
   return (
@@ -153,11 +159,12 @@ const NewProjects: React.FC<ActiveProjects> = ({ status }) => {
               </span>
             </div>
             <div
-              className={`hidden md:block text-base md:text-lg text-gray-600 mb-6 ${
+              className={`hidden md:block text-base text-gray-600 mb-6 ${
                 subsection === 6 ? "md:hidden" : ""
               }`}
             >
-              Here is a list of all the projects you have been working on.
+              Projects/Rejected/Construction Work/
+              <span className="font-semibold text-black">{toggleName}</span>
             </div>
           </div>
           <div className={`hidden gap-4 ${section === 1 ? "" : "md:flex"}`}>
