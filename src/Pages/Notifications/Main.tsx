@@ -4,6 +4,7 @@ import { useGlobalContext } from "../../Contexts/GlobalContext";
 import BackButton from "../../Components/BackButton";
 import Updates from "./sections/Updates";
 import Reminders from "./sections/Reminders";
+import NotificationsSettings from "../../Components/NotificationsSettings";
 // import NewProjects from "./sections/NewProjects";
 
 const sectionOptions = [
@@ -24,6 +25,7 @@ const sectionOptions = [
 const Main = () => {
   const [state, dispatch] = useGlobalContext();
   const [section, setSection] = useState(1);
+  const [settingsActive, setSettingsActive] = useState(false);
   return (
     <div className="project overflow-y-auto overflow-x-hidden mx-auto">
       <div className="flex flex-col overflow-x-hidden w-full">
@@ -67,7 +69,7 @@ const Main = () => {
               other important notifications will be displayed here.
             </div>
           </div>
-          <div className=" md:flex">
+          <div className=" md:flex" onClick={() => setSettingsActive(true)}>
             <div className="h-10 items-center gap-4 px-6 flex border border-gray-300 rounded-md cursor-pointer">
               <div className="text-black text-sm">Settings</div>
               {icons.notifications.settings}
@@ -96,6 +98,11 @@ const Main = () => {
         {section === 2 && <Reminders />}
         {section === 3 && <Reminders />}
       </div>
+
+      <NotificationsSettings
+        settingsActive={settingsActive}
+        setSettingsActive={setSettingsActive}
+      />
     </div>
   );
 };
