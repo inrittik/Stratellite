@@ -1,5 +1,6 @@
 import { icons } from "../../utils/icons";
 import { useState } from "react";
+import cx from "classnames";
 import NewProjects from "./Sections/NewProjects";
 import ActiveProjects from "./Sections/ActiveProjects";
 import InProgress from "./Sections/InProgress";
@@ -66,7 +67,7 @@ const Projects = () => {
           {sectionOptions.map((option) => {
             return (
               <a
-                className={`ml-3 text-gray-800 text-center py-5 text-base md:text-sm rounded-t-lg cursor-pointer ${
+                className={`ml-3 flex justify-center items-center text-gray-800 text-center py-5 text-base md:text-sm rounded-t-lg cursor-pointer ${
                   section === option.id
                     ? "border-b-6 border-sky-400 text-black font-semibold bg-neutral-50"
                     : ""
@@ -74,6 +75,15 @@ const Projects = () => {
                 onClick={() => setSection(option.id)}
               >
                 {option.name}
+                <div
+                  className={cx(
+                    "hidden ml-2 font-semibold text-xs w-8 h-6 md:flex items-center justify-center rounded-md",
+                    { "bg-sky-400 text-white": option.id === section },
+                    { "bg-sky-100 text-sky-400 ": section !== option.id }
+                  )}
+                >
+                  3
+                </div>
               </a>
             );
           })}
