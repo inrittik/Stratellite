@@ -1,5 +1,6 @@
 import { icons } from "../utils/icons";
 import cx from "classnames";
+import { useState } from "react";
 
 interface NotificationCardProps {
   accessNotif: boolean;
@@ -10,19 +11,29 @@ const NotificationCard: React.FC<NotificationCardProps> = ({
   accessNotif,
   newNotif,
 }) => {
+  const [show, setShow] = useState(false);
+  const [seen, setSeen] = useState(!newNotif);
+
+  const handleClick = () => {
+    setShow(!show);
+    setSeen(true);
+  };
   return (
-    <div className="w-full py-4 px-2 md:p-4 my-3 border border-gray-500 rounded">
+    <div
+      className="w-full py-4 px-2 md:p-4 my-3 border border-gray-500 rounded cursor-pointer"
+      onClick={handleClick}
+    >
       <div className="flex items-center justify-between ">
         <div
           className={cx(
             "h-2.125 w-2.125 aspect-square bg-sky-400 rounded-full mr-2 md:mr-0",
-            { hidden: !newNotif }
+            { hidden: seen }
           )}
         ></div>
         <div
           className={cx("mr-4 md:mr-1", {
             "mr-4 md:mr-0": !accessNotif,
-            "ml-3 md:ml-5": !newNotif,
+            "ml-3 md:ml-5": seen,
           })}
         >
           {accessNotif && icons.notifications.access}
@@ -50,8 +61,17 @@ const NotificationCard: React.FC<NotificationCardProps> = ({
           </div>
         </div>
       </div>
-      <div className="md:hidden flex justify-end text-sm text-gray-600 mt-3">
+      <div className="flex justify-end text-sm text-gray-600 mt-3 md:hidden">
         Today, 9:42 am
+      </div>
+      <div
+        className={cx("w-2/3 ml-20 duration-100 ease-in-out", {
+          "h-fit mt-4": show,
+          "mt-0 h-0 overflow-hidden": !show,
+        })}
+      >
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem placeat
+        vel error. Sint asperiores sit ipsam magni et nesciunt numquam!
       </div>
     </div>
   );
