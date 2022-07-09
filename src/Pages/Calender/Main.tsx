@@ -2,6 +2,8 @@ import { icons } from "../../utils/icons";
 import RightSidebar from "../../Components/RightSidebar";
 import { useGlobalContext } from "../../Contexts/GlobalContext";
 import Calender from "../../Components/Calender";
+import RecentEvents from "../../Components/RecentEvents";
+import Reminders from "../../Components/Reminders";
 
 const Main = () => {
   const [state, dispatch] = useGlobalContext();
@@ -38,8 +40,12 @@ const Main = () => {
 
           {/* main body */}
           <div className="flex">
-            <div className="flex flex-col w-[55%]">
+            <div className="flex flex-col w-[55%] mr-4">
               <Calender />
+              <RecentEvents />
+            </div>
+            <div className="w-fit">
+              <Reminders />
             </div>
           </div>
         </div>
