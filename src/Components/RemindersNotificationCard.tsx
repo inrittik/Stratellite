@@ -39,9 +39,6 @@ const RemindersNotificationCard: React.FC<RemindersNotificationCardProps> = ({
         </div>
         <div className="flex items-center flex-col-reverse md:flex-row">
           <div className="hidden md:block md:mr-4">Today, 9:42 am</div>
-          <div className="relative bottom-2 md:bottom-0 p-3 md:p-3 md:px-5 justify-center items-center flex md:border border-gray-300 rounded-md cursor-pointer">
-            {icons.threeDots}
-          </div>
         </div>
       </div>
       <div className="flex justify-start text-sm text-gray-600 mt-5 mb-2 w-4/5 ml-16 md:ml-20">

@@ -5,7 +5,6 @@ import backgroundImage2 from "../../assets/home/Vector 1.png";
 import backgroundImage3 from "../../assets/home/Vector 1-1.png";
 import ProjectCard, { ProjectCardProps } from "./ProjectCard";
 import InvoiceCard, { InvoiceCardProps } from "./InvoiceCard";
-import CustomIcon from "../../Components/CustomIcon";
 import { useGlobalContext } from "../../Contexts/GlobalContext";
 import RightSidebar from "../../Components/RightSidebar";
 
@@ -167,12 +166,8 @@ const Home: React.FC<HomeProps> = () => {
               </div>
             </div>
             <div className="md:flex gap-4 hidden">
-              <div className="h-14 items-center gap-3 px-6 flex border border-gray-300 rounded-md cursor-pointer">
-                <div className="text-black text-sm">Filter</div>
-                {icons.filter}
-              </div>
-              <div className="h-14 w-14 justify-center items-center flex border border-gray-300 rounded-md cursor-pointer">
-                {icons.threeDots}
+              <div className="font-semibold text-sky-400 cursor-pointer">
+                View All
               </div>
             </div>
           </div>
@@ -192,8 +187,8 @@ const Home: React.FC<HomeProps> = () => {
               </div>
             </div>
 
-            <div className="h-14 w-14 hidden justify-center items-center md:flex border border-gray-300 rounded-md cursor-pointer">
-              {icons.threeDots}
+            <div className="font-semibold text-sky-400 cursor-pointer">
+              View All
             </div>
           </div>
           <div className="grid relative gap-2.5 grid-flow-col overflow-auto pb-4 mb-10">

@@ -20,22 +20,22 @@ const NotificationCard: React.FC<NotificationCardProps> = ({
   };
   return (
     <div
-      className="w-full py-4 px-2 md:p-4 my-3 border border-gray-500 rounded cursor-pointer"
+      className={cx(
+        "w-full py-4 px-2 md:px-0 my-3 border border-gray-500 rounded cursor-pointer",
+        {
+          "md:py-6": accessNotif,
+        }
+      )}
       onClick={handleClick}
     >
-      <div className="flex items-center justify-between ">
+      <div className="flex items-center justify-center">
         <div
           className={cx(
-            "h-2.125 w-2.125 aspect-square bg-sky-400 rounded-full mr-2 md:mr-0",
-            { hidden: seen }
+            "hidden md:block h-2.125 w-2.125 aspect-square bg-sky-400 rounded-full mr-2",
+            { invisible: seen }
           )}
         ></div>
-        <div
-          className={cx("mr-4 md:mr-1", {
-            "mr-4 md:mr-0": !accessNotif,
-            "ml-3 md:ml-5": seen,
-          })}
-        >
+        <div className="mr-4">
           {accessNotif && icons.notifications.access}
           {!accessNotif && (
             <img
@@ -56,19 +56,25 @@ const NotificationCard: React.FC<NotificationCardProps> = ({
         </div>
         <div className="flex items-center flex-col-reverse md:flex-row">
           <div className="hidden md:block md:mr-4">Today, 9:42 am</div>
-          <div className="relative bottom-2 md:bottom-0 p-3 md:p-3 md:px-5 justify-center items-center flex md:border border-gray-300 rounded-md cursor-pointer">
-            {icons.threeDots}
-          </div>
         </div>
       </div>
-      <div className="flex justify-end text-sm text-gray-600 mt-3 md:hidden">
-        Today, 9:42 am
+      <div className="flex items-center justify-end text-sm text-gray-600 mt-3 md:hidden">
+        <div
+          className={cx(
+            "md:hidden h-2.125 w-2.125 aspect-square bg-sky-400 rounded-full mr-2",
+            { invisible: seen }
+          )}
+        ></div>
+        <span>Today, 9:42 am</span>
       </div>
       <div
-        className={cx("w-2/3 ml-20 duration-100 ease-in-out", {
-          "h-fit mt-4": show,
-          "mt-0 h-0 overflow-hidden": !show,
-        })}
+        className={cx(
+          "text-sm w-4/5 mx-auto md:w-2/3 md:ml-20 duration-100 ease-in-out",
+          {
+            "h-fit mt-4": show,
+            "mt-0 h-0 overflow-hidden": !show,
+          }
+        )}
       >
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem placeat
         vel error. Sint asperiores sit ipsam magni et nesciunt numquam!
