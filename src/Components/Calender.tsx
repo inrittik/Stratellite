@@ -1,49 +1,40 @@
 import { useState, useEffect } from "react";
 import { icons } from "../utils/icons";
 import cx from "classnames";
-import moment from "moment";
 import buildCalender from "../utils/buildCalender";
+import { add, format, isSameMonth, isToday, startOfToday, sub } from "date-fns";
 
 const Calender = () => {
+  let today = startOfToday();
   const weeks = ["Mon", "Tue", "Wed", "Thr", "Fri", "Sat", "Sun"];
   const [calender, setCalendar] = useState<any>([]);
-  const [value, setValue] = useState(moment());
-  const [monthValue, setMonthValue] = useState(moment());
+  const [value, setValue] = useState(today);
+  const [monthValue, setMonthValue] = useState(today);
 
   useEffect(() => {
     setCalendar(buildCalender(value));
   }, [value]);
 
-  // set month name
-  const activeMonthName = () => {
-    return value.format("MMMM");
-  };
-
-  // set year
-  const activeYearName = () => {
-    return value.format("YYYY");
-  };
-
   // handle month/year change to previous
   const handlePreviousClick = () => {
-    setValue(value.clone().subtract(1, "month"));
-    setMonthValue(monthValue.clone().subtract(1, "month"));
+    setValue(sub(value, { months: 1 }));
+    setMonthValue(sub(monthValue, { months: 1 }));
   };
 
   // handle month/year change to next
   const handleNextClick = () => {
-    setValue(value.clone().add(1, "month"));
-    setMonthValue(monthValue.clone().add(1, "month"));
+    setValue(add(value, { months: 1 }));
+    setMonthValue(add(monthValue, { months: 1 }));
   };
 
   // is active month === present month
-  const isPresentMonth = (value: any) => {
-    return value.isSame(new Date(), "month");
+  const isPresentMonth = (day: any) => {
+    return isSameMonth(day, new Date());
   };
 
   // is active month === current month
-  const isCurrentMonth = (value: any) => {
-    return value.isSame(monthValue, "month");
+  const isCurrentMonth = (day: any) => {
+    return isSameMonth(day, value);
   };
 
   return (
@@ -51,9 +42,7 @@ const Calender = () => {
       {/* top section */}
       <div className="flex items-center justify-between mx-5">
         <div className="flex text-28 items-center font-semibold p-3">
-          <span className="w-56">
-            {activeMonthName()}&nbsp;{activeYearName()}
-          </span>
+          <span className="w-56">{format(value, "MMM yyyy")}</span>
           <div className="flex flex-col ml-4 justify-between h-[1.5rem]">
             <span className="cursor-pointer" onClick={handleNextClick}>
               {icons.arrowUp}
@@ -91,13 +80,12 @@ const Calender = () => {
                     className={cx(
                       "flex justify-center items-center w-8 py-2 px-5 border border-gray-500 mx-2 cursor-pointer",
                       {
-                        "border-sky-400":
-                          value.isSame(day, "day") && isPresentMonth(value),
+                        "border-sky-400": isToday(day) && isPresentMonth(day),
                         "text-gray-500": !isCurrentMonth(day),
                       }
                     )}
                   >
-                    {day.format("D")}
+                    {format(day, "d")}
                   </div>
                 );
               })}

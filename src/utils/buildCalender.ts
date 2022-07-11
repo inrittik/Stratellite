@@ -1,18 +1,26 @@
-export default function buildCalender(value: any) {
-  const startDay = value.clone().startOf("month").startOf("week");
-  const endDay = value.clone().endOf("month").endOf("week");
+import {
+  endOfMonth,
+  isBefore,
+  startOfWeek,
+  add,
+  endOfWeek,
+  startOfMonth,
+} from "date-fns";
 
-  const day = startDay.clone();
-  const calender = [];
-  while (day.isBefore(endDay, "day")) {
+export default function buildCalender(today: any) {
+  let endDay = endOfWeek(endOfMonth(today));
+  let startDay = startOfWeek(startOfMonth(today));
+  let day = startDay;
+
+  const calender: any = [];
+  while (isBefore(day, endDay)) {
     calender.push(
       Array(7)
         .fill(0)
         .map(() => {
-          return day.add(1, "day").clone();
+          return (day = add(day, { days: 1 }));
         })
     );
   }
-
   return calender;
 }
