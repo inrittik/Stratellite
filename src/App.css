@@ -9,7 +9,8 @@ body,
   grid-template-columns: 20% 80%;
   overflow: hidden;
 }
-.home {
+.home,
+.calender {
   display: grid;
   grid-template-columns: auto 28.125%;
 }
@@ -19,7 +20,9 @@ body,
 .project-card {
   width: 100%;
 }
-
+.calender {
+  overflow: auto !important;
+}
 .invoice-card {
   aspect-ratio: 322/207;
   height: 12.9375rem;
@@ -127,7 +130,8 @@ body,
     display: grid;
     grid-template-columns: auto;
   }
-  .home {
+  .home,
+  .calender {
     grid-template-columns: auto;
   }
   .project {

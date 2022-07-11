@@ -4,7 +4,11 @@ import cx from "classnames";
 import buildCalender from "../utils/buildCalender";
 import { add, format, isSameMonth, isToday, startOfToday, sub } from "date-fns";
 
-const Calender = () => {
+interface calenderProps {
+  setSidebarActive: any;
+}
+
+const Calender: React.FC<calenderProps> = ({ setSidebarActive }) => {
   let today = startOfToday();
   const weeks = ["Mon", "Tue", "Wed", "Thr", "Fri", "Sat", "Sun"];
   const [calender, setCalendar] = useState<any>([]);
@@ -38,11 +42,11 @@ const Calender = () => {
   };
 
   return (
-    <div className="border border-gray-500 rounded flex flex-col p-3">
+    <div className="border w-[30rem] border-gray-500 rounded flex flex-col p-3">
       {/* top section */}
       <div className="flex items-center justify-between mx-5">
         <div className="flex text-28 items-center font-semibold p-3">
-          <span className="w-56">{format(value, "MMM yyyy")}</span>
+          <span className="w-60">{format(value, "MMMM yyyy")}</span>
           <div className="flex flex-col ml-4 justify-between h-[1.5rem]">
             <span className="cursor-pointer" onClick={handleNextClick}>
               {icons.arrowUp}
@@ -52,7 +56,10 @@ const Calender = () => {
             </span>
           </div>
         </div>
-        <div className="rounded-md text-white bg-sky-400 py-3 px-4 flex cursor-pointer items-center">
+        <div
+          className="rounded-md text-white bg-sky-400 py-3 px-4 flex cursor-pointer items-center"
+          onClick={() => setSidebarActive(false)}
+        >
           <div className="text-white text-sm font-semibold">Create</div>
           <div className="ml-4">{icons.plusWhite}</div>
         </div>

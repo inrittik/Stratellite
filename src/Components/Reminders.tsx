@@ -61,7 +61,7 @@ const meetings: MeetingItemProps[] = [
 
 const Reminders = () => {
   return (
-    <div className="border border-gray-500 rounded flex flex-col p-3">
+    <div className="border w-[23rem] border-gray-500 rounded flex flex-col p-3">
       <div className="flex flex-col p-4 border-b border-gray-500">
         <div className="text-1.5xl text-gray-800 font-medium mb-3">
           Reminders

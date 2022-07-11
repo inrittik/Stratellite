@@ -5,7 +5,7 @@ import BackButton from "./BackButton";
 const ProjectsSearchBar = () => {
   const [state, dispatch] = useGlobalContext();
   return (
-    <div className="flex gap-4 mt-6 md:mt-0 md:min-h-[8.5rem] items-center mx-6 md:mx-12">
+    <div className="flex gap-4 mt-6 md:mt-0 md:min-h-[8.5rem] items-center mx-6 md:ml-12">
       <BackButton />
       <div className=" md:h-18 h-14 rounded-md flex pl-8 items-center py-6 gap-7 bg-gray-400 w-3/4">
         {icons.search}
@@ -22,7 +22,7 @@ const ProjectsSearchBar = () => {
       >
         {icons.threeBars}
       </div>
-      <div className="hidden md:flex w-1/3 h-32.5 items-center p-9 ml-5 ">
+      <div className="hidden md:flex w-[23rem] h-32.5 items-center p-8 ml-5 ">
         <img
           className="h-16 w-16 rounded-full object-cover mr-5"
           src="https://i.pinimg.com/564x/f7/6b/91/f76b91f22019b550e0848519719a03f1.jpg"
