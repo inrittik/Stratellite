@@ -18,7 +18,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
   return (
     <div
       className={cx(
-        "flex h-16 items-center pr-7 md:bg-transparent cursor-pointer rounded-md md:rounded-none",
+        "flex py-4 items-center pr-7 md:bg-transparent cursor-pointer rounded-md md:rounded-none",
         {
           "bg-sky-400": id === selectedItem,
         }
@@ -26,7 +26,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
     >
       <div
         className={cx(
-          "invisible md:visible  h-full bg-sky-400 w-2.125 mr-5 md:mr-10 rounded-r-md",
+          "invisible md:visible bg-sky-400 w-2.125 mr-5 md:mr-10 rounded-r-md",
           {
             "md:invisible": id !== selectedItem,
           }

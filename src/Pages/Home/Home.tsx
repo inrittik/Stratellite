@@ -125,7 +125,7 @@ const invoiceCards: InvoiceCardProps[] = [
 const Home: React.FC<HomeProps> = () => {
   const [state, dispatch] = useGlobalContext();
   return (
-    <div className="home h-2/3">
+    <div className="home">
       <div className="flex flex-col overflow-auto">
         <div className="flex gap-4 mt-6 md:mt-0 md:min-h-[8.5rem] w-100 items-center md:mx-0 mx-5">
           <div className="md:mx-15 md:h-18 h-14 rounded-md flex pl-8 items-center py-6 gap-7 bg-gray-400 w-full">

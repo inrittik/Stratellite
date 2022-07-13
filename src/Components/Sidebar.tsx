@@ -51,6 +51,13 @@ const sidebarItems = [
     badgeValue: null,
     id: 6,
   },
+  {
+    icon: icons.sidebarIcons.transactions,
+    text: "Transactions",
+    link: "/transactions",
+    badgeValue: null,
+    id: 7,
+  },
 ];
 
 const sidebarItems2 = [
@@ -59,7 +66,7 @@ const sidebarItems2 = [
     text: "Promotions",
     link: "/promotions",
     badgeValue: null,
-    id: 7,
+    id: 8,
   },
 ];
 const sidebarItems3 = [
@@ -68,7 +75,7 @@ const sidebarItems3 = [
     text: "Settings",
     link: "/settings ",
     badgeValue: null,
-    id: 8,
+    id: 9,
   },
 ];
 const Sidebar: React.FC<SidebarProps> = () => {
@@ -78,11 +85,11 @@ const Sidebar: React.FC<SidebarProps> = () => {
   return (
     <div
       className={cx(
-        "fixed  transition-all flex  ease-in-out delay-150 w-9/12 overflow-x-hidden shadow-[0_4px_60px_rgba(0,0,0,0.25)] md:shadow-none right-0 md:static md:flex bg-white z-10 sidebar flex-col h-full md:w-full md:bg-gray-50 border-r border-sidebarBorder overflow-auto",
+        "fixed  transition-all flex  ease-in-out delay-150 w-9/12 overflow-x-hidden shadow-[0_4px_60px_rgba(0,0,0,0.25)] md:shadow-none right-0 md:static md:flex bg-white z-10 sidebar flex-col md:w-full md:bg-gray-50 border-r border-sidebarBorder overflow-auto",
         { "w-0": !state.showSidebar }
       )}
     >
-      <div className="bg-white p-5 flex items-center gap-15">
+      <div className="bg-white p-5 flex items-center gap-3">
         <div
           onClick={() => dispatch({ setState: { showSidebar: false } })}
           className="flex border border-gray-300 cursor-pointer rounded md:hidden h-11 w-11 items-center justify-center"
@@ -92,7 +99,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
         <img className="bg-white hidden md:block w-64" src={sidebarLogo}></img>
         <img className="bg-white md:hidden w-32" src={sidebarLogoMob}></img>
       </div>
-      <div className="flex bg-inherit flex-col pt-20 px-5 md:px-0">
+      <div className="flex bg-inherit flex-col pt-10 px-5 md:px-0">
         {sidebarItems.map((x) => (
           <Link to={x.link} onClick={() => setSelectedItem(x.id)}>
             <SidebarItem
@@ -106,32 +113,36 @@ const Sidebar: React.FC<SidebarProps> = () => {
           </Link>
         ))}
       </div>
-      <div className="text-sm font-medium my-9 ml-12 ">Promotions</div>
+      <div className="text-sm font-medium my-4 mt-7 ml-12 ">Promotions</div>
       <div className="flex flex-col px-5 md:px-0">
         {sidebarItems2.map((x) => (
-          <SidebarItem
-            id={x.id}
-            text={x.text}
-            icon={x.icon}
-            link={x.link}
-            selectedItem={selectedItem}
-            badgeValue={x.badgeValue}
-          ></SidebarItem>
+          <Link to={x.link} onClick={() => setSelectedItem(x.id)}>
+            <SidebarItem
+              id={x.id}
+              text={x.text}
+              icon={x.icon}
+              link={x.link}
+              selectedItem={selectedItem}
+              badgeValue={x.badgeValue}
+            ></SidebarItem>
+          </Link>
         ))}
       </div>
-      <div className="text-sm font-medium my-9 ml-12 md:hidden ">Settings</div>
-      <div className="md:hidden flex flex-col px-5 md:px-0">
+      <div className="flex flex-col px-5 md:px-0 absolute bottom-0">
         {sidebarItems3.map((x) => (
-          <SidebarItem
-            id={x.id}
-            text={x.text}
-            icon={x.icon}
-            link={x.link}
-            selectedItem={selectedItem}
-            badgeValue={x.badgeValue}
-          ></SidebarItem>
+          <Link to={x.link} onClick={() => setSelectedItem(x.id)}>
+            <SidebarItem
+              id={x.id}
+              text={x.text}
+              icon={x.icon}
+              link={x.link}
+              selectedItem={selectedItem}
+              badgeValue={x.badgeValue}
+            ></SidebarItem>
+          </Link>
         ))}
       </div>
+
       <div className="items-end flex-grow flex md:hidden">
         <div className="flex w-full h-32.5 items-center mx-6  border-t border-gray-500">
           <img
