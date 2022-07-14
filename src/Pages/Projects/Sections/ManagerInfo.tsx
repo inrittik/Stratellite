@@ -36,7 +36,7 @@ const ManagerInfo = () => {
             {icons.managers.inBox}
           </div>
           <div className="md:col-span-2 flex items-center justify-center md:justify-between py-3 text-sky-400 border-sky-400 border rounded-md text-sky-400 cursor-pointer px-7 text-sm text-center">
-            {icons.managers.messages}
+            <div className="w-[1.5rem]">{icons.managers.messages}</div>
             <div className="font-semibold hidden md:block">Send Message</div>
           </div>
         </div>
