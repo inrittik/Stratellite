@@ -1,21 +1,11 @@
-import { time } from "console";
-
 export const eventType = [
   {
     val: "Meeting",
     id: 1,
   },
   {
-    val: "Call",
+    val: "Reminder",
     id: 2,
-  },
-  {
-    val: "Option 3",
-    id: 3,
-  },
-  {
-    val: "Option 4",
-    id: 4,
   },
 ];
 

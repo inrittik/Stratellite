@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { icons } from "../../utils/icons";
 import Events from "./sections/Events";
+import Invites from "./sections/Invites";
+import RequestStatus from "./sections/RequestStatus";
 
 const sectionOptions = [
   {
@@ -51,6 +53,8 @@ const CreateSection: React.FC<CreateSectionProps> = ({ setsidebarActive }) => {
       </div>
 
       {section === 1 && <Events />}
+      {section === 2 && <Invites />}
+      {section === 3 && <RequestStatus />}
     </div>
   );
 };

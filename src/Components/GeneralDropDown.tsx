@@ -7,9 +7,13 @@ interface DropDownProps {
     val: any;
     id: number;
   }[];
+  setSelected: any;
 }
 
-const GeneralDropDown: React.FC<DropDownProps> = ({ dropDownList }) => {
+const GeneralDropDown: React.FC<DropDownProps> = ({
+  dropDownList,
+  setSelected,
+}) => {
   const [active, setActive] = useState(false);
   const [value, setValue] = useState(dropDownList[0].val);
 
@@ -42,6 +46,7 @@ const GeneralDropDown: React.FC<DropDownProps> = ({ dropDownList }) => {
               className="py-3 px-3 border-t border-gray-500 cursor-pointer text-black"
               onClick={() => {
                 setValue(item.val);
+                setSelected(item.id);
                 setActive(false);
               }}
             >

@@ -51,25 +51,31 @@ const NotificationsSettings: React.FC<NotificationsSettingsProps> = ({
             <div className="text-sm text-gray-900 font-semibold w-4/5 ">
               Mute all notifications
             </div>
-            <ToggleSwitch setMuteField={setMuteAll} />
+            <ToggleSwitch setMuteField={setMuteAll} fieldValue={muteAll} />
           </div>
           <div className="flex py-6 justify-between items-center border-b border-gray-500">
             <div className="text-sm text-gray-900 font-semibold w-4/5 ">
               Mute new projects related notifications
             </div>
-            <ToggleSwitch setMuteField={setMuteNew} />
+            <ToggleSwitch setMuteField={setMuteNew} fieldValue={muteNew} />
           </div>
           <div className="flex py-6 justify-between items-center border-b border-gray-500">
             <div className="text-sm text-gray-900 font-semibold w-4/5 ">
               Mute promotional notifications
             </div>
-            <ToggleSwitch setMuteField={setMutePromotional} />
+            <ToggleSwitch
+              setMuteField={setMutePromotional}
+              fieldValue={mutePromotional}
+            />
           </div>
           <div className="flex py-6 justify-between items-center">
             <div className="text-sm text-gray-900 font-semibold w-4/5 ">
               Mute reminder notifications
             </div>
-            <ToggleSwitch setMuteField={setMuteReminder} />
+            <ToggleSwitch
+              setMuteField={setMuteReminder}
+              fieldValue={muteReminder}
+            />
           </div>
         </div>
       </div>

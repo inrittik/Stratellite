@@ -3,10 +3,14 @@ import cx from "classnames";
 
 interface ToggleSwitchProps {
   setMuteField: any;
+  fieldValue: boolean;
 }
 
-const ToggleSwitch: React.FC<ToggleSwitchProps> = ({ setMuteField }) => {
-  const [switchedOn, setSwitchedOn] = useState(false);
+const ToggleSwitch: React.FC<ToggleSwitchProps> = ({
+  setMuteField,
+  fieldValue,
+}) => {
+  const [switchedOn, setSwitchedOn] = useState(fieldValue);
 
   const handleToggle = () => {
     setSwitchedOn(!switchedOn);
@@ -21,7 +25,7 @@ const ToggleSwitch: React.FC<ToggleSwitchProps> = ({ setMuteField }) => {
         className={cx(
           "h-8 w-8 rounded-full absolute border border-gray-500 duration-300 ease-in-out",
           { "bg-sky-400 translate-x-8": switchedOn },
-          { "bg-white": !switchedOn }
+          { "bg-gray-200": !switchedOn }
         )}
       ></div>
     </div>
