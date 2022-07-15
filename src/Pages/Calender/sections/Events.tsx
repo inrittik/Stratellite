@@ -8,9 +8,11 @@ const Events = () => {
   const [typeOfEvent, setTypeOfEvent] = useState(1);
   return (
     <div>
-      <div className="my-3 text-gray-800 ml-3">Set up the event type</div>
+      <div className="my-3 text-sm text-gray-800 ml-3">
+        Set up the event type
+      </div>
       <div className="my-6 flex items-center justify-between mx-3">
-        <div className="font-semibold">Set/Schedule a </div>
+        <div className="font-semibold text-xs md:text-sm">Set/Schedule a </div>
         <GeneralDropDown
           dropDownList={eventType}
           setSelected={setTypeOfEvent}

@@ -13,8 +13,10 @@ const Meeting = () => {
           placeholder={`Add Title`}
         />
       </div>
-      <div className="my-6 flex justify-between items-center font-semibold mx-3">
-        <div className="">Date and time of event </div>
+      <div className="my-6 flex flex-col md:flex-row justify-between md:items-center font-semibold mx-3">
+        <div className="text-xs md:text-sm mb-6 md:mb-0">
+          Date and time of event{" "}
+        </div>
         <div className="border p-3 border-gray-500 rounded flex justify-between items-center">
           <div className="text-xssm mr-3">11th July, 2022</div>
           {icons.Calender.calender}
@@ -22,22 +24,22 @@ const Meeting = () => {
       </div>
 
       {/* color picker, etc */}
-      <div className="flex mx-3 justify-between items-center">
-        <div className="border font-semibold border-gray-500 w-36 p-3 rounded">
+      <div className="flex flex-wrap mx-3 justify-between items-center">
+        <div className="border font-semibold border-gray-500 w-2/5 md:w-36 p-3 rounded">
           6:00 pm
         </div>
-        <div className="border font-semibold border-gray-500 w-36 p-3 rounded">
+        <div className="border font-semibold border-gray-500 w-2/5 md:w-36 p-3 rounded">
           8:00 pm
         </div>
-        <div className="border p-3 border-gray-500 rounded flex justify-between items-center">
-          <div className="text-gray-700 mr-3">{icons.Calender.plus}</div>
-          <span>Add Tag</span>
+        <div className="border p-5 md:p-3 border-gray-500 rounded flex md:justify-between items-center w-full md:w-fit my-3 md:my-0">
+          <div className="text-gray-700 mr-3 w-fit">{icons.Calender.plus}</div>
+          <span className="text-xs md:text-sm">Add Tag</span>
         </div>
-        <div className="grid grid-cols-3 grid-rows-2 gap-1">
+        <div className="flex flex-wrap justify-between md:grid grid-cols-3 grid-rows-2 gap-1">
           {colorPalete.map((color) => {
             return (
               <div
-                className="h-8 w-12 rounded cursor-pointer"
+                className="h-8 w-12 rounded cursor-pointer mx-1 md:mx-0"
                 style={{ backgroundColor: color }}
                 onClick={() => setSelectedColor(color)}
               ></div>
@@ -56,14 +58,14 @@ const Meeting = () => {
           placeholder="Add a description"
         ></textarea>
       </div>
-      <div className="my-6 flex justify-between items-center font-semibold mx-3">
+      <div className="my-6 flex justify-between items-center font-semibold mx-3 text-xs md:text-sm">
         <div>Add people</div>
         <div className="border p-3 border-gray-500 rounded flex justify-between items-center">
           <div className="text-sky-400 mr-3">{icons.Calender.plus}</div>
           <span>ADD</span>
         </div>
       </div>
-      <div className="flex my-6 mx-3">
+      <div className="flex my-6 mx-3 text-sm">
         <button className="w-32 border border-sky-400 rounded text-sky-400 py-3 mr-3">
           Discard
         </button>

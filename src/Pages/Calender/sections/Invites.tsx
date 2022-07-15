@@ -3,7 +3,7 @@ import InvitationCard from "../../../Components/InvitationCard";
 
 const Invites = () => {
   return (
-    <div className="mx-3 max-h-[60vh] overflow-auto">
+    <div className="mx-3 md:max-h-[60vh] overflow-auto">
       <InvitationCard />
       <InvitationCard />
       <InvitationCard />

@@ -42,11 +42,11 @@ const Calender: React.FC<calenderProps> = ({ setSidebarActive }) => {
   };
 
   return (
-    <div className="border w-[30rem] border-gray-500 rounded flex flex-col p-3">
+    <div className="border w-11/12 mx-auto md:w-[30rem] h-fit border-gray-500 rounded flex flex-col p-3">
       {/* top section */}
-      <div className="flex items-center justify-between mx-5">
-        <div className="flex text-28 items-center font-semibold p-3">
-          <span className="w-60">{format(value, "MMMM yyyy")}</span>
+      <div className="flex items-center justify-between md:mx-5">
+        <div className="flex text-1.5xl md:text-28 items-center font-semibold p-3">
+          <span className="w-32 md:w-60">{format(value, "MMMM yyyy")}</span>
           <div className="flex flex-col ml-4 justify-between h-[1.5rem]">
             <span className="cursor-pointer" onClick={handleNextClick}>
               {icons.arrowUp}
@@ -66,12 +66,12 @@ const Calender: React.FC<calenderProps> = ({ setSidebarActive }) => {
       </div>
 
       {/* dates -> main calender*/}
-      <div className="flex flex-col items-center justify-between mx-5">
+      <div className="flex flex-col items-center justify-between md:mx-5">
         {/* week names */}
         <div className="flex flex-row justify-between text-center my-1 w-full">
           {weeks.map((weekday) => {
             return (
-              <div className="flex justify-center items-center w-8 py-2 px-5 font-semibold rounded mx-2">
+              <div className="flex justify-center items-center w-4 md:w-8 py-2 px-5 font-semibold rounded md:mx-2">
                 {weekday}
               </div>
             );
@@ -85,7 +85,7 @@ const Calender: React.FC<calenderProps> = ({ setSidebarActive }) => {
                 return (
                   <div
                     className={cx(
-                      "flex justify-center items-center w-8 py-2 px-5 border border-gray-500 mx-2 cursor-pointer",
+                      "flex justify-center items-center w-4 md:w-8 py-2 px-5 border border-gray-500 md:mx-2 cursor-pointer",
                       {
                         "border-sky-400": isToday(day) && isPresentMonth(day),
                         "text-gray-500": !isCurrentMonth(day),

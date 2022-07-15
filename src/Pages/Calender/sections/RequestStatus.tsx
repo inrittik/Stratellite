@@ -3,7 +3,7 @@ import RequestStatusCard from "../../../Components/RequestStatusCard";
 
 const RequestStatus = () => {
   return (
-    <div className="mx-3 max-h-[60vh] overflow-auto">
+    <div className="mx-3 md:max-h-[60vh] overflow-auto">
       <RequestStatusCard status={"Pending"} />
       <RequestStatusCard status={"Approved"} />
       <RequestStatusCard status={"Pending"} />

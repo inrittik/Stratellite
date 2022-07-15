@@ -85,7 +85,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
   return (
     <div
       className={cx(
-        "fixed  transition-all flex  ease-in-out delay-150 w-9/12 overflow-x-hidden shadow-[0_4px_60px_rgba(0,0,0,0.25)] md:shadow-none right-0 md:static md:flex bg-white z-10 sidebar flex-col md:w-full md:bg-gray-50 border-r border-sidebarBorder overflow-auto",
+        "fixed h-full w-1/2  transition-all flex  ease-in-out delay-150 w-9/12 overflow-x-hidden shadow-[0_4px_60px_rgba(0,0,0,0.25)] md:shadow-none right-0 md:static md:flex bg-white z-10 sidebar flex-col md:w-full md:bg-gray-50 border-r border-sidebarBorder overflow-auto",
         { "w-0": !state.showSidebar }
       )}
     >

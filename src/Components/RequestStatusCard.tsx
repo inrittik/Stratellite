@@ -25,21 +25,24 @@ const RequestStatusCard: React.FC<RequestStatusCardProps> = ({ status }) => {
           </div>
         </div>
 
-        <div className="text-xs w-28">Today, 9:42 am</div>
+        <div className="text-xs hidden md:block md:w-28">Today, 9:42 am</div>
       </div>
 
-      <div className="flex my-6 mx-3">
-        <div
-          className={cx(
-            "w-32 flex items-center justify-center border border-gray-500 rounded py-3",
-            {
-              "text-green-500": status === "Approved",
-              "text-sky-400": status === "Pending",
-            }
-          )}
-        >
-          {status}
+      <div className="flex justify-between items-end my-6">
+        <div className="flex mx-3">
+          <div
+            className={cx(
+              "w-32 flex items-center text-xs md:text-sm justify-center border border-gray-500 rounded py-3",
+              {
+                "text-green-500": status === "Approved",
+                "text-sky-400": status === "Pending",
+              }
+            )}
+          >
+            {status}
+          </div>
         </div>
+        <div className="text-right block md:hidden w-28">Today, 9:42 am</div>
       </div>
     </div>
   );

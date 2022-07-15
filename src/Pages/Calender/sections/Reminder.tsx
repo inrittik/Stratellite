@@ -15,7 +15,7 @@ const Reminder = () => {
         />
       </div>
       <div className="my-6 flex justify-between items-center font-semibold mx-3">
-        <div className="">All Days </div>
+        <div className="text-xs md:text-sm">All Days </div>
         <ToggleSwitch
           setMuteField={setToggleFieldAllDays}
           fieldValue={toggleFieldAllDays}
@@ -24,7 +24,7 @@ const Reminder = () => {
 
       <div className="flex mx-3 my-6">
         <div className="border p-3 border-gray-500 rounded flex justify-between items-center">
-          <div className="text-xssm mr-3">11th July, 2022</div>
+          <div className="text-xs md:text-sm mr-3">11th July, 2022</div>
           {icons.Calender.calender}
         </div>
         <div className="border font-semibold border-gray-500 w-36 p-3 rounded ml-3">
@@ -33,14 +33,14 @@ const Reminder = () => {
       </div>
 
       <div className="my-6 flex justify-between items-center font-semibold mx-3">
-        <div className="">Repeat </div>
+        <div className="text-xs md:text-sm">Repeat </div>
         <ToggleSwitch
           setMuteField={setToggleFieldRepeat}
           fieldValue={toggleFieldRepeat}
         />
       </div>
 
-      <div className="flex my-6 mx-3">
+      <div className="flex my-6 mx-3 text-sm">
         <button className="w-32 border border-sky-400 rounded text-sky-400 py-3 mr-3">
           Discard
         </button>

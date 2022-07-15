@@ -15,7 +15,7 @@ const Main = () => {
 
   return (
     <div
-      className={cx("", {
+      className={cx("overflow-x-hidden", {
         calender: sidebarActive,
         "project overflow-y-auto": !sidebarActive,
       })}
@@ -43,18 +43,18 @@ const Main = () => {
         )}
 
         {!sidebarActive && <ProjectsSearchBar />}
-        <div className="d-flex flex-col md:px-15 md:pl-15 pl-5 px-0 pt-6 md:pt-11">
-          <div className="flex flex-col items-start justify-between w-full mb-6">
+        <div className="d-flex flex-col md:px-15 md:pl-15 md:pl-5 px-0 pt-6 md:pt-11">
+          <div className="flex flex-col items-start justify-between ml-5 md:ml-0 w-full mb-6">
             <div className="text-28 text-gray-800 font-medium mb-4">
               Calender
             </div>
-            <div className="text-base md:text-lg text-gray-600 mb-6">
+            <div className="hidden md:block text-base md:text-lg text-gray-600 mb-6">
               Here is a list of all the projects you have been working on.
             </div>
           </div>
 
           {/* main body */}
-          <div className="flex">
+          <div className="hidden md:flex">
             <div className="flex flex-col mr-4">
               <Calender setSidebarActive={setSidebarActive} />
               <RecentEvents />
@@ -65,6 +65,19 @@ const Main = () => {
                 <CreateSection setsidebarActive={setSidebarActive} />
               )}
             </div>
+          </div>
+
+          {sidebarActive && (
+            <div className="flex flex-col md:hidden">
+              <Calender setSidebarActive={setSidebarActive} />
+              <Reminders />
+              <RecentEvents />
+            </div>
+          )}
+          <div className="w-11/12 mx-auto">
+            {!sidebarActive && (
+              <CreateSection setsidebarActive={setSidebarActive} />
+            )}
           </div>
         </div>
       </div>

@@ -21,7 +21,7 @@ const GeneralDropDown: React.FC<DropDownProps> = ({
     setActive(!active);
   };
   return (
-    <div className="relative bg-white text-center w-32 md:w-36">
+    <div className="relative bg-white text-center w-32 md:w-36 text-xs md:text-sm">
       <div
         className={cx(
           "py-3 px-3 flex justify-center items-center border-gray-500 rounded-t",
