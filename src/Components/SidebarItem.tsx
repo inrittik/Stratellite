@@ -1,4 +1,5 @@
 import cx from "classnames";
+import { useGlobalContext } from "../Contexts/GlobalContext";
 export interface SidebarItemProps {
   id: number;
   text: string;
@@ -15,6 +16,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
   selectedItem,
   id,
 }) => {
+  const [state, dispatch] = useGlobalContext();
   return (
     <div
       className={cx(
@@ -23,6 +25,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
           "bg-sky-400": id === selectedItem,
         }
       )}
+      onClick={() => dispatch({ setState: { showSidebar: false } })}
     >
       <div
         className={cx(
