@@ -35,7 +35,7 @@ const ChatBox = () => {
         </div>
       </div>
       <form onSubmit={handleSubmit}>
-        <div className="absolute bottom-0 py-2 w-[95%] flex items-center justify-between">
+        <div className="absolute bottom-0 py-2 w-[95%] mx-auto flex items-center justify-between">
           <input
             type="text"
             className="quoteprice outline-none rounded p-4 placeholder-gray-700 placeholder-gray-700 text-sm text-gray-700 flex-grow border border-slate-300 w-3/4"
