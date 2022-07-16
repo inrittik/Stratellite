@@ -5,6 +5,7 @@ import Projects from "./Pages/Projects/Projects";
 import Notifications from "./Pages/Notifications/Main";
 import Calender from "./Pages/Calender/Main";
 import Contacts from "./Pages/Contacts/Main";
+import Messages from "./Pages/Messages/Main";
 import ProjectsLandingPage from "./Pages/Projects/LandingPages/NewProjects";
 import ActiveProjectsLandingPage from "./Pages/Projects/LandingPages/ActiveProjects";
 import InProgressProjects from "./Pages/Projects/LandingPages/InProgressProjects";
@@ -22,6 +23,7 @@ function App() {
         <Route path="/notifications" element={<Notifications />}></Route>
         <Route path="/calender" element={<Calender />}></Route>
         <Route path="/contact" element={<Contacts />}></Route>
+        <Route path="/messages" element={<Messages />}></Route>
         <Route
           path="/projects/new-projects"
           element={<ProjectsLandingPage status="new" />}

@@ -72,7 +72,7 @@ const Main = () => {
           <div className=" md:flex" onClick={() => setSettingsActive(true)}>
             <div className="h-10 items-center gap-4 px-6 flex border border-gray-300 rounded-md cursor-pointer">
               <div className="text-black text-sm">Settings</div>
-              {icons.notifications.settings}
+              <div className="w-6">{icons.notifications.settings}</div>
             </div>
           </div>
         </div>
