@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import messagesContext from "../Contexts/Messages/messagesContext";
 import { icons } from "../utils/icons";
 import cx from "classnames";
 
@@ -12,9 +13,24 @@ const ChatCard: React.FC<ChatCardProps> = ({ name, lastMessage, time }) => {
   const [message, setMessage] = useState(lastMessage.slice(0, 30));
   const [showOptions, setShowOptions] = useState(false);
   const [selected, setSelected] = useState(false);
+  const user = useContext(messagesContext);
+
+  const handleClick = () => {
+    const newUser = {
+      name: name,
+      lastMessage: lastMessage,
+      isSelected: true,
+    };
+
+    user.update(newUser);
+    console.log(user.state);
+  };
 
   return (
-    <div className="border border-gray-500 rounded p-2 flex items-center justify-between my-2 cursor-pointer relative">
+    <div
+      className="border border-gray-500 rounded p-2 flex items-center justify-between my-2 cursor-pointer relative"
+      onClick={handleClick}
+    >
       <div className="flex">
         <img
           className="h-9 w-9 rounded-full object-cover mr-2"

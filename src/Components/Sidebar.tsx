@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import sidebarLogo from "../assets/images/sidebar-logo.png";
 import sidebarLogoMob from "../assets/images/sidebar-logo-mobile.png";
 import { useGlobalContext } from "../Contexts/GlobalContext";
 import { icons } from "../utils/icons";
 import SidebarItem from "./SidebarItem";
 import cx from "classnames";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 interface SidebarProps {}
 
 const sidebarItems = [
@@ -82,6 +82,25 @@ const Sidebar: React.FC<SidebarProps> = () => {
   const [state, dispatch] = useGlobalContext();
   const [selectedItem, setSelectedItem] = useState(1);
 
+  const location = useLocation();
+  useEffect(() => {
+    sidebarItems.forEach((item) => {
+      if (item.link === location.pathname) {
+        setSelectedItem(item.id);
+      }
+    });
+    sidebarItems2.forEach((item) => {
+      if (item.link === location.pathname) {
+        setSelectedItem(item.id);
+      }
+    });
+    sidebarItems3.forEach((item) => {
+      if (item.link === location.pathname) {
+        setSelectedItem(item.id);
+      }
+    });
+  }, [location]);
+
   return (
     <div
       className={cx(
@@ -101,7 +120,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
       </div>
       <div className="flex bg-inherit flex-col pt-10 px-5 md:px-0">
         {sidebarItems.map((x) => (
-          <Link to={x.link} onClick={() => setSelectedItem(x.id)}>
+          <Link to={x.link}>
             <SidebarItem
               id={x.id}
               text={x.text}
@@ -116,7 +135,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
       <div className="text-sm font-medium my-4 mt-7 ml-12 ">Promotions</div>
       <div className="flex flex-col px-5 md:px-0">
         {sidebarItems2.map((x) => (
-          <Link to={x.link} onClick={() => setSelectedItem(x.id)}>
+          <Link to={x.link}>
             <SidebarItem
               id={x.id}
               text={x.text}
@@ -130,7 +149,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
       </div>
       <div className="flex flex-col px-5 md:px-0 absolute bottom-0">
         {sidebarItems3.map((x) => (
-          <Link to={x.link} onClick={() => setSelectedItem(x.id)}>
+          <Link to={x.link}>
             <SidebarItem
               id={x.id}
               text={x.text}
