@@ -9,7 +9,14 @@ const ChatBox = () => {
   };
   const user = useContext(messagesContext);
   return (
-    <div className="w-[63%] border border-gray-500 rounded p-3 relative">
+    <div
+      className={cx(
+        "md:w-[63%] h-[82vh] border border-gray-500 rounded p-3 relative",
+        {
+          "hidden md:block": !user.state.isSelected,
+        }
+      )}
+    >
       <div className={cx({ hidden: !user.state.isSelected })}>
         <div className="flex justify-between items-center border-b border-gray-500 pb-3 px-3">
           <div className="flex ">
