@@ -3,6 +3,7 @@ import { icons } from "../utils/icons";
 import cx from "classnames";
 import messagesContext from "../Contexts/Messages/messagesContext";
 import ChatDropDown from "./ChatDropDown";
+import ChatContainer from "./ChatContainer";
 
 const moreOptionsMobile = [
   {
@@ -42,13 +43,51 @@ const moreOptions = [
     item: "Report Person",
   },
 ];
+
+const messages = [
+  {
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo deleniti officia expedita sequi unde ea aut nesciunt itaque quasi iusto.",
+    time: "10:00",
+    type: "received",
+  },
+  {
+    text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae unde corporis hic odit ipsa recusandae.",
+    time: "10:00",
+    type: "sent",
+  },
+  {
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo deleniti officia expedita sequi unde ea aut nesciunt itaque quasi iusto.",
+    time: "12:00",
+    type: "received",
+  },
+  {
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo deleniti officia expedita sequi unde ea aut nesciunt itaque quasi iusto.",
+    time: "16:00",
+    type: "sent",
+  },
+];
+
 const ChatBox = () => {
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-  };
   const user = useContext(messagesContext);
 
   const [showMoreOptions, setShowMoreOptions] = useState(false);
+
+  const [messageList, setMessageList] = useState(messages);
+
+  const [input, setInput] = useState("");
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+
+    const newMessage = {
+      text: input,
+      time: "16:00",
+      type: "sent",
+    };
+    setMessageList(() => [...messageList, newMessage]);
+
+    setInput("");
+  };
 
   return (
     <div
@@ -113,12 +152,15 @@ const ChatBox = () => {
             </div>
           </div>
         </div>
+        <ChatContainer messageList={messageList} />
         <form onSubmit={handleSubmit}>
           <div className="absolute bottom-0 py-2 w-[95%] mx-auto flex items-center justify-between">
             <input
               type="text"
               className="quoteprice outline-none rounded p-4 placeholder-gray-700 placeholder-gray-700 text-sm text-gray-700 flex-grow border border-slate-300 w-3/4"
               placeholder="Type a message..."
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
             />
 
             <div className="flex">
