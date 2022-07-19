@@ -2,14 +2,31 @@ import { useState, useContext } from "react";
 import messagesContext from "../Contexts/Messages/messagesContext";
 import { icons } from "../utils/icons";
 import cx from "classnames";
+import ChatDropDown from "./ChatDropDown";
 
 interface ChatCardProps {
   name: string;
   lastMessage: string;
   time: string;
+  id: number;
 }
 
-const ChatCard: React.FC<ChatCardProps> = ({ name, lastMessage, time }) => {
+const cardDropDown = [
+  {
+    item: "Archive Chat",
+  },
+  {
+    item: "Delete Chat",
+  },
+  {
+    item: "Mark as unread",
+  },
+  {
+    item: "Mute Notification",
+  },
+];
+
+const ChatCard: React.FC<ChatCardProps> = ({ name, lastMessage, time, id }) => {
   const [message, setMessage] = useState(lastMessage.slice(0, 30));
   const [showOptions, setShowOptions] = useState(false);
   const [selected, setSelected] = useState(false);
@@ -20,15 +37,20 @@ const ChatCard: React.FC<ChatCardProps> = ({ name, lastMessage, time }) => {
       name: name,
       lastMessage: lastMessage,
       isSelected: true,
+      id: id,
     };
 
     user.update(newUser);
-    console.log(user.state);
   };
 
   return (
     <div
-      className="border border-gray-500 rounded p-2 flex items-center justify-between my-2 cursor-pointer relative"
+      className={cx(
+        "border border-gray-500 rounded p-2 flex items-center justify-between my-2 cursor-pointer relative",
+        {
+          "border-sky-400": user.state.id === id,
+        }
+      )}
       onClick={handleClick}
     >
       <div className="flex">
@@ -50,24 +72,11 @@ const ChatCard: React.FC<ChatCardProps> = ({ name, lastMessage, time }) => {
         </div>
       </div>
 
-      <div
-        className={cx(
-          "absolute border border-gray-500 rounded-md z-20 bg-white top-12 left-[50%] shadow-[4px_10px_25px_rgba(0,0,0,0.25)] w-36 flex flex-col p-3 text-black font-medium",
-          {
-            hidden: !showOptions,
-          }
-        )}
-        onClick={() => setShowOptions(false)}
-      >
-        <div className="pb-2 border-b border-gray-500 text-xs">
-          Archive Chat
-        </div>
-        <div className="py-2 border-b border-gray-500 text-xs">Delete Chat</div>
-        <div className="py-2 border-b border-gray-500 text-xs">
-          Mark as unread
-        </div>
-        <div className="pt-2 border-gray-500 text-xs">Mute Notification</div>
-      </div>
+      <ChatDropDown
+        list={cardDropDown}
+        showList={showOptions}
+        setShowList={setShowOptions}
+      />
     </div>
   );
 };

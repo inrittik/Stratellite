@@ -1,13 +1,55 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { icons } from "../utils/icons";
 import cx from "classnames";
 import messagesContext from "../Contexts/Messages/messagesContext";
+import ChatDropDown from "./ChatDropDown";
 
+const moreOptionsMobile = [
+  {
+    item: "Video Call",
+  },
+  {
+    item: "Archive Chat",
+  },
+  {
+    item: "Delete Chat",
+  },
+  {
+    item: "Mute Notifications",
+  },
+  {
+    item: "Block Person",
+  },
+  {
+    item: "Report Person",
+  },
+];
+
+const moreOptions = [
+  {
+    item: "Archive Chat",
+  },
+  {
+    item: "Delete Chat",
+  },
+  {
+    item: "Mute Notifications",
+  },
+  {
+    item: "Block Person",
+  },
+  {
+    item: "Report Person",
+  },
+];
 const ChatBox = () => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
   };
   const user = useContext(messagesContext);
+
+  const [showMoreOptions, setShowMoreOptions] = useState(false);
+
   return (
     <div
       className={cx(
@@ -36,14 +78,38 @@ const ChatBox = () => {
             </div>
           </div>
           <div className="flex">
-            <div className="border border-sky-400 text-sky-400 rounded p-3 flex items-center mx-2 cursor-pointer">
+            <div className="relative border border-sky-400 text-sky-400 rounded p-3 flex items-center mx-2 cursor-pointer right-12">
               {icons.Messages.voiceCall}
             </div>
-            <div className="border border-sky-400 text-sky-400 rounded p-3 flex items-center mx-2 cursor-pointer">
+            <div className="hidden relative border border-sky-400 text-sky-400 rounded p-3 md:flex items-center mx-2 cursor-pointer right-12">
               {icons.Messages.videoCall}
             </div>
-            <div className="border rounded p-3 px-5 flex items-center mx-2 cursor-pointer">
-              {icons.threeDots}
+            <div className="relative bottom-0 right-32">
+              <div
+                className="border absolute rounded p-4 px-5 flex items-center mx-2 cursor-pointer top-0 left-20"
+                onClick={() => setShowMoreOptions(!showMoreOptions)}
+              >
+                {icons.threeDots}
+              </div>
+
+              {showMoreOptions && (
+                <>
+                  <div className="md:hidden">
+                    <ChatDropDown
+                      list={moreOptionsMobile}
+                      showList={showMoreOptions}
+                      setShowList={setShowMoreOptions}
+                    />
+                  </div>
+                  <div className="hidden md:block">
+                    <ChatDropDown
+                      list={moreOptions}
+                      showList={showMoreOptions}
+                      setShowList={setShowMoreOptions}
+                    />
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </div>

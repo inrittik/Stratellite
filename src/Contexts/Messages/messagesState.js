@@ -6,6 +6,7 @@ const MessagesState = (props) => {
     name: null,
     lastMessage: null,
     isSelected: false,
+    id: 0,
   };
   const [state, setState] = useState(initialState);
   const update = (newUser) => {
