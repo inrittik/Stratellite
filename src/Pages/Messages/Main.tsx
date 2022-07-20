@@ -13,7 +13,7 @@ const Main = () => {
   const [settingsActive, setSettingsActive] = useState(false);
   return (
     <MessagesState>
-      <div className="home">
+      <div className="messages">
         <div className="flex flex-col overflow-auto">
           <div className="flex gap-4 mt-6 md:mt-0 md:min-h-[8.5rem] w-100 items-center md:mx-0 mx-5">
             <CustomBackButton />
@@ -45,7 +45,7 @@ const Main = () => {
             </div>
           </div>
 
-          <div className="md:mx-12 md:flex max-h-[82vh] my-3 md:mt-0">
+          <div className="md:mx-12 md:flex max-h-[82vh] md:mt-0">
             <ChatList />
             <ChatBox />
           </div>

@@ -70,9 +70,16 @@ const ChatCard: React.FC<ChatCardProps> = ({ name, lastMessage, time, id }) => {
         </div>
       </div>
 
-      <div className="flex flex-col items-end">
-        <div className="text-gray-700 text-[0.6rem] my-1">{time}</div>
-        <div className="my-1" onClick={() => setShowOptions(!showOptions)}>
+      <div className="flex flex-col items-end relative">
+        <div className="text-gray-700 text-[0.6rem] my-1 absolute bottom-0">
+          {time}
+        </div>
+        <div
+          className="my-1 absolute z-10 p-2 top-[-0.5rem] right-[-0.2rem]"
+          onClick={() => {
+            setShowOptions(!showOptions);
+          }}
+        >
           {icons.arrowDown}
         </div>
       </div>

@@ -10,7 +10,8 @@ body,
   overflow: hidden;
 }
 .home,
-.calender {
+.calender,
+.messages {
   display: grid;
   grid-template-columns: auto 28.125%;
 }
@@ -23,7 +24,8 @@ body,
 .project-card {
   width: 100%;
 }
-.calender {
+.calender,
+.messages {
   overflow: auto !important;
 }
 .invoice-card {
@@ -134,7 +136,8 @@ body,
     grid-template-columns: auto;
   }
   .home,
-  .calender {
+  .calender,
+  .messages {
     grid-template-columns: auto;
   }
   .project {
