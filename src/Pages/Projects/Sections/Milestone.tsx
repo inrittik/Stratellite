@@ -19,7 +19,11 @@ const Milestone = () => {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    setMilestone(() => [...milestone, message]);
+
+    const temp = message;
+    temp.trim();
+    if (temp.replace(/\s/g, "").length)
+      setMilestone(() => [...milestone, message]);
 
     setMessage("");
   };

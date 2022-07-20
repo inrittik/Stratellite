@@ -20,8 +20,8 @@ const ChatContainer: React.FC<ChatContainerProps> = ({ messageList }) => {
   }, []);
   return (
     <div
-      className="overflow-y-auto scrollbar-hide flex flex-col absolute bottom-20"
-      style={{ maxHeight: "65vh" }}
+      className="overflow-y-auto scrollbar-hide flex flex-col absolute bottom-18"
+      style={{ maxHeight: "64vh", maxWidth: "100%" }}
       ref={divRef}
     >
       <div>

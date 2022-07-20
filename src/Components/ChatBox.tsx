@@ -79,13 +79,16 @@ const ChatBox = () => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
 
-    const newMessage = {
-      text: input,
-      time: "16:00",
-      type: "sent",
-    };
-    setMessageList(() => [...messageList, newMessage]);
-
+    const temp = input;
+    temp.trim();
+    if (temp.replace(/\s/g, "").length) {
+      const newMessage = {
+        text: input,
+        time: "16:00",
+        type: "sent",
+      };
+      setMessageList(() => [...messageList, newMessage]);
+    }
     setInput("");
   };
 
@@ -99,7 +102,7 @@ const ChatBox = () => {
       )}
     >
       <div className={cx({ hidden: !user.state.isSelected })}>
-        <div className="flex justify-between items-center border-b border-gray-500 pb-3 px-3">
+        <div className="flex justify-between items-center border-b border-gray-500 pb-3 px-3 mb-2">
           <div className="flex ">
             <img
               className="h-10 w-10 rounded-full object-cover mr-2"
@@ -164,12 +167,23 @@ const ChatBox = () => {
             />
 
             <div className="flex">
-              <div className="border rounded w-12 h-12 flex items-center justify-center mx-1 cursor-pointer">
-                {icons.Messages.sendFile}
+              <div>
+                <label htmlFor="file-upload">
+                  <div className="border rounded w-12 h-12 flex items-center justify-center mx-1 cursor-pointer">
+                    {icons.Messages.sendFile}
+                  </div>
+                </label>
+                <input type="file" id="file-upload" className="hidden" />
               </div>
-              <div className="border rounded w-12 h-12 flex items-center justify-center mx-1 cursor-pointer">
-                {icons.Messages.sendPicture}
+              <div>
+                <label htmlFor="pic-upload">
+                  <div className="border rounded w-12 h-12 flex items-center justify-center mx-1 cursor-pointer">
+                    {icons.Messages.sendPicture}
+                  </div>
+                </label>
+                <input type="image" className="hidden" />
               </div>
+
               <button className="rounded w-12 h-12 bg-sky-400 flex items-center justify-center mx-1 cursor-pointer">
                 {icons.Messages.sendMessage}
               </button>

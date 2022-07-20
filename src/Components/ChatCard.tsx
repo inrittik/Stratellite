@@ -29,7 +29,6 @@ const cardDropDown = [
 const ChatCard: React.FC<ChatCardProps> = ({ name, lastMessage, time, id }) => {
   const [message, setMessage] = useState(lastMessage.slice(0, 30));
   const [showOptions, setShowOptions] = useState(false);
-  const [selected, setSelected] = useState(false);
   const user = useContext(messagesContext);
 
   const handleClick = () => {
@@ -54,11 +53,17 @@ const ChatCard: React.FC<ChatCardProps> = ({ name, lastMessage, time, id }) => {
       onClick={handleClick}
     >
       <div className="flex">
-        <img
-          className="h-9 w-9 rounded-full object-cover mr-2"
-          src="https://i.pinimg.com/564x/f7/6b/91/f76b91f22019b550e0848519719a03f1.jpg"
-          alt=""
-        ></img>
+        <div className="relative">
+          <img
+            className="h-9 w-9 rounded-full object-cover mr-2"
+            src="https://i.pinimg.com/564x/f7/6b/91/f76b91f22019b550e0848519719a03f1.jpg"
+            alt=""
+          ></img>
+          <div className="h-3 w-3 aspect-square bg-white rounded-full absolute left-6 bottom-[0.1rem]">
+            <div className="h-2 w-2 aspect-square bg-sky-500 rounded-full absolute ml-[0.125rem] mt-[0.125rem]"></div>
+          </div>
+        </div>
+
         <div className="flex flex-col">
           <div className="font-semibold text-sm">{name}</div>
           <div className="text-[0.6rem] text-gray-700">{`${message}...`}</div>
