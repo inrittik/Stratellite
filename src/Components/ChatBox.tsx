@@ -95,14 +95,14 @@ const ChatBox = () => {
   return (
     <div
       className={cx(
-        "md:w-[63%] h-[80vh] md:h-[82vh] border border-gray-500 rounded p-3 relative",
+        "md:w-[63%] h-[82vh] border border-gray-500 rounded p-3 relative",
         {
           "hidden md:block": !user.state.isSelected,
         }
       )}
     >
       <div className={cx({ hidden: !user.state.isSelected })}>
-        <div className="flex justify-between items-center border-b border-gray-500 pb-3 px-3 mb-2 bg-white">
+        <div className="flex justify-between items-center border-b border-gray-500 pb-3 px-3 mb-2">
           <div className="flex ">
             <img
               className="h-10 w-10 rounded-full object-cover mr-2"

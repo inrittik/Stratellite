@@ -30,7 +30,7 @@ const ChatList = () => {
   return (
     <div
       className={cx(
-        "w-100 md:w-[37%] h-[100vh] md:h-[82vh] border border-gray-500 rounded mx-2 p-3",
+        "w-100 md:w-[37%] h-[82vh] border border-gray-500 rounded mx-2 p-3",
         { "hidden md:block": item.state.isSelected }
       )}
     >
@@ -68,7 +68,7 @@ const ChatList = () => {
         })}
       </div>
       <div
-        className="hidden border border-gray-500 rounded md:flex items-center mt-2 p-3 px-6 cursor-pointer"
+        className="border border-gray-500 rounded flex items-center mt-2 p-3 px-6 cursor-pointer"
         onClick={() => setSettingsActive(true)}
       >
         <div className="text-gray-200 w-[1.5rem] mr-4">
