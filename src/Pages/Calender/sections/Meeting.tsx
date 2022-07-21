@@ -1,9 +1,18 @@
 import { icons } from "../../../utils/icons";
 import { colorPalete } from "../../../data/calender";
 import { useState } from "react";
+import CalenderDatePicker from "../../../Components/CalendarDatePicker";
+import { format, startOfToday } from "date-fns";
+import TimeDropDown from "../../../Components/TimeDropDown";
 
 const Meeting = () => {
+  const today = startOfToday();
   const [selectedColor, setSelectedColor] = useState(colorPalete[0]);
+  const [datePickerActive, setDatePickerActive] = useState(false);
+  const [startTime, setStartTime] = useState(today);
+  const [endTime, setEndTime] = useState(today);
+
+  const [datePickerValue, setDatePickerValue] = useState(startOfToday());
   return (
     <>
       <div className="border border-slate-300 flex items-center my-3 mx-3">
@@ -17,20 +26,30 @@ const Meeting = () => {
         <div className="text-xs md:text-sm mb-6 md:mb-0">
           Date and time of event{" "}
         </div>
-        <div className="border p-3 border-gray-500 rounded flex justify-between items-center">
-          <div className="text-xssm mr-3">11th July, 2022</div>
+        <div
+          className="border p-3 border-gray-500 rounded flex justify-between items-center cursor-pointer"
+          onClick={() => setDatePickerActive(true)}
+        >
+          <div className="text-xssm mr-3">
+            {format(datePickerValue, "do MMMM yyyy")}
+          </div>
           {icons.Calender.calender}
         </div>
       </div>
 
       {/* color picker, etc */}
       <div className="flex flex-wrap mx-3 justify-between items-center">
-        <div className="border font-semibold border-gray-500 w-2/5 md:w-36 p-3 rounded">
-          6:00 pm
-        </div>
-        <div className="border font-semibold border-gray-500 w-2/5 md:w-36 p-3 rounded">
-          8:00 pm
-        </div>
+        <TimeDropDown
+          value={startTime}
+          setValue={setStartTime}
+          startTime={startTime}
+        />
+        To
+        <TimeDropDown
+          value={endTime}
+          setValue={setEndTime}
+          startTime={startTime}
+        />
         <div className="border p-5 md:p-3 border-gray-500 rounded flex md:justify-between items-center w-full md:w-fit my-3 md:my-0">
           <div className="text-gray-700 mr-3 w-fit">{icons.Calender.plus}</div>
           <span className="text-xs md:text-sm">Add Tag</span>
@@ -73,6 +92,13 @@ const Meeting = () => {
           Save
         </button>
       </div>
+      {datePickerActive && (
+        <CalenderDatePicker
+          setActive={setDatePickerActive}
+          value={datePickerValue}
+          setValue={setDatePickerValue}
+        />
+      )}
     </>
   );
 };

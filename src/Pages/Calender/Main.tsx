@@ -74,7 +74,7 @@ const Main = () => {
               <RecentEvents />
             </div>
           )}
-          <div className="w-11/12 mx-auto">
+          <div className="w-11/12 mx-auto md:hidden">
             {!sidebarActive && (
               <CreateSection setsidebarActive={setSidebarActive} />
             )}

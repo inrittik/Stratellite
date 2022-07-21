@@ -1,10 +1,21 @@
 import React, { useState } from "react";
 import ToggleSwitch from "../../../Components/ToggleSwitch";
 import { icons } from "../../../utils/icons";
+import { add, endOfDay, format, startOfDay } from "date-fns";
+import { isBefore, startOfToday } from "date-fns/esm";
+import CalenderDatePicker from "../../../Components/CalendarDatePicker";
+import TimeDropDown from "../../../Components/TimeDropDown";
 
 const Reminder = () => {
   const [toggleFieldAllDays, setToggleFieldAllDays] = useState(false);
   const [toggleFieldRepeat, setToggleFieldRepeat] = useState(true);
+
+  const today = startOfToday();
+  const [datePickerActive, setDatePickerActive] = useState(false);
+  const [startTime, setStartTime] = useState(today);
+  const [endTime, setEndTime] = useState(today);
+
+  const [datePickerValue, setDatePickerValue] = useState(startOfToday());
   return (
     <>
       <div className="border border-slate-300 flex items-center my-3 mx-3">
@@ -22,14 +33,21 @@ const Reminder = () => {
         />
       </div>
 
-      <div className="flex mx-3 my-6">
-        <div className="border p-3 border-gray-500 rounded flex justify-between items-center">
-          <div className="text-xs md:text-sm mr-3">11th July, 2022</div>
+      <div className="flex mx-3 my-6 items-center">
+        <div
+          className="border p-3 border-gray-500 rounded flex justify-between items-center mr-3 relative bottom-1"
+          onClick={() => setDatePickerActive(true)}
+        >
+          <div className="text-xs md:text-sm mr-3">
+            {format(datePickerValue, "do MMMM yyyy")}
+          </div>
           {icons.Calender.calender}
         </div>
-        <div className="border font-semibold border-gray-500 w-36 p-3 rounded ml-3">
-          6:00 pm
-        </div>
+        <TimeDropDown
+          value={startTime}
+          setValue={setStartTime}
+          startTime={startTime}
+        />
       </div>
 
       <div className="my-6 flex justify-between items-center font-semibold mx-3">
@@ -48,6 +66,13 @@ const Reminder = () => {
           Save
         </button>
       </div>
+      {datePickerActive && (
+        <CalenderDatePicker
+          setActive={setDatePickerActive}
+          value={datePickerValue}
+          setValue={setDatePickerValue}
+        />
+      )}
     </>
   );
 };
