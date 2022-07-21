@@ -20,10 +20,10 @@ const ChatContainer: React.FC<ChatContainerProps> = ({ messageList }) => {
   }, []);
   return (
     <div
-      className="overflow-y-auto scrollbar-hide flex flex-col absolute bottom-20 max-h-[51vh] md:max-h-[64vh]"
+      className="overflow-y-scroll md:overflow-y-auto scrollbar-hide flex flex-col absolute bottom-20 min-h-[40vh] max-h-[51vh] md:max-h-[64vh]"
       ref={divRef}
     >
-      <div>
+      <div className="overflow-y-scroll md:overflow-y-auto scrollbar-hide">
         {messageList.map((item) => {
           return item.type === "sent" ? (
             <SentMessageItem text={item.text} time={item.time} />

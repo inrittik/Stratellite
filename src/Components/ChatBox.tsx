@@ -95,7 +95,7 @@ const ChatBox = () => {
   return (
     <div
       className={cx(
-        "w-11/12 mx-auto md:w-[63%] h-[70vh] md:h-[82vh] border border-gray-500 rounded p-3 relative",
+        "w-11/12 mx-auto md:w-[63%] h-[70vh] md:h-[82vh] border border-gray-500 rounded p-3 relative overflow-y-scroll md:overflow-y-auto",
         {
           "hidden md:block": !user.state.isSelected,
         }
