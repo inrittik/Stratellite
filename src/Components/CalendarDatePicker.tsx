@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { icons } from "../utils/icons";
 import cx from "classnames";
 import buildCalender from "../utils/buildCalender";
-import { add, format, isSameMonth, isToday, startOfToday, sub } from "date-fns";
+import { add, format, isSameMonth, startOfToday, sub } from "date-fns";
 import { isSameDay } from "date-fns/esm";
 import calendarContext from "../Contexts/Calendar/calendarContext";
 

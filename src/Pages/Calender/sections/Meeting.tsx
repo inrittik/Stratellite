@@ -4,6 +4,7 @@ import { useState } from "react";
 import CalenderDatePicker from "../../../Components/CalendarDatePicker";
 import { format, startOfToday } from "date-fns";
 import TimeDropDown from "../../../Components/TimeDropDown";
+import AddPeopleModal from "../../../Components/AddPeopleModal";
 
 const Meeting = () => {
   const today = startOfToday();
@@ -11,6 +12,7 @@ const Meeting = () => {
   const [datePickerActive, setDatePickerActive] = useState(false);
   const [startTime, setStartTime] = useState(today);
   const [endTime, setEndTime] = useState(today);
+  const [addPeopleModalActive, setAddPeopleModalActive] = useState(false);
 
   const [datePickerValue, setDatePickerValue] = useState(startOfToday());
   return (
@@ -81,7 +83,10 @@ const Meeting = () => {
       </div>
       <div className="my-6 flex justify-between items-center font-semibold mx-3 text-xs md:text-sm">
         <div>Add people</div>
-        <div className="border p-3 border-gray-500 rounded flex justify-between items-center">
+        <div
+          className="border p-3 border-gray-500 rounded flex justify-between items-center cursor-pointer"
+          onClick={() => setAddPeopleModalActive(true)}
+        >
           <div className="text-sky-400 mr-3">{icons.Calender.plus}</div>
           <span>ADD</span>
         </div>
@@ -101,6 +106,9 @@ const Meeting = () => {
           setValue={setDatePickerValue}
           color={selectedColor}
         />
+      )}
+      {addPeopleModalActive && (
+        <AddPeopleModal setActive={setAddPeopleModalActive} />
       )}
     </>
   );
