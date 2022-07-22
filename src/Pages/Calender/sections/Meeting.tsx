@@ -58,10 +58,12 @@ const Meeting = () => {
           {colorPalete.map((color) => {
             return (
               <div
-                className="h-8 w-12 rounded cursor-pointer mx-1 md:mx-0"
+                className="h-8 w-12 rounded cursor-pointer mx-1 md:mx-0 flex items-center justify-center"
                 style={{ backgroundColor: color }}
                 onClick={() => setSelectedColor(color)}
-              ></div>
+              >
+                {selectedColor === color && icons.Calender.tick}
+              </div>
             );
           })}
         </div>
@@ -97,6 +99,7 @@ const Meeting = () => {
           setActive={setDatePickerActive}
           value={datePickerValue}
           setValue={setDatePickerValue}
+          color={selectedColor}
         />
       )}
     </>

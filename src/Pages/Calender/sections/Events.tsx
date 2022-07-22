@@ -1,10 +1,12 @@
 import GeneralDropDown from "../../../Components/GeneralDropDown";
-import { icons } from "../../../utils/icons";
 import { eventType } from "../../../data/calender";
 import Meeting from "./Meeting";
 import { useState } from "react";
 import Reminder from "./Reminder";
-const Events = () => {
+
+interface EventsProps {}
+
+const Events: React.FC<EventsProps> = () => {
   const [typeOfEvent, setTypeOfEvent] = useState(1);
   return (
     <div>

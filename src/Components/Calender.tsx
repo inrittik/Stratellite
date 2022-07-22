@@ -1,8 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext, isValidElement } from "react";
 import { icons } from "../utils/icons";
 import cx from "classnames";
 import buildCalender from "../utils/buildCalender";
-import { add, format, isSameMonth, isToday, startOfToday, sub } from "date-fns";
+import {
+  add,
+  format,
+  isSameDay,
+  isSameMonth,
+  isToday,
+  startOfToday,
+  sub,
+} from "date-fns";
+import calendarContext from "../Contexts/Calendar/calendarContext";
 
 interface calenderProps {
   setSidebarActive: any;
@@ -39,6 +48,31 @@ const Calender: React.FC<calenderProps> = ({ setSidebarActive }) => {
   // is active month === current month
   const isCurrentMonth = (day: any) => {
     return isSameMonth(day, value);
+  };
+
+  const events = useContext(calendarContext);
+
+  const eventDays = events.state;
+  console.log(eventDays);
+
+  const isEvent = (day: any) => {
+    let found = false;
+    eventDays.forEach((eventDay: any) => {
+      if (isSameDay(day, eventDay.day)) {
+        found = true;
+      }
+    });
+    return found;
+  };
+
+  const getColor = (day: any) => {
+    let color;
+    eventDays.forEach((eventDay: any) => {
+      if (isSameDay(day, eventDay.day)) {
+        color = eventDay.color;
+      }
+    });
+    return color;
   };
 
   return (
@@ -89,8 +123,13 @@ const Calender: React.FC<calenderProps> = ({ setSidebarActive }) => {
                       {
                         "border-sky-400": isToday(day) && isPresentMonth(day),
                         "text-gray-500": !isCurrentMonth(day),
+                        "text-white": isEvent(day),
                       }
                     )}
+                    style={{
+                      backgroundColor: isEvent(day) ? getColor(day) : "",
+                      borderColor: isEvent(day) ? getColor(day) : "",
+                    }}
                   >
                     {format(day, "d")}
                   </div>

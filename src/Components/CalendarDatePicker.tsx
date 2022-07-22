@@ -1,20 +1,23 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { icons } from "../utils/icons";
 import cx from "classnames";
 import buildCalender from "../utils/buildCalender";
 import { add, format, isSameMonth, isToday, startOfToday, sub } from "date-fns";
 import { isSameDay } from "date-fns/esm";
+import calendarContext from "../Contexts/Calendar/calendarContext";
 
 interface calenderProps {
   setActive: any;
   value: any;
   setValue: any;
+  color?: any;
 }
 
 const CalenderDatePicker: React.FC<calenderProps> = ({
   setActive,
   value,
   setValue,
+  color,
 }) => {
   let today = startOfToday();
   const weeks = ["Mon", "Tue", "Wed", "Thr", "Fri", "Sat", "Sun"];
@@ -44,6 +47,17 @@ const CalenderDatePicker: React.FC<calenderProps> = ({
 
   const handleCancel = () => {
     setValue(today);
+    setActive(false);
+  };
+
+  const eventDays = useContext(calendarContext);
+
+  const handleSubmit = () => {
+    const newEvent = {
+      day: value,
+      color: color ? color : "#14A9F9",
+    };
+    eventDays.update(newEvent);
     setActive(false);
   };
 
@@ -143,9 +157,7 @@ const CalenderDatePicker: React.FC<calenderProps> = ({
           </button>
           <button
             className="w-28 border border-sky-400 rounded text-white bg-sky-400 py-3"
-            onClick={() => {
-              setActive(false);
-            }}
+            onClick={handleSubmit}
           >
             Done
           </button>
