@@ -58,7 +58,7 @@ const TransactionList = () => {
 
       {/* table headers */}
       <div className="bg-gray-500">
-        <div className="w-full bg-gray-500 rounded border border-gray-500 flex p-3 top-4 font-semibold">
+        <div className="w-full bg-gray-500 rounded border border-gray-500 flex p-3 top-4 font-medium">
           <div className="w-60">Date</div>
           <div className="w-[30rem]">Project</div>
           <div className="w-60">Vendor</div>
