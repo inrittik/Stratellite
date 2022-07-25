@@ -147,7 +147,10 @@ const Sidebar: React.FC<SidebarProps> = () => {
           </Link>
         ))}
       </div>
-      <div className="flex flex-col px-5 md:px-0 absolute bottom-0">
+      <div className="md:hidden text-sm font-medium my-4 mt-7 ml-12 ">
+        Settings
+      </div>
+      <div className="flex flex-col px-5 md:px-0 md:absolute md:bottom-0">
         {sidebarItems3.map((x) => (
           <Link to={x.link}>
             <SidebarItem

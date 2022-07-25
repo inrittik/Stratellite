@@ -4,9 +4,14 @@ body,
   height: 100%;
   width: 100%;
 }
-#root {
+.not-expanded {
   display: grid;
   grid-template-columns: 20% 80%;
+  overflow: hidden;
+}
+.expanded {
+  display: grid;
+  grid-template-columns: 100%;
   overflow: hidden;
 }
 .home,
@@ -130,10 +135,15 @@ body,
   html {
     font-size: 100%;
   }
-
-  #root {
+  .not-expanded {
     display: grid;
-    grid-template-columns: auto;
+    grid-template-columns: 100%;
+    overflow: hidden;
+  }
+  .expanded {
+    display: grid;
+    grid-template-columns: 100%;
+    overflow: hidden;
   }
   .home,
   .calender,
