@@ -4,6 +4,9 @@ import { icons } from "../../utils/icons";
 import { useState } from "react";
 import AllTransactions from "./sections/AllTransactions";
 import Invoices from "./sections/Invoices";
+import DropDownCalendar from "../../Components/DropDownCalendar";
+import { startOfToday, sub, format } from "date-fns";
+import { startOfMonth } from "date-fns/esm";
 
 const sectionOptions = [
   {
@@ -17,9 +20,33 @@ const sectionOptions = [
 ];
 
 const Main = () => {
+  const start = startOfMonth(startOfToday());
+  const end = sub(start, { years: 1 });
   const [state, dispatch] = useGlobalContext();
   const [section, setSection] = useState(1);
 
+  const [startDate, setStartDate] = useState(start);
+  const [endDate, setEndDate] = useState(end);
+  const [activeCalendar, setActiveCalendar] = useState(0);
+  const [submit, setSubmit] = useState(false);
+
+  const handleSubmit = () => {
+    setActiveCalendar(0);
+    setSubmit(true);
+    setTimeout(() => {
+      setSubmit(false);
+    }, 1000);
+  };
+
+  const handleStartDropDown = () => {
+    if (activeCalendar === 1) setActiveCalendar(0);
+    else setActiveCalendar(1);
+  };
+
+  const handleEndDropDown = () => {
+    if (activeCalendar === 2) setActiveCalendar(0);
+    else setActiveCalendar(2);
+  };
   return (
     <div className="project overflow-y-auto overflow-x-hidden mx-auto">
       <div className="flex flex-col overflow-x-hidden w-full">
@@ -81,20 +108,33 @@ const Main = () => {
           <div className="flex items-center w-3/5">
             <div className="flex flex-col">
               <div className="text-gray-600 font-semibold mb-2">From Date</div>
-              <div className="border border-gray-500 rounded p-3 flex items-center justify-between w-44">
-                <span>July 1 2019</span>
-                {icons.arrowDown}
+              <div className="border border-gray-500 rounded p-3 flex items-center justify-between w-44 relative">
+                <span>{format(startDate, "MMMM dd yyyy")}</span>
+                <span onClick={handleStartDropDown} className="cursor-pointer">
+                  {icons.arrowDown}
+                </span>
+                {activeCalendar === 1 && (
+                  <DropDownCalendar value={startDate} setValue={setStartDate} />
+                )}
               </div>
             </div>
             <span className="mx-3 relative top-4">-</span>
             <div className="flex flex-col">
               <div className="text-gray-600 font-semibold mb-2">To Date</div>
-              <div className="border border-gray-500 rounded p-3 flex items-center justify-between w-44">
-                <span>July 1 2019</span>
-                {icons.arrowDown}
+              <div className="border border-gray-500 rounded p-3 flex items-center justify-between w-44 relative">
+                <span>{format(endDate, "MMMM dd yyyy")}</span>
+                <span onClick={handleEndDropDown} className="cursor-pointer">
+                  {icons.arrowDown}
+                </span>
+                {activeCalendar === 2 && (
+                  <DropDownCalendar value={endDate} setValue={setEndDate} />
+                )}
               </div>
             </div>
-            <div className="bg-sky-400 text-white rounded p-3 w-40 flex items-center justify-center mx-6 relative top-[0.9rem]">
+            <div
+              className="bg-sky-400 text-white rounded p-3 w-40 flex items-center justify-center mx-6 relative top-[0.9rem] cursor-pointer"
+              onClick={handleSubmit}
+            >
               Submit
             </div>
           </div>
@@ -110,7 +150,13 @@ const Main = () => {
           </div>
         </div>
 
-        {section === 1 && <AllTransactions />}
+        {section === 1 && (
+          <AllTransactions
+            startDate={startDate}
+            endDate={endDate}
+            submit={submit}
+          />
+        )}
         {section === 2 && <Invoices />}
       </div>
     </div>
