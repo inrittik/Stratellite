@@ -15,7 +15,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import CompletedProjects from "./Pages/Projects/LandingPages/Completed";
 import RejectedProjects from "./Pages/Projects/LandingPages/Rejected";
 import { useGlobalContext } from "./Contexts/GlobalContext";
-import Login from "./Pages/Auth/Login";
+import Login from "./Pages/Auth/Main";
 import { useEffect } from "react";
 
 function App() {
