@@ -1,17 +1,17 @@
-import React, { useContext, useState } from "react";
-import authPageContext from "../../../Contexts/Auth/authPageContext";
+import React, { useState } from "react";
+import cx from "classnames";
 import { icons } from "../../../utils/icons";
 
-interface LoginProps {
+interface SignupProps {
   pageState: number;
   setPageState: any;
 }
 
-const Login: React.FC<LoginProps> = ({ pageState, setPageState }) => {
-  const page = useContext(authPageContext);
+const Signup: React.FC<SignupProps> = ({ pageState, setPageState }) => {
   const [passwordVisibility, setPasswordVisibility] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [role, setRole] = useState("Vendor");
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -20,14 +20,11 @@ const Login: React.FC<LoginProps> = ({ pageState, setPageState }) => {
     setPassword("");
   };
 
-  const handleClick = () => {
-    setPageState(1);
-  };
   return (
     <div className="md:mx-20 px-6 absolute z-[5]">
-      <div className="font-semibold text-28 my-6">Log into Stratalite</div>
+      <div className="font-semibold text-28 my-6">Create an account</div>
       <div className="font-semibold text-gray-200 my-6 text-sm">
-        Enter your details below
+        Enter your login details below
       </div>
       <form onSubmit={handleSubmit}>
         <div className="border border-slate-300 flex items-center my-3 mx-auto w-[90vw] md:w-[35vw] md:mx-0 bg-white">
@@ -63,27 +60,57 @@ const Login: React.FC<LoginProps> = ({ pageState, setPageState }) => {
           </label>
         </div>
 
-        <div
-          className="my-6 font-medium text-sky-400 text-sm cursor-pointer"
-          onClick={handleClick}
-        >
-          Forgot your password?
+        <div className="my-6">
+          <div className="text-gray-200 font-medium">Choose your role</div>
+
+          <div className="flex items-center my-3">
+            <div
+              className={cx(
+                "border border-gray-500 rounded p-3 w-24 flex justify-center mr-3 cursor-pointer",
+                {
+                  "border-sky-400 bg-sky-400 text-white": role === "Manager",
+                }
+              )}
+              onClick={() => setRole("Manager")}
+            >
+              Manager
+            </div>
+            <div
+              className={cx(
+                "border border-gray-500 rounded p-3 w-24 flex justify-center mr-3 cursor-pointer",
+                {
+                  "border-sky-400 bg-sky-400 text-white": role === "Vendor",
+                }
+              )}
+              onClick={() => setRole("Vendor")}
+            >
+              Vendor
+            </div>
+          </div>
         </div>
 
-        <div className="my-6 flex items-center">
+        <div className="my-6 flex items-center mb-3">
           <input type="checkbox" name="remember-me" />
           <div className="text-gray-600 mx-4 text-sm">Remember me</div>
         </div>
 
+        <div className="my-6 flex items-center mt-3">
+          <input type="checkbox" name="privacy-policy" />
+          <div className="text-gray-600 mx-4 text-sm">
+            I accept the{" "}
+            <span className="text-sky-400 font-medium">privacy policy</span>
+          </div>
+        </div>
+
         <div className="my-6 flex items-center text-sm">
-          <button className="bg-sky-400 rounded border border-sky-400 text-white p-3 w-28 flex justify-center mr-4">
-            Log In
+          <button className="bg-sky-400 rounded border border-sky-400 text-white p-3 w-44 flex justify-center mr-4">
+            Create an account
           </button>
           <div
-            className="rounded border border-sky-400 text-sky-400 p-3 w-44 flex justify-center bg-white cursor-pointer"
-            onClick={() => setPageState(2)}
+            className="rounded border border-sky-400 text-sky-400 p-3 w-28 flex justify-center bg-white cursor-pointer"
+            onClick={() => setPageState(0)}
           >
-            Create an account
+            Log in
           </div>
         </div>
       </form>
@@ -91,4 +118,4 @@ const Login: React.FC<LoginProps> = ({ pageState, setPageState }) => {
   );
 };
 
-export default Login;
+export default Signup;

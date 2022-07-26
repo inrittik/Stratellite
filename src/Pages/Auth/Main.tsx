@@ -7,6 +7,7 @@ import Login from "./sections/Login";
 import PasswordReset from "./sections/PasswordReset";
 import AuthPageState from "../../Contexts/Auth/authPageState";
 import authPageContext from "../../Contexts/Auth/authPageContext";
+import Signup from "./sections/Signup";
 
 const Main = () => {
   const page = useContext(authPageContext);
@@ -15,6 +16,7 @@ const Main = () => {
   const stateArray = [
     <Login pageState={pageState} setPageState={setPageState} />,
     <PasswordReset pageState={pageState} setPageState={setPageState} />,
+    <Signup pageState={pageState} setPageState={setPageState} />,
   ];
 
   return (
