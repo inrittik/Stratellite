@@ -18,6 +18,7 @@ const Signup: React.FC<SignupProps> = ({ pageState, setPageState }) => {
 
     setEmail("");
     setPassword("");
+    setPageState(3);
   };
 
   return (

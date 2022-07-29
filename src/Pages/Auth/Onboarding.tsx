@@ -1,28 +1,12 @@
-import { useContext, useState } from "react";
-import StrataliteL from "../../assets/images/stratalite_large.png";
-import StrataliteS from "../../assets/images/sidebar-logo.png";
+import React from "react";
+import AuthPageState from "../../Contexts/Auth/authPageState";
 import { graphics } from "../../utils/graphics";
 import { icons } from "../../utils/icons";
-import Login from "./sections/Login";
-import PasswordReset from "./sections/PasswordReset";
-import AuthPageState from "../../Contexts/Auth/authPageState";
-import authPageContext from "../../Contexts/Auth/authPageContext";
-import Signup from "./sections/Signup";
-import EmailVerification from "./sections/EmailVerification";
-import NumberVerification from "./sections/NumberVerification";
+import StrataliteL from "../../assets/images/stratalite_large.png";
+import StrataliteS from "../../assets/images/sidebar-logo.png";
+import PersonalInformation from "./sections/PersonalInformation";
 
-const Main = () => {
-  const page = useContext(authPageContext);
-
-  const [pageState, setPageState] = useState(0);
-  const stateArray = [
-    <Login pageState={pageState} setPageState={setPageState} />,
-    <PasswordReset pageState={pageState} setPageState={setPageState} />,
-    <Signup pageState={pageState} setPageState={setPageState} />,
-    <EmailVerification pageState={pageState} setPageState={setPageState} />,
-    <NumberVerification pageState={pageState} setPageState={setPageState} />,
-  ];
-
+const Onboarding = () => {
   return (
     <AuthPageState>
       <div className="flex h-screen w-screen relative">
@@ -55,7 +39,7 @@ const Main = () => {
             </div>
           </div>
         </div>
-        <div className="w-full md:w-[70%] h-full my-auto absolute md:left-[30%] py-40 bg-white">
+        <div className="w-full md:w-[70%] h-full my-auto absolute md:left-[30%] py-32 bg-white">
           <div className="absolute md:hidden top-0 left-0">
             <img src={StrataliteS} className="w-32" />
           </div>
@@ -63,7 +47,52 @@ const Main = () => {
             English(UK)
             <span className="ml-3">{icons.Auth.dropdown}</span>
           </div>
-          {stateArray[pageState]}
+
+          {/* main body */}
+          <div>
+            <div className="md:mx-20 px-6 absolute z-[5]">
+              <div className="font-semibold text-28 my-6">
+                Welcome to Stratalite
+              </div>
+              <div className="font-semibold text-gray-200 my-6 text-sm">
+                Let's begin by entering your personal information
+              </div>
+              {/* arrow */}
+              <div className="w-[60vw] flex text-white">
+                <div
+                  className="w-[40%] bg-sky-400 py-6 px-16"
+                  style={{
+                    clipPath:
+                      "polygon(0% 0%, 75% 0%, 85% 50%, 75% 100%, 0% 100%)",
+                  }}
+                >
+                  Personal Information
+                </div>
+                <div
+                  className="w-[40%] bg-sky-300 py-6 relative right-24 px-24"
+                  style={{
+                    clipPath:
+                      "polygon(75% 0%, 85% 50%, 75% 100%, 0% 100%, 10% 50%, 0% 0%)",
+                  }}
+                >
+                  Your Address
+                </div>
+                <div
+                  className="w-[40%] bg-white py-6 relative right-48 text-black px-20 shadow-[0_4px_30px_rgba(0,0,0,0.25)]"
+                  style={{
+                    clipPath:
+                      "polygon(100% 0, 100% 50%, 100% 100%, 0% 100%, 10% 50%, 0% 0%)",
+                  }}
+                >
+                  Company Information
+                </div>
+              </div>
+            </div>
+
+            <div className="relative top-56 left-28">
+              <PersonalInformation />
+            </div>
+          </div>
           <div className="absolute bottom-0 right-0 m-8 flex items-center font-normal">
             <div>Legal</div>
             <div className="ml-6">Privacy</div>
@@ -74,4 +103,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default Onboarding;

@@ -1,7 +1,17 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const PasswordReset = ({ pageState, setPageState }) => {
-  const [input, setInput] = useState("");
+const NumberVerification = ({ pageState, setPageState }) => {
+  const [otp, setotp] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    setotp("");
+    navigate("/login/onboarding");
+  };
+
   const Ref = useRef(null);
 
   const [timer, setTimer] = useState("00:00:00");
@@ -54,37 +64,32 @@ const PasswordReset = ({ pageState, setPageState }) => {
   const onClickReset = () => {
     clearTimer(getDeadTime());
   };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
   return (
     <div className="md:mx-20 px-6 absolute z-[5] py-10">
-      <div className="font-semibold text-28 my-6">Password Reset</div>
-      <div className="font-semibold text-gray-200 my-6 text-sm w-3/5">
-        Please enter your email address or phone number. Your will receive an
-        email link to reset your password
+      <div className="font-semibold text-28 my-6">OTP Verification</div>
+      <div className="font-semibold text-gray-200 my-6 text-sm w-2/3">
+        Enter the verification code we just sent to your phone number +91
+        4342411424.
+        <span className="text-red-400"> Wrong number?</span>
       </div>
       <form onSubmit={handleSubmit}>
         <div className="border border-slate-300 flex items-center my-3 mx-auto w-[90vw] md:w-[35vw] md:mx-0 bg-white">
           <input
             type="text"
             className="quoteprice outline-none rounded p-5 placeholder-gray-700 placeholder-gray-700 text-sm text-gray-700 w-11/12"
-            placeholder="Phone Number or Email"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
+            placeholder="OTP Code"
+            value={otp}
+            onChange={(e) => setotp(e.target.value)}
+            required
           />
         </div>
 
         <div className="my-6 flex items-center text-sm">
-          <button
-            className="bg-sky-400 rounded border border-sky-400 text-white p-3 w-28 flex justify-center mr-4"
-            onClick={onClickReset}
-          >
-            Send Link
+          <button className="bg-sky-400 rounded border border-sky-400 text-white p-3 w-28 flex justify-center mr-4">
+            Verify Email
           </button>
           <div className="rounded border border-sky-400 font-semibold p-3 w-44 flex justify-center bg-white cursor-pointer">
-            Resend Link ( {timer.slice(6)} sec )
+            Resend OTP ( {timer.slice(6)} sec )
           </div>
         </div>
       </form>
@@ -92,4 +97,4 @@ const PasswordReset = ({ pageState, setPageState }) => {
   );
 };
 
-export default PasswordReset;
+export default NumberVerification;

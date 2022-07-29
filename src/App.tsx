@@ -17,6 +17,7 @@ import RejectedProjects from "./Pages/Projects/LandingPages/Rejected";
 import { useGlobalContext } from "./Contexts/GlobalContext";
 import Login from "./Pages/Auth/Main";
 import { useEffect } from "react";
+import Onboarding from "./Pages/Auth/Onboarding";
 
 function App() {
   const [state, dispatch] = useGlobalContext();
@@ -36,11 +37,13 @@ function App() {
           { expanded: state.showSidebar }
         )}
       >
-        {location.pathname !== "/login" && <Sidebar />}
+        {location.pathname !== "/login" &&
+          location.pathname !== "/login/onboarding" && <Sidebar />}
 
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/login" element={<Login />}></Route>
+          <Route path="/login/onboarding" element={<Onboarding />}></Route>
           <Route path="/projects" element={<Projects />}></Route>
           <Route path="/notifications" element={<Notifications />}></Route>
           <Route path="/calender" element={<Calender />}></Route>
