@@ -150,11 +150,11 @@ const CompanyInfo = () => {
         />
       </div>
 
-      <div className="my-12 flex items-center justify-between">
+      <div className="my-12 flex items-center justify-between text-sm">
         <button className="bg-sky-400 text-white p-3 w-28 text-center rounded">
           Save
         </button>
-        <div className="text-sky-400 flex items-center">
+        <div className="text-sky-400 flex items-center cursor-pointer">
           <div className="w-40">Skip to Dashboard</div>
           <div>{icons.Auth.arrowRight}</div>
         </div>

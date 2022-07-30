@@ -69,11 +69,11 @@ const PersonalInformation: React.FC<PersonalInformationProps> = ({
         />
       </div>
 
-      <div className="flex items-center justify-between cursor-pointer">
-        <button className="bg-sky-400 text-white p-3 w-28 text-center rounded">
+      <div className="flex items-center justify-between text-sm">
+        <button className="bg-sky-400 text-white p-3 w-28 text-center rounded ">
           Continue
         </button>
-        <div className="text-sky-400 flex items-center">
+        <div className="text-sky-400 flex items-center cursor-pointer">
           <div className="w-40">Skip to Dashboard</div>
           <div>{icons.Auth.arrowRight}</div>
         </div>

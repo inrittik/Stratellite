@@ -68,19 +68,21 @@ const Onboarding = () => {
                 Let's begin by entering your personal information
               </div>
               {/* arrow */}
-              <div className="w-[60vw] flex relative text-white">
+              <div className="w-[100vw] md:w-[60vw] flex relative text-white text-sm">
                 <div
-                  className="w-[40%] bg-sky-400 absolute left-0 py-6 px-16 h-16 flex items-center"
+                  className="w-[40%] left-0 bg-sky-400 absolute md:left-0 py-6 pl-4 md:px-16 h-16 flex items-center text-center"
                   style={{
                     clipPath:
                       "polygon(0% 0%, 75% 0%, 85% 50%, 75% 100%, 0% 100%)",
                   }}
                 >
-                  {stage < 2 && "Personal Information"}
+                  <span className="w-1/2 md:w-fit">
+                    {stage < 2 && "Personal Information"}
+                  </span>
                 </div>
                 <div
                   className={cx(
-                    "w-[40%] py-6 absolute left-[16vw] px-24 h-16 flex items-center",
+                    "left-[28%] w-[40%] py-6 absolute md:left-[16vw] pl-6 md:px-24 h-16 flex items-center text-center",
                     {
                       "bg-sky-400": stage > 0,
                       "bg-sky-300": stage === 0,
@@ -96,7 +98,7 @@ const Onboarding = () => {
                 </div>
                 <div
                   className={cx(
-                    "w-[30%] py-6 absolute left-[32vw] pl-16 font-medium h-16 flex items-center",
+                    "w-[30%] left-[56%] py-6 absolute md:left-[32vw] pl-4 md:pl-16 font-medium h-16 flex items-center text-center",
                     {
                       "bg-white text-black": stage === 0,
                       "bg-sky-300 text-white": stage === 1,
@@ -113,7 +115,9 @@ const Onboarding = () => {
               </div>
             </div>
 
-            <div className="relative top-56 left-28">{stages[stage]}</div>
+            <div className="relative top-56 left-6 md:left-28">
+              {stages[stage]}
+            </div>
           </div>
           <div className="fixed bottom-0 right-0 m-8 flex items-center font-normal">
             <div>Legal</div>
