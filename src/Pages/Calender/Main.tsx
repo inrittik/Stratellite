@@ -26,12 +26,8 @@ const Main = () => {
           {/* search bar */}
           {sidebarActive && (
             <div className="flex gap-4 mt-6 md:mt-0 md:min-h-[8.5rem] w-100 items-center md:mx-0 mx-5">
-              <div className="md:mx-15 md:h-18 h-14 rounded-md flex pl-8 items-center py-6 gap-7 bg-gray-400 w-full">
+              <div className="md:mx-15 h-4 md:h-6 cursor-pointer hover:text-sky-600">
                 {icons.search}
-                <input
-                  className=" w-full bg-transparent text-gray-200 text-base border-none outline-none"
-                  placeholder="Search for projects"
-                ></input>
               </div>
               <div
                 onClick={() =>
@@ -45,7 +41,7 @@ const Main = () => {
           )}
 
           {!sidebarActive && <ProjectsSearchBar />}
-          <div className="d-flex flex-col md:px-15 md:pl-15 md:pl-5 px-0 pt-6 md:pt-11">
+          <div className="d-flex flex-col md:px-15 md:pl-15 md:pl-5 px-0 pt-6 md:pt-0">
             <div className="flex flex-col items-start justify-between ml-5 md:ml-0 w-full mb-6">
               <div className="text-28 text-gray-800 font-medium mb-4">
                 Calender

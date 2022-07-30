@@ -45,9 +45,7 @@ const Projects = () => {
 
         <div className="flex items-center justify-between mx-6 md:mx-12">
           <div>
-            <div className="text-2xl md:text-28 font-medium mb-4 my-6">
-              Your Projects
-            </div>
+            <div className="text-2xl md:text-28 font-medium">Your Projects</div>
             <div className="hidden md:block text-base md:text-lg text-gray-600 mb-6">
               Here is a list of all the projects you have been working on.
             </div>
