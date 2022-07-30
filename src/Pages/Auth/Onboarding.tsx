@@ -1,12 +1,22 @@
-import React from "react";
+import { useState } from "react";
+import cx from "classnames";
 import AuthPageState from "../../Contexts/Auth/authPageState";
 import { graphics } from "../../utils/graphics";
 import { icons } from "../../utils/icons";
 import StrataliteL from "../../assets/images/stratalite_large.png";
 import StrataliteS from "../../assets/images/sidebar-logo.png";
 import PersonalInformation from "./sections/PersonalInformation";
+import YourAddress from "./sections/YourAddress";
+import CompanyInfo from "./sections/CompanyInfo";
 
 const Onboarding = () => {
+  const [stage, setStage] = useState(0);
+
+  const stages = [
+    <PersonalInformation stage={stage} setStage={setStage} />,
+    <YourAddress stage={stage} setStage={setStage} />,
+    <CompanyInfo />,
+  ];
   return (
     <AuthPageState>
       <div className="flex h-screen w-screen relative">
@@ -20,7 +30,7 @@ const Onboarding = () => {
           {graphics.Auth.background}
         </div>
 
-        <div className="hidden w-[30%] bg-[#192434] md:flex items-center justify-center absolute z-[-3] h-full">
+        <div className="hidden w-[30%] bg-[#192434] md:flex items-center justify-center fixed z-[-3] h-full">
           <div className="w-80 flex flex-col items-center justify-center">
             <img src={StrataliteL} className="w-40" />
             <div className="text-white text-28 my-6 text-center tracking-wider">
@@ -39,11 +49,11 @@ const Onboarding = () => {
             </div>
           </div>
         </div>
-        <div className="w-full md:w-[70%] h-full my-auto absolute md:left-[30%] py-32 bg-white">
+        <div className="w-full md:w-[70%] h-full my-auto absolute md:left-[30%] py-32 bg-white overflow-y-auto overflow-x-hidden">
           <div className="absolute md:hidden top-0 left-0">
             <img src={StrataliteS} className="w-32" />
           </div>
-          <div className="absolute top-0 right-0 m-8 font-normal flex items-center justify-between">
+          <div className="fixed top-0 right-0 m-8 font-normal flex items-center justify-between">
             English(UK)
             <span className="ml-3">{icons.Auth.dropdown}</span>
           </div>
@@ -58,42 +68,54 @@ const Onboarding = () => {
                 Let's begin by entering your personal information
               </div>
               {/* arrow */}
-              <div className="w-[60vw] flex text-white">
+              <div className="w-[60vw] flex relative text-white">
                 <div
-                  className="w-[40%] bg-sky-400 py-6 px-16"
+                  className="w-[40%] bg-sky-400 absolute left-0 py-6 px-16 h-16 flex items-center"
                   style={{
                     clipPath:
                       "polygon(0% 0%, 75% 0%, 85% 50%, 75% 100%, 0% 100%)",
                   }}
                 >
-                  Personal Information
+                  {stage < 2 && "Personal Information"}
                 </div>
                 <div
-                  className="w-[40%] bg-sky-300 py-6 relative right-24 px-24"
+                  className={cx(
+                    "w-[40%] py-6 absolute left-[16vw] px-24 h-16 flex items-center",
+                    {
+                      "bg-sky-400": stage > 0,
+                      "bg-sky-300": stage === 0,
+                    }
+                  )}
                   style={{
                     clipPath:
                       "polygon(75% 0%, 85% 50%, 75% 100%, 0% 100%, 10% 50%, 0% 0%)",
                   }}
                 >
-                  Your Address
+                  {stage < 2 && "Your Address"}
+                  {stage === 2 && "All most Done"}
                 </div>
                 <div
-                  className="w-[40%] bg-white py-6 relative right-48 text-black px-20 shadow-[0_4px_30px_rgba(0,0,0,0.25)]"
+                  className={cx(
+                    "w-[30%] py-6 absolute left-[32vw] pl-16 font-medium h-16 flex items-center",
+                    {
+                      "bg-white text-black": stage === 0,
+                      "bg-sky-300 text-white": stage === 1,
+                      "bg-sky-400 text-white": stage === 2,
+                    }
+                  )}
                   style={{
                     clipPath:
                       "polygon(100% 0, 100% 50%, 100% 100%, 0% 100%, 10% 50%, 0% 0%)",
                   }}
                 >
-                  Company Information
+                  {stage < 2 && "Company Information"}
                 </div>
               </div>
             </div>
 
-            <div className="relative top-56 left-28">
-              <PersonalInformation />
-            </div>
+            <div className="relative top-56 left-28">{stages[stage]}</div>
           </div>
-          <div className="absolute bottom-0 right-0 m-8 flex items-center font-normal">
+          <div className="fixed bottom-0 right-0 m-8 flex items-center font-normal">
             <div>Legal</div>
             <div className="ml-6">Privacy</div>
           </div>

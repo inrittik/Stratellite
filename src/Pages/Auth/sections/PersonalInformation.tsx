@@ -1,7 +1,15 @@
 import React, { useState } from "react";
 import { icons } from "../../../utils/icons";
 
-const PersonalInformation = () => {
+interface PersonalInformationProps {
+  stage: number;
+  setStage: any;
+}
+
+const PersonalInformation: React.FC<PersonalInformationProps> = ({
+  stage,
+  setStage,
+}) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [dob, setDob] = useState<any>(null);
@@ -9,14 +17,19 @@ const PersonalInformation = () => {
 
   const [dateOnFocus, setDateOnFocus] = useState(false);
 
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+
+    setStage(1);
+  };
   return (
-    <form className="absolute z-20">
+    <form className="absolute z-20" onSubmit={handleSubmit}>
       <div className="border border-slate-300 flex items-center my-3 mx-auto w-[90vw] md:w-[35vw] md:mx-0 bg-white">
         <label htmlFor="name" className="w-10 p-3 text-gray-100">
           {icons.Auth.name}
         </label>
         <input
-          type="email"
+          type="text"
           className="quoteprice outline-none rounded p-5 placeholder-gray-700 placeholder-gray-700 text-sm text-gray-700 w-11/12"
           placeholder="Name"
           value={name}
@@ -28,7 +41,7 @@ const PersonalInformation = () => {
           {icons.Auth.email}
         </label>
         <input
-          type="text"
+          type="email"
           className="quoteprice outline-none rounded p-5 placeholder-gray-700 placeholder-gray-700 text-sm text-gray-700 w-11/12"
           placeholder="Email address"
           value={email}
@@ -57,9 +70,9 @@ const PersonalInformation = () => {
       </div>
 
       <div className="flex items-center justify-between cursor-pointer">
-        <div className="bg-sky-400 text-white p-3 w-28 text-center rounded">
+        <button className="bg-sky-400 text-white p-3 w-28 text-center rounded">
           Continue
-        </div>
+        </button>
         <div className="text-sky-400 flex items-center">
           <div className="w-40">Skip to Dashboard</div>
           <div>{icons.Auth.arrowRight}</div>
