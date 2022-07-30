@@ -13,8 +13,24 @@ const Signup: React.FC<SignupProps> = ({ pageState, setPageState }) => {
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("Vendor");
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
+
+    const response = await fetch("http://localhost:1337/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+        role,
+      }),
+    });
+
+    const data = await response.json();
+
+    console.log(data);
 
     setEmail("");
     setPassword("");
