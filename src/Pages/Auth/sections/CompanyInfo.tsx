@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PhoneNumberField from "../../../Components/PhoneNumberField";
 import StandardInputField from "../../../Components/StandardInputField";
 import { icons } from "../../../utils/icons";
 
@@ -47,6 +48,8 @@ const CompanyInfo = () => {
           onChange={(e) => setTradesProvided(e.target.value)}
         />
       </div>
+
+      <PhoneNumberField val={contactNo} setValue={setContactNo} />
       <StandardInputField
         field={email}
         setField={setEmail}
@@ -87,6 +90,8 @@ const CompanyInfo = () => {
           rows={8}
           className="border border-slate-300 focus:outline-none rounded p-5 text-sm  placeholder-gray-700 text-gray-700 w-full h-full"
           placeholder="About Your Company"
+          value={about}
+          onChange={(e) => setAbout(e.target.value)}
         ></textarea>
       </div>
       <StandardInputField
