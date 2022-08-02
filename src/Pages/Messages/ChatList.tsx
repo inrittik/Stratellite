@@ -6,6 +6,7 @@ import { useContext, useState } from "react";
 import messagesContext from "../../Contexts/Messages/messagesContext";
 import ChatDropDown from "../../Components/ChatDropDown";
 import MessagesSettings from "../../Components/MessagesSettings";
+import AddContactModal from "../../Components/AddContactModal";
 
 const filterDropDown = [
   {
@@ -27,6 +28,8 @@ const ChatList = () => {
 
   const [showFilter, setShowFilter] = useState(false);
   const [settingsActive, setSettingsActive] = useState(false);
+
+  const [addContactModalActive, setAddContactModalActive] = useState(false);
   return (
     <div
       className={cx(
@@ -35,7 +38,10 @@ const ChatList = () => {
       )}
     >
       <div className="flex items-center justify-between mb-2">
-        <div className="bg-sky-400 text-white rounded p-4 md:p-3 w-4/5 md:w-fit text-sm">
+        <div
+          className="bg-sky-400 text-white rounded p-4 md:p-3 w-4/5 md:w-fit text-sm cursor-pointer"
+          onClick={() => setAddContactModalActive(true)}
+        >
           Add Contacts
         </div>
         <div className="relative bottom-8 right-32">
@@ -81,6 +87,10 @@ const ChatList = () => {
         settingsActive={settingsActive}
         setSettingsActive={setSettingsActive}
       />
+
+      {addContactModalActive && (
+        <AddContactModal setActive={setAddContactModalActive} />
+      )}
     </div>
   );
 };
