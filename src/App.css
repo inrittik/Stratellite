@@ -4,7 +4,7 @@ body,
   height: 100%;
   width: 100%;
 }
-.not-expanded {
+#root{
   display: grid;
   grid-template-columns: 20% 80%;
   overflow: hidden;
@@ -25,6 +25,7 @@ body,
 }
 .project {
   width: 80vw !important;
+  height: 100vh;
 }
 .project-card {
   width: 100%;
@@ -32,6 +33,7 @@ body,
 .calender,
 .messages {
   overflow: auto !important;
+  height: 100vh;
 }
 .invoice-card {
   aspect-ratio: 322/207;
@@ -135,9 +137,9 @@ body,
   html {
     font-size: 100%;
   }
-  .not-expanded {
+  #root {
     display: grid;
-    grid-template-columns: 100%;
+    grid-template-columns: auto;
     overflow: hidden;
   }
   .expanded {

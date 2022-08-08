@@ -7,7 +7,6 @@ import Calender from "./Pages/Calender/Main";
 import Contacts from "./Pages/Contacts/Main";
 import Messages from "./Pages/Messages/Main";
 import Transaction from "./Pages/Transaction/Main";
-import cx from "classnames";
 import ProjectsLandingPage from "./Pages/Projects/LandingPages/NewProjects";
 import ActiveProjectsLandingPage from "./Pages/Projects/LandingPages/ActiveProjects";
 import InProgressProjects from "./Pages/Projects/LandingPages/InProgressProjects";
@@ -31,12 +30,6 @@ function App() {
 
   return (
     <>
-      <div
-        className={cx(
-          { "not-expanded": !state.showSidebar },
-          { expanded: state.showSidebar }
-        )}
-      >
         {location.pathname !== "/login" &&
           location.pathname !== "/login/onboarding" && <Sidebar />}
 
@@ -85,7 +78,6 @@ function App() {
           {/* <Home></Home> */}
           {/* <Projects></Projects> */}
         </Routes>
-      </div>
     </>
   );
 }
